@@ -8,6 +8,12 @@ Formato: **Sintoma** → **Causa** → **Correção** → **Como evitar / checar
 
 ## 2026-11-09 — Missão de estudo autônomo (biblioteca geral)
 
+### E-38 · Fatos refutados na pesquisa quase viraram texto
+- Chartres 38 m, Beauvais 1248, Akashi 1995, razão 1:3:1, "vitral" no manifesto solarpunk, `waxed_copper_block` vinham das pesquisas. Auditoria por grep nos documentos: só aparecem como "refutado". **Evitar**: lista de refutados em `limitacoes-e-duvidas.md` seção D.
+
+### E-37 · IDs "de memória" errados ao redigir documentos
+- Redatores escreveram `bricks`, `chain`, `jack_o_lantern`, `stained_glass_pane` (genérico), `oak_fence_gate`, `waxed_copper_block`, `stone_slab`: nenhum existe. Corretos: `brick_block`, `iron_chain`, `lit_pumpkin`, `<cor>_stained_glass_pane`, `fence_gate`, `waxed_copper`, `normal_stone_slab`. **Evitar**: conferir em `referencia/blocos-bedrock.md`; rodar `ferramentas/verificar_biblioteca.py`.
+
 ### E-36 · Cabo diagonal de cerca não se liga (X05)
 - Cercas conectam só por **face**; um cabo que muda de altura com células em diagonal fica quebrado. **Correção**: preencher o degrau vertical em cada passo. Registrado em `experimentos/X05-vertical-vaos-terreno/RESULTADO.md`.
 
