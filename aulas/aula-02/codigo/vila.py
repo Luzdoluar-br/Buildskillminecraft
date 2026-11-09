@@ -362,6 +362,36 @@ for _ in range(26):
         c.ponto(x, y + 1, z, pal([("mossy_cobblestone", 3), ("cobblestone", 2), ("andesite", 1)], 90 + x))
 
 # ============================================================================================================ saída
+def vergas_das_portas():
+    """Toda porta tem 2 de altura: se a abertura na parede tem 3, o bloco acima da folha vira uma escada invertida no material da parede."""
+    mapa = [("dark_oak", "dark_oak_stairs"), ("pale_oak", "pale_oak_stairs"), ("spruce", "spruce_stairs"), ("oak_planks", "oak_stairs"),
+            ("stone_brick", "stone_brick_stairs"), ("andesite", "stone_brick_stairs"), ("tuff", "stone_brick_stairs"), ("cobble", "stone_brick_stairs"),
+            ("calcite", "stone_brick_stairs"), ("concrete", "stone_brick_stairs"), ("diorite", "stone_brick_stairs")]
+    feitos = []
+    for (x, y, z), b in list(c.blocos.items()):
+        if not (isinstance(b, tuple) and b[0].endswith("_door") and not b[1].get("upper_block_bit")):
+            continue
+        if c.pegar(x, y + 2, z) is not None:
+            continue
+        card = b[1].get("minecraft:cardinal_direction")
+        dz = 1 if card == "south" else -1
+        mat = None
+        for (ax, az) in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            viz = c.pegar(x + ax, y + 2, z + az)
+            nome = viz if isinstance(viz, str) else (viz[0] if viz else "")
+            for chave, st in mapa:
+                if chave in nome and "stairs" not in nome and "slab" not in nome:
+                    mat = st
+                    break
+            if mat:
+                break
+        mat = mat or "stone_brick_stairs"
+        # sobe na direção de dentro da casa: a quina baixa fica para fora, como um pingadeira
+        c.ponto(x, y + 2, z, escada(M + mat, NORTE if dz == 1 else SUL, True))
+        feitos.append(((x, y, z), mat))
+    return feitos
+
+
 def corrigir_lanternas():
     n = 0
     for (x, y, z), b in list(c.blocos.items()):
@@ -378,6 +408,7 @@ def corrigir_lanternas():
 
 if __name__ == "__main__":
     print("lanternas penduradas corrigidas:", corrigir_lanternas())
+    print("vergas colocadas:", vergas_das_portas())
     avisos = c.validar()
     print("blocos:", len(c.blocos), "avisos:", [a for a in avisos][:8])
     (x0, y0, z0), (x1, y1, z1) = c.caixa_limite()

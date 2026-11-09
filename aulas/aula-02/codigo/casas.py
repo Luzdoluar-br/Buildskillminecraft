@@ -87,7 +87,7 @@ def chale_enxaimel(c, x, z, y, flip=False):
         m.p(lx, 7, 8, M + "white_stained_glass_pane")
     m.limpar(6, 5, 8, 6, 7, 8)
     m.porta(6, 5, 8, "spruce")                    # porta da varanda (ao nível do piso)
-    m.p(6, 7, 8, M + "white_stained_glass_pane")
+    m.st(6, 7, 8, "spruce_stairs", NORTE, True)        # verga em escada no material da parede
     for lx in (0, 12):
         m.p(lx, 6, 2, M + "white_stained_glass_pane")
         m.p(lx, 7, 2, M + "white_stained_glass_pane")

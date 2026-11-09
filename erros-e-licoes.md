@@ -9,6 +9,13 @@ Formato: **Sintoma** → **Causa** → **Correção** → **Como evitar / checar
 ## 2026-11-09 — Aula 02 (Vila Pedra-Musgo)
 Descobertos pelo dono ao entrar no jogo (primeiro teste real) e confirmados lendo o LevelDB do mundo.
 
+### E-10 · Vão vazio acima da folha da porta (feedback do dono, 2ª rodada)
+- **Sintoma**: em algumas portas (hortelão, casa de chá, varanda do chalé) sobrava um buraco de 1 bloco acima da porta; o dono pediu uma escada no material da parede.
+- **Causa**: abri a parede com 3 de altura (`limpar(..., y..y+2)`) mas a porta só tem 2; o terceiro bloco ficou vazio (ou só com vidraça).
+- **Correção**: função `vergas_das_portas()` em `vila.py`: para toda porta com `y+2` vazio, coloca escada invertida (`upside_down_bit=1`) no material da parede vizinha (mapeamento material -> escada). Na varanda do chalé a vidraça virou `spruce_stairs` invertida.
+- **Como evitar**: abertura de porta = exatamente 2 de altura + verga (escada invertida/laje/tronco) no `y+2`. Checar `y+2` de toda porta no script de portas.
+- **Limite**: o raycaster de teste não desenha portas, então isso só foi conferido pelos dados do `.mcstructure`, não por imagem.
+
 ### E-01 · Blocos "terrosos/estranhos" espalhados (≈202 blocos)
 - **Sintoma**: cubos marrons manchados acima das portas, forros e soleiras; um cubo de pedra onde devia haver laje.
 - **Causa**: o helper `Molde.sl(x,y,z,nome)` montava `minecraft:<nome>` sem o sufixo, e chamei com `"spruce"`, `"dark_oak"`, `"pale_oak"`, `"stone_brick"`. IDs inexistentes: o Bedrock **aceita e grava** o nome errado e mostra bloco desconhecido. Nenhum erro aparece na geração nem no render.
