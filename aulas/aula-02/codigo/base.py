@@ -7,6 +7,7 @@ sys.path.insert(0, r"C:\Users\Desktop\Desktop\Projetos\BotVulpus\addon\tools")
 from construcao.cena import Cena, Paleta, escada, laje, LESTE, OESTE, SUL, NORTE  # noqa: E402,F401
 
 M = "minecraft:"
+ESCADAS = []        # lances de escada interna: (molde, x0, y0, z0, degraus, direção local); a auditoria confere cada um
 FLIP = {LESTE: OESTE, OESTE: LESTE, SUL: NORTE, NORTE: SUL}
 
 

@@ -92,6 +92,7 @@ def chale_enxaimel(c, x, z, y, flip=False):
     m.limpar(11, 4, 1, 11, 4, 3)
     for lz in range(1, 5):
         m.st(11, lz, lz, "spruce_stairs", SUL)
+    ESCADAS.append((m, 11, 1, 1, 4, SUL))
     # andar de cima: 4 camadas, reboco com ritmo de pilares a cada 4 (P1); viga baixa e viga alta em tronco
     m.oca(0, 5, 0, 12, 8, 8, REBOCO)
     anel(m, 0, 0, 12, 8, 5, "stripped_spruce_log")
@@ -213,9 +214,10 @@ def casa_torreta(c, x, z, y, flip=False):
     m.p(9, 3, 9, (M + "lantern", {"hanging": True}))
     # piso do andar de cima do corpo e beiral largo com forro de lajes (R2, R3)
     m.box(5, 4, 1, 13, 4, 7, TABUA_ESCURA)
-    m.limpar(12, 4, 2, 12, 4, 4)
-    for k in range(1, 4):
+    m.limpar(12, 4, 2, 12, 4, 4)                                  # abertura no piso sobre os degraus
+    for k in range(1, 5):                                          # 4 degraus: piso de cima a 4 acima; o último (12,4,5) fica NO nível do piso
         m.st(12, k, 1 + k, "stone_brick_stairs", SUL)
+    ESCADAS.append((m, 12, 1, 2, 4, SUL))
     for lx in range(4, 15):
         for lz in (0, 8):
             m.sl(lx, 7, lz, "stone_brick", True)
@@ -269,8 +271,8 @@ def casa_torreta(c, x, z, y, flip=False):
     m.p(6, 1, 2, M + "crafting_table")
     m.maq(7, 1, 2, "blast_furnace", SUL)
     m.maq(8, 1, 2, "anvil", SUL)
-    m.box(10, 1, 2, 12, 3, 2, M + "bookshelf")
-    m.box(9, 1, 3, 12, 1, 5, M + "light_gray_carpet")
+    m.box(10, 1, 2, 11, 3, 2, M + "bookshelf")                     # estantes só em x 10..11: x=12 é a escada
+    m.box(9, 1, 3, 11, 1, 5, M + "light_gray_carpet")
     m.cama(6, 5, 6, 1)
     m.box(8, 5, 3, 11, 5, 5, M + "light_gray_carpet")
     luz_interna(m, 8, 3, 4)

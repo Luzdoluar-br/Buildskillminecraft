@@ -19,14 +19,15 @@ Descobertos pelo dono ao entrar no jogo (primeiro teste real) e confirmados lend
 
 ### E-30 · Produtos "flutuando" meio bloco acima do balcão das barracas (print do dono)
 - **Causa**: balcão em laje inferior (`bottom`) em `y=1`; os produtos (feno, abóbora, melancia) em `y=2` ficam meio bloco acima da laje = vão.
-- **Correção**: balcão em bloco inteiro (`spruce_planks`).
+- **Correção aplicada**: balcão em bloco inteiro (`spruce_planks`) nas 4 barracas.
 - **Regra**: item sobre laje precisa estar em laje `top` ou sobre bloco inteiro; senão sobra meia altura de vão. Vale para qualquer mobília sobre laje.
 
 ### E-29 · Escada interna curta e estantes sobre a escada (casa de pedra) — prints do dono (tela 17: "blocos sem sentido"; telas 18/19: "escadas incoerentes")
 - **Sintoma**: degraus de pedra soltos junto ao teto, estantes misturadas com os degraus; a escada não chegava ao andar.
 - **Causa**: o andar de cima fica 4 blocos acima do térreo, mas montei só **3 degraus**; o 4º degrau (no nível do piso) faltava, então sobrava um pulo de 1 bloco. Além disso as estantes ocupavam as mesmas células da escada.
 - **Regra de escada interna**: nº de degraus = altura entre pisos (piso de cima a 4 → 4 degraus; o último fica NO nível do piso); abertura no piso sobre os degraus (3 blocos); 2 blocos livres de altura; nada na trajetória (móveis, estantes); degraus sempre na mesma direção, sem blocos soltos nos lados. Ver `tecnicas/escadas-internas.md`.
-- **Auditoria**: E-29 confere, para cada lance registrado, que o último degrau tem piso à frente e que a trajetória está livre.
+- **Correção aplicada**: casa de pedra com 4 degraus (o 4º em `(12,4,5)` no nível do piso), estantes movidas para x 10..11, tapete fora da escada.
+- **Auditoria**: E-29 confere, para cada lance registrado em `ESCADAS` (`base.py`), degraus na direção certa, 2 blocos de cabeça livre e piso à frente do último degrau. Testado: um lance falso de 5 degraus é reprovado (a regra pega o erro antigo).
 
 ### E-28 · Termo técnico sem explicar ("mísula") e padrão do canto
 - O dono perguntou o que era "mísula": **explicar em palavras simples** (suporte em degrau embaixo da viga). Evitar jargão com o dono.

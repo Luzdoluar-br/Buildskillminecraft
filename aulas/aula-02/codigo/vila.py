@@ -221,7 +221,7 @@ def barraca(bx, bz, flip, cor, produto, nome):
         for lz in (0, 2):
             m.box(lx, 1, lz, lx, 3, lz, M + "stripped_spruce_log")
     for lx in range(1, 4):
-        m.p(lx, 1, 2, laje(M + "spruce_slab", False))
+        m.p(lx, 1, 2, M + "spruce_planks")                         # bloco inteiro: os produtos (y=2) assentam direto
     m.p(0, 1, 1, (M + "barrel", {"facing_direction": 1, "open_bit": False}))
     m.p(4, 1, 1, M + "crafting_table")
     for lx in range(1, 4):
