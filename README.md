@@ -20,6 +20,7 @@ Cada conhecimento aqui nasce de **evidência** (diferença medida entre a constr
 | `tecnicas/interiores-e-mobiliario.md` | Móveis e blocos de função |
 | `tecnicas/vegetacao-e-ambientacao.md` | Cobertura de solo, árvores, musgo, flores |
 | `tecnicas/terreno-caminhos-e-pracas.md` | Caminhos, fonte, poço, portal |
+| `tecnicas/praca-e-espaco-publico.md` | Anel de passagem, escala da fonte, postes, bancos, árvores |
 | `tecnicas/portas-e-entradas.md` | Portas, batentes, vergas, entradas livres (do dono, Aula 02) |
 | `erros-e-licoes.md` | **Registro de bugs/erros com causa e correção (obrigatório manter)** |
 | `limitacoes-e-duvidas.md` | Limites, dúvidas, Bedrock |

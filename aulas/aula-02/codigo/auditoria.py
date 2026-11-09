@@ -1,16 +1,16 @@
 """Auditoria automática da vila: roda TODAS as regras aprendidas (erros-e-licoes.md) em todas as estruturas.
-Uso: python auditoria.py   (sai com lista de problemas; ideal = vazio)."""
-import vila
-from base import M
+Uso: python auditoria.py   (ideal: TOTAL 0). Cada regra tem o código do erro (E-xx) do registro."""
+import math
 
-c, H, CAM, PRACA = vila.c, vila.H, vila.CAM, vila.PRACA_CEL
+import vila
+
+c, H, CAM, PRACA, W, D = vila.c, vila.H, vila.CAM, vila.PRACA_CEL, vila.W, vila.D
 BRUTAS = {"spruce", "dark_oak", "pale_oak", "oak", "birch", "cherry", "stone_brick", "bed"}
+TERRENO = ("grass", "dirt", "moss", "podzol", "path", "gravel", "cobble", "andesite", "stone", "tuff", "polished")
 
 
 def nome(b):
-    if b is None:
-        return "air"
-    return (b if isinstance(b, str) else b[0]).replace("minecraft:", "")
+    return "air" if b is None else (b if isinstance(b, str) else b[0]).replace("minecraft:", "")
 
 
 def estado(b):
@@ -18,21 +18,21 @@ def estado(b):
 
 
 def passavel(n):
-    """Blocos em que o jogador passa sem barrar (plantas, tapete, ar, lanterna no chão não conta como passagem livre mas não bloqueia)."""
-    return n == "air" or any(k in n for k in ("grass", "fern", "tulip", "poppy", "cornflower", "bluet", "daisy", "valley", "dandelion", "berry", "azalea", "carpet", "lily_pad", "water", "farmland"))
+    return n == "air" or any(k in n for k in ("grass", "fern", "tulip", "poppy", "cornflower", "bluet", "daisy", "valley", "dandelion", "berry",
+                                              "azalea", "carpet", "lily_pad", "farmland", "stairs", "slab", "lantern", "rose"))
 
 
 def solido(n):
-    return not passavel(n) and not any(k in n for k in ("lantern", "pane", "door"))
+    return not passavel(n) and not any(k in n for k in ("pane", "door", "water"))
 
 
 def auditar():
     erros = []
-    # 1) IDs inválidos (E-01)
+    # E-01 IDs inválidos
     for p, b in c.blocos.items():
         if nome(b) in BRUTAS:
             erros.append(("E-01 ID invalido", p, nome(b)))
-    # 2) portas (E-02, E-03, E-10, E-11, E-12)
+    # portas: E-03 metade de cima, E-10 verga, E-11 batentes, E-02/E-12 passagem
     for (x, y, z), b in c.blocos.items():
         if not (isinstance(b, tuple) and nome(b).endswith("_door") and not b[1].get("upper_block_bit")):
             continue
@@ -40,54 +40,84 @@ def auditar():
             erros.append(("E-03 porta sem metade de cima", (x, y, z), nome(b)))
         if c.pegar(x, y + 2, z) is None:
             erros.append(("E-10 vao acima da porta (falta verga)", (x, y, z), nome(b)))
-        card = b[1].get("minecraft:cardinal_direction")
-        dz = 1 if card == "south" else -1                      # lado de fora
+        dz = 1 if b[1].get("minecraft:cardinal_direction") == "south" else -1
         for lado, d in (("fora", dz), ("dentro", -dz)):
-            for k in (1,):
-                for dy in (0, 1):
-                    n = nome(c.pegar(x, y + dy, z + d * k))
-                    if solido(n):
-                        erros.append(("E-02/E-12 porta barrada (%s, %d bloco(s))" % (lado, k), (x, y + dy, z + d * k), n))
-        # E-11: batentes sólidos dos dois lados (nada de vidro/ar ao lado da porta)
+            for dy in (0, 1):
+                n = nome(c.pegar(x, y + dy, z + d))
+                if solido(n):
+                    erros.append(("E-02/E-12 porta barrada (%s)" % lado, (x, y + dy, z + d), n))
         for ax in (-1, 1):
             for dy in (0, 1, 2):
                 n = nome(c.pegar(x + ax, y + dy, z))
                 if n == "air" or "pane" in n or "glass" in n:
                     erros.append(("E-11 porta desconexa da parede (batente %s)" % ("vidro" if n != "air" else "vazio"), (x + ax, y + dy, z), n))
-    # 3) lanternas penduradas sem suporte (E-05)
+    # E-05 lanternas penduradas sem suporte
     for (x, y, z), b in c.blocos.items():
         if nome(b) == "lantern" and estado(b).get("hanging") and c.pegar(x, y + 1, z) is None:
             erros.append(("E-05 lanterna pendurada sem suporte", (x, y, z), "lantern"))
-    # 4) obstáculos em caminhos/praça (E-12): bloco sólido na altura do corpo
-    isento = lambda x, z: (((x - vila.FX) ** 2 + (z - vila.FZ) ** 2) ** 0.5 <= 6.2
-                           or any(bx <= x < bx + 5 and bz <= z < bz + 3 for bx, bz in ((21, 26), (35, 26), (21, 33), (35, 33)))
-                           or (22 <= x <= 26 and 34 <= z <= 38) or (vila.ESC_X.start <= x < vila.ESC_X.stop and z in (23, 24)))
+    # E-06 água com ar ao lado (vazamento)
+    for (x, y, z), b in c.blocos.items():
+        if nome(b) == "water" and any(c.pegar(x + dx, y, z + dz) is None for dx, dz in ((1, 0), (-1, 0), (0, 1), (0, -1))):
+            erros.append(("E-06 agua com ar ao lado (pode vazar)", (x, y, z), "water"))
+    # E-14 postes e árvores devem nascer no TERRENO (nunca sobre toldo, telhado ou outro poste)
+    for (x, y, z), b in c.blocos.items():
+        if nome(b) == "stone_brick_wall" and nome(c.pegar(x, y + 1, z)) == "spruce_fence":
+            abaixo = nome(c.pegar(x, y - 1, z))
+            if abaixo == "air" or not any(k in abaixo for k in TERRENO) or y - 1 != H[x][z]:
+                erros.append(("E-14 poste fora do terreno (sobre %s)" % abaixo, (x, y, z), "poste"))
+    for (x, z) in vila.ARV:
+        abaixo = nome(c.pegar(x, H[x][z], z))
+        if not any(k in abaixo for k in TERRENO):
+            erros.append(("E-14 arvore fora do terreno (sobre %s)" % abaixo, (x, H[x][z], z), "arvore"))
+    # E-16 colisões entre objetos (registro de ocupação)
+    for conf in vila.CONFLITOS:
+        erros.append(("E-16 objetos colidindo/posicao invalida", conf[2], "%s x %s" % (conf[0], conf[1])))
+    # E-15 caminho livre ao redor de tudo que fica no meio da rua
+    for (nm, tipo, geo, r_obj, anel) in vila.OBJETOS:
+        if tipo == "disco":
+            cels = vila.disco(geo[0], geo[1], anel, r_obj)
+        else:
+            x1, z1, x2, z2 = geo
+            cels = [(x, z) for x in range(x1 - anel, x2 + anel + 1) for z in range(z1 - anel, z2 + anel + 1) if not (x1 <= x <= x2 and z1 <= z <= z2)]
+        for (x, z) in cels:
+            if not (0 <= x < W and 0 <= z < D):
+                continue
+            for dy in (1, 2):
+                n = nome(c.pegar(x, H[x][z] + dy, z))
+                if solido(n):
+                    erros.append(("E-15 sem caminho livre ao redor de %s" % nm, (x, H[x][z] + dy, z), n))
+            if (x, z) in vila.AGUA:
+                erros.append(("E-15 agua no anel de %s" % nm, (x, z), "agua"))
+    # E-12 obstáculo sólido na rede de caminhos (rua, praça)
     perto = {(x + a, z + b) for (x, z) in vila.ocupado for a in range(-1, 2) for b in range(-1, 2)}
+    for (_n, tp, g, _r, _a) in vila.OBJETOS:
+        if tp == "ret":
+            perto |= {(x, z) for x in range(g[0] - 1, g[2] + 2) for z in range(g[1] - 1, g[3] + 2)}
+    perto |= {(x, z) for x in range(23, 30) for z in range(37, 44)}   # poço (telhado 5x5)
     for (x, z) in set(CAM) | set(PRACA):
-        if not (0 <= x < vila.W and 0 <= z < vila.D) or isento(x, z) or (x, z) in perto or (32 <= x <= 35 and 41 <= z <= 46):
+        if not (0 <= x < W and 0 <= z < D) or (x, z) in perto or (32 <= x <= 35 and 41 <= z <= 46):
+            continue
+        if math.hypot(x - vila.FX, z - vila.FZ) <= vila.R_BORDA:
             continue
         for dy in (1, 2):
             n = nome(c.pegar(x, H[x][z] + dy, z))
-            if solido(n) and "stairs" not in n and "slab" not in n and not (n == "spruce_fence" and "lantern" in nome(c.pegar(x, H[x][z] + dy + 1, z))):
+            if solido(n) and not (n == "spruce_fence" and "lantern" in nome(c.pegar(x, H[x][z] + dy + 1, z))) and not (n == "stone_brick_wall" and nome(c.pegar(x, H[x][z] + dy + 1, z)) == "spruce_fence") and not (n == "spruce_fence" and nome(c.pegar(x, H[x][z] + dy - 1, z)) == "stone_brick_wall"):
                 erros.append(("E-12 obstaculo no caminho/praca", (x, H[x][z] + dy, z), n))
-            elif "stairs" in n and dy == 1:
-                erros.append(("E-12 degrau/banco sobre caminho (confira)", (x, H[x][z] + dy, z), n))
-    # 5) vazamento de água (E-06): água com ar ao lado no mesmo nível
-    for (x, y, z), b in c.blocos.items():
-        if nome(b) == "water":
-            for dx, dz in ((1, 0), (-1, 0), (0, 1), (0, -1)):
-                if c.pegar(x + dx, y, z + dz) is None:
-                    erros.append(("E-06 agua com ar ao lado (pode vazar)", (x, y, z), "water"))
-                    break
+    # E-19 degrau alto (>1) dentro da rede de caminhos
+    rede = {k for k in (set(CAM) | set(PRACA)) if 0 <= k[0] < W and 0 <= k[1] < D}
+    for (x, z) in rede:
+        for dx, dz in ((1, 0), (0, 1)):
+            q = (x + dx, z + dz)
+            if q in rede and abs(H[x][z] - H[q[0]][q[1]]) > 1:
+                erros.append(("E-19 degrau alto no caminho", (x, z), "dH=%d" % abs(H[x][z] - H[q[0]][q[1]])))
     return erros
 
 
 if __name__ == "__main__":
     import collections
     erros = auditar()
-    resumo = collections.Counter(e[0] for e in erros)
     print("TOTAL:", len(erros))
-    for k, v in resumo.most_common():
+    for k, v in collections.Counter(e[0] for e in erros).most_common():
         print("%4d  %s" % (v, k))
         for e in [e for e in erros if e[0] == k][:6]:
             print("        ", e[1], e[2])

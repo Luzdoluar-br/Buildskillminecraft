@@ -9,9 +9,37 @@ Formato: **Sintoma** → **Causa** → **Correção** → **Como evitar / checar
 ## 2026-11-09 — Aula 02 (Vila Pedra-Musgo)
 Descobertos pelo dono ao entrar no jogo (primeiro teste real) e confirmados lendo o LevelDB do mundo.
 
+### E-19 · Degrau alto (>1 bloco) na rede de caminhos
+- **Causa**: ondulação aleatória da rua + colinas de borda criavam desníveis de 2-3 blocos em cima do caminho.
+- **Correção**: pontas da rua retas; auditoria checa |dH| <= 1 entre células vizinhas de caminho/praça.
+
+### E-18 · Telhado/beiral "solto" na casa de chá (validação de peças soltas)
+- **Causa**: anéis de escadas do beiral não encostavam no plano de forro (só tocavam na diagonal). **Correção**: planos de forro cobrem toda a área do beiral (0..12 e 2..10). **Dica**: o aviso `PECA SOLTA` da `Cena.validar()` nunca é ignorável.
+
+### E-17 · Bancos virados ao contrário
+- `weirdo_direction` da escada = direção em que ela SOBE (as costas ficam desse lado). Banco voltado para a fonte tem as costas para o lado oposto à fonte. Eu tinha invertido.
+
+### E-16 · Estruturas fundidas (barraca + poço) e árvore cortada ao meio, flutuando (feedback do dono)
+- **Sintoma**: barraca e poço se sobrepunham; árvore com a copa cortada e meio solta.
+- **Causa**: cada objeto era colocado sem checar se o espaço já estava ocupado; objetos posteriores sobrescreviam blocos de anteriores.
+- **Correção**: **registro de ocupação** em `vila.py` (`RES`, `reservar()`, `livre()`): todo objeto reserva sua pegada (casas com varanda e margem, barracas com o toldo, poço, fonte, píer, poste, árvore); se colidir, a posição é recusada (`CONFLITOS`) e a auditoria reprova.
+- **Como evitar**: nunca colocar nada sem `livre()`/`reservar()`. Árvores só nascem onde a copa não invade casas.
+
+### E-15 · Praça apertada: sem caminho AO REDOR da fonte (feedback do dono)
+- **Sintoma**: a fonte (raio ~5) ocupava quase toda a praça e as barracas encostavam nela; ninguém passava de um lado para o outro.
+- **Regra do dono**: **toda construção no meio da rua precisa de caminho ao redor** (fonte, poço, barraca, etc.).
+- **Correção**: fonte menor (bacia r=3,9) + anel pavimentado livre de 3,1 blocos de largura (até r=7,0) marcado por faixa de pedra polida; praça ampliada (x 13..47, z 25..40); barracas nos cantos (anel de 2 blocos); poço e banco fora do anel; rua reta dentro da praça.
+- **Como evitar**: `OBJETOS` em `vila.py` + regra E-15 em `auditoria.py` (nada sólido nos anéis).
+
+### E-14 · Poste de luz em cima de barraca e poste em cima de poste (feedback do dono)
+- **Causa**: `Cena.poste()`/`Cena.arvore()` da biblioteca usam `chao()` = **bloco mais alto da coluna**; se havia toldo, telhado ou outro poste, o objeto nascia em cima.
+- **Correção**: `poste_h()` e `arvore_h()` usam a altura do TERRENO (`H`) e só constroem em célula livre; o braço do poste pode pender sobre a rua (aéreo), nunca sobre objetos.
+- **Como evitar**: nunca usar `chao()` para objetos de chão. A auditoria reprova poste/árvore cuja base não é terreno.
+
 ### E-13 · PROCESSO: cada correção do dono vira regra para TODAS as estruturas
 - **Regra do dono**: quando ele corrige algo em uma estrutura, eu devo procurar o mesmo erro (e erros parecidos) nas outras, sem esperar que ele corrija uma por uma, e registrar aqui tudo o que ele pedir.
 - **Como fazer**: (1) ler no mundo o que ele mudou (comparar o LevelDB com o gerado, ferramentas da Aula 01); (2) registrar a correção em `aulas/aula-02/correcoes-do-dono.md`; (3) transformar em checagem em `aulas/aula-02/codigo/auditoria.py`; (4) rodar a auditoria em todas as estruturas e corrigir; (5) só então exportar. Meta da auditoria: 0 problemas.
+- **Corolário (pedido do dono)**: quando ele aponta um bug em UMA estrutura, tratar como CLASSE de erro: procurar e corrigir em TODAS e também outros bugs gerais, sem esperar ser apontado. Ao corrigir, ampliar a auditoria.
 - **Cuidado**: o dono edita o mundo à mão. `/function vila/colocar` **sobrescreve** as edições dele; nunca pedir para rodar sem avisar.
 
 ### E-12 · Itens bloqueando entradas e caminhos (feedback do dono)
