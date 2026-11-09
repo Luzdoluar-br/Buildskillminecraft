@@ -9,6 +9,28 @@ Formato: **Sintoma** → **Causa** → **Correção** → **Como evitar / checar
 ## 2026-11-09 — Aula 02 (Vila Pedra-Musgo)
 Descobertos pelo dono ao entrar no jogo (primeiro teste real) e confirmados lendo o LevelDB do mundo.
 
+### E-27 · PROCESSO: registrar aprendizados no git NA HORA (cobrança repetida do dono)
+- O foco do trabalho é **ensinar a IA e registrar**: tudo o que o dono corrige, mostra em print ou pede vira registro no git no mesmo turno (erro, causa, correção, técnica). Não deixar acumular.
+- Checklist ao fim de cada rodada: `erros-e-licoes.md` + `aulas/aula-02/correcoes-do-dono.md` + `tecnicas/` + código + `git push` + confirmar com `git ls-remote`.
+
+### E-26 · PROCESSO: consultar `referencia/` antes de usar qualquer bloco (pedido do dono)
+- O dono pediu um arquivo com **todos os blocos e IDs** para evitar IDs inventados (E-01, E-20). Criado: `referencia/blocos-bedrock.md` (+ `.csv`), 1187 IDs com nome em inglês e os estados que o jogo gravou; `referencia/estados-e-rotacao.md` (rotação e equivalências Java→Bedrock). Gerador: `ferramentas/gerar_referencia_blocos.py`.
+- **Regra**: bloco que não está na tabela não existe. Estado de rotação: ver `estados-e-rotacao.md`.
+
+### E-25 · Para-raios apontando para baixo
+- `lightning_rod` sem estado vira `facing_direction=0` (para baixo). **Correção**: `facing_direction=1`. Auditoria E-25.
+
+### E-24 · Máquinas e blocos orientados com estado errado ou virados para a parede
+- **Causa**: usei `facing_direction` em forno/defumador/alto-forno (o jogo converte para `minecraft:cardinal_direction`) e a mesma direção em casas viradas ao contrário (flip); o alto-forno do Salão olhava para o norte.
+- **Correção**: `Molde.maq()` usa `minecraft:cardinal_direction` e gira com a casa; frente sempre para o interior. Abóboras das barracas viradas para o cliente.
+- **Auditoria**: E-24 (frente não pode dar em parede; máquina sem orientação).
+
+### E-23 · "Cantos errados": ponta de tronco (anéis) exposta no canto (feedback do dono, prints ERRADO/CERTO)
+- **Sintoma**: no canto das paredes aparecia um bloco liso/escuro com a ponta do tronco virada para o lado; o dono corrigiu à mão (canto vertical contínuo).
+- **Causa**: a viga horizontal (`pillar_axis=x/z`) cobria também a célula do canto; na lateral perpendicular aparece a ponta. O mesmo no pórtico do chalé.
+- **Correção**: `anel()` coloca **troncos verticais (`y`) nos 4 cantos**; extremidades da viga do pórtico viram verticais. Auditoria E-23: tronco *stripped* horizontal com a ponta no ar = erro.
+- **Regra**: canto de parede = tronco vertical contínuo; vigas encostam nele. Ponta de viga exposta só como detalhe intencional (ver `tecnicas/cantos-e-vigas.md`).
+
 ### E-22 · Poste de luz: modelo melhorado pelo dono (aprendizado, lido no mundo)
 - **Evidência** (blocos lidos no mundo, coluna do poste em x -73, z 24): `stone_brick_wall` (base) → 2 × `spruce_fence` → `spruce_slab` (laje de topo, parte de baixo) ; braço = **1 `spruce_stairs`** (`weirdo_direction` = direção para fora, a ponta alta fica longe do poste) no nível da laje; **lanterna pendurada** logo abaixo da escada; **`spruce_slab` invertida (`vertical_half=top`)** do lado oposto ao braço, na altura da última cerca (contrapeso).
 - **Antes (meu)**: base de parede + cerca + 2 tábuas de braço. **Depois**: braço curto em escada com gancho elevado, laje de capa e contrapeso (mais silhueta).

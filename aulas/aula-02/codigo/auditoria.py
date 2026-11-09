@@ -67,6 +67,30 @@ def auditar():
                 n = nome(c.pegar(x + ax, y + dy, z))
                 if n == "air" or "pane" in n or "glass" in n:
                     erros.append(("E-11 porta desconexa da parede (batente %s)" % ("vidro" if n != "air" else "vazio"), (x + ax, y + dy, z), n))
+    # E-23 tronco horizontal com a PONTA (anéis) exposta ao ar: canto/encontro errado; troncos de árvore (sem 'stripped') são galhos e podem
+    for (x, y, z), b in c.blocos.items():
+        n = nome(b)
+        eixo = estado(b).get("pillar_axis")
+        if n.startswith("stripped_") and n.endswith("_log") and eixo in ("x", "z"):
+            d = (1, 0) if eixo == "x" else (0, 1)
+            for s in (1, -1):
+                viz = nome(c.pegar(x + d[0] * s, y, z + d[1] * s))
+                if viz == "air":
+                    erros.append(("E-23 ponta de tronco exposta (canto/encontro errado)", (x, y, z), "%s axis=%s" % (n, eixo)))
+                    break
+    # E-24 máquinas orientadas: a FRENTE (cardinal_direction) tem de dar para um espaço livre, não para parede
+    ve = {"north": (0, -1), "south": (0, 1), "east": (1, 0), "west": (-1, 0)}
+    for (x, y, z), b in c.blocos.items():
+        n = nome(b)
+        card = estado(b).get("minecraft:cardinal_direction")
+        if n in ("smoker", "blast_furnace", "furnace", "lectern", "anvil") and card:
+            dx, dz = ve[card]
+            if solido(nome(c.pegar(x + dx, y, z + dz))):
+                erros.append(("E-24 maquina virada para a parede", (x, y, z), "%s frente=%s" % (n, card)))
+        if n in ("smoker", "blast_furnace", "furnace", "lectern", "anvil", "pumpkin") and not card:
+            erros.append(("E-24 maquina sem orientacao (cardinal_direction)", (x, y, z), n))
+        if n == "lightning_rod" and estado(b).get("facing_direction") != 1:
+            erros.append(("E-25 para-raios nao aponta para cima (facing_direction=1)", (x, y, z), n))
     # E-05 lanternas penduradas sem suporte
     for (x, y, z), b in c.blocos.items():
         if nome(b) == "lantern" and estado(b).get("hanging") and c.pegar(x, y + 1, z) is None:

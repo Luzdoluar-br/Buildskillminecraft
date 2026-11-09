@@ -20,13 +20,16 @@ def fundacao(c, m):
 
 
 def anel(m, x1, z1, x2, z2, y, b, eixo=True):
-    """Moldura horizontal (viga) em tronco: lados maiores em x e menores em z."""
-    for lx in range(x1, x2 + 1):
+    """Moldura horizontal (viga) em tronco. Vigas em x nos lados maiores e em z nos menores; os 4 CANTOS são troncos VERTICAIS (axis y):
+    um tronco horizontal no canto mostra a ponta (anéis) na lateral da casa."""
+    for lx in range(x1 + 1, x2):
         m.log(lx, y, z1, b, "x")
         m.log(lx, y, z2, b, "x")
     for lz in range(z1 + 1, z2):
         m.log(x1, y, lz, b, "z")
         m.log(x2, y, lz, b, "z")
+    for (lx, lz) in ((x1, z1), (x2, z1), (x1, z2), (x2, z2)):
+        m.log(lx, y, lz, b, "y")
 
 
 def janela(m, x, y, z, h=2, vidro="white_stained_glass_pane", persiana=None):
@@ -61,8 +64,8 @@ def chale_enxaimel(c, x, z, y, flip=False):
     # pórtico sob o avanço do andar de cima: postes + viga + mãos-francesas (profundidade e elementos projetados)
     for lx in (0, 4, 8, 12):
         m.box(lx, 1, 8, lx, 2, 8, M + "stripped_spruce_log")
-    for lx in range(13):
-        m.log(lx, 3, 8, "stripped_spruce_log", "x")
+    for lx in range(13):                                                   # viga frontal; as pontas viram tronco vertical (poste do canto sobe até a viga)
+        m.log(lx, 3, 8, "stripped_spruce_log", "y" if lx in (0, 12) else "x")
     for lx in (1, 3, 5, 7, 9, 11):
         m.st(lx, 2, 8, "spruce_stairs", NORTE, True)
     # piso de cima
@@ -121,12 +124,12 @@ def chale_enxaimel(c, x, z, y, flip=False):
     m.p(10, 15, 2, M + "stone_brick_slab")
     # interior
     m.p(1, 1, 1, M + "crafting_table")
-    m.p(2, 1, 1, (M + "smoker", {"facing_direction": 3}))
+    m.maq(2, 1, 1, "smoker", SUL)
     m.p(3, 1, 1, (M + "barrel", {"facing_direction": 1, "open_bit": False}))
     m.p(4, 1, 1, (M + "barrel", {"facing_direction": 1, "open_bit": False}))
     m.box(1, 1, 5, 3, 2, 5, M + "bookshelf")
     m.box(4, 1, 3, 8, 1, 5, M + "light_gray_carpet")
-    m.p(10, 1, 6, M + "lectern")
+    m.maq(10, 1, 6, "lectern", OESTE)
     luz_interna(m, 6, 3, 4)
     m.cama(2, 5, 6, 3)
     m.box(4, 5, 4, 8, 5, 6, M + "light_gray_carpet")
@@ -234,7 +237,7 @@ def casa_torreta(c, x, z, y, flip=False):
     topo = m.tenda(0, 4, 2, 6, 11, TELHA_ARDOSIA, beiral=1)
     m.box(2, topo + 1, 4, 2, topo + 2, 4, M + "lightning_rod") if False else None
     m.box(2, topo + 1, 4, 2, topo + 2, 4, M + "stone_brick_wall")
-    m.p(2, topo + 3, 4, M + "lightning_rod")
+    m.p(2, topo + 3, 4, (M + "lightning_rod", {"facing_direction": 1}))     # 1 = para cima (o padrão do jogo é 0 = para baixo)
     # porta da torreta no fundo da frente: escada de caracol simples interna
     for k in range(1, 4):
         m.st(1, k, 2 + k, "stone_brick_stairs", SUL) if False else None
@@ -243,8 +246,8 @@ def casa_torreta(c, x, z, y, flip=False):
     m.cama(3, 5, 5, 0) if False else None
     # interior do corpo
     m.p(6, 1, 2, M + "crafting_table")
-    m.p(7, 1, 2, (M + "blast_furnace", {"facing_direction": 3}))
-    m.p(8, 1, 2, M + "anvil")
+    m.maq(7, 1, 2, "blast_furnace", SUL)
+    m.maq(8, 1, 2, "anvil", SUL)
     m.box(10, 1, 2, 12, 3, 2, M + "bookshelf")
     m.box(9, 1, 3, 12, 1, 5, M + "light_gray_carpet")
     m.cama(6, 5, 6, 1)

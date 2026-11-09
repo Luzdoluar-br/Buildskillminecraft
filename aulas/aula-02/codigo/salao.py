@@ -118,7 +118,7 @@ def salao(c, x, z, y, flip=False):
     m.box(10, topo + 1, 15, 10, topo + 3, 15, M + "waxed_copper_block") if False else None
     for k in range(1, 4):
         m.p(10, topo + k, 15, M + "waxed_weathered_copper")
-    m.p(10, topo + 4, 15, M + "lightning_rod")
+    m.p(10, topo + 4, 15, (M + "lightning_rod", {"facing_direction": 1}))
     # ------------------------------------------------------------ interior do salão: mesas longas, bancos e candelabros
     m.box(2, 1, 2, 18, 1, 10, M + "light_gray_carpet") if False else None
     for lz in (3, 9):
@@ -138,6 +138,6 @@ def salao(c, x, z, y, flip=False):
     m.p(19, 1, 3, (M + "barrel", {"facing_direction": 1, "open_bit": False}))
     m.p(19, 1, 4, (M + "barrel", {"facing_direction": 1, "open_bit": False}))
     m.p(19, 1, 9, M + "crafting_table")
-    m.p(19, 1, 10, (M + "blast_furnace", {"facing_direction": 2}))
+    m.maq(19, 1, 10, "blast_furnace", OESTE)
     m.p(10, 5, 11, (M + "lantern", {"hanging": True}))
     return m

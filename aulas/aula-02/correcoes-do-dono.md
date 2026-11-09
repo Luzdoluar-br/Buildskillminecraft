@@ -37,3 +37,12 @@ O dono não usa mais `/function vila/salvar`: ele passa prints e descrições; e
 | "Blocos com erros de texturas" (print: cubos manchados no chão) | `rooted_dirt` e `lily_pad` não existem no Bedrock | E-20 |
 | "Melhoria para esse estilo de poste" (print) | lido no mundo: laje de topo, braço em escada, lanterna embaixo, contrapeso | E-22, `tecnicas/postes-de-luz.md` |
 | "Não se esqueça de anotar tudo no git" | tudo registrado e publicado | este arquivo |
+
+## 2026-11-09 · Cantos, rotação e referência de blocos (prints + leitura do mundo)
+| Observação do dono | O que fiz / aprendi | Registro |
+|---|---|---|
+| Prints "ERRADO ---> / CERTO ---> " nos cantos de madeira (ponta de tronco exposta vs pilar contínuo); ele corrigiu à mão | cantos viram tronco vertical em todas as casas | E-23, `tecnicas/cantos-e-vigas.md` C-1 |
+| "Algumas estruturas com os troncos todos na mesma direção; trabalhe a rotação dos blocos" | revisão de `pillar_axis`, máquinas com `cardinal_direction`, para-raios, abóboras, giro (flip) | E-24, E-25, `referencia/estados-e-rotacao.md` |
+| "Quero um arquivo com todos os blocos do Minecraft e seus IDs" | `referencia/blocos-bedrock.md` (1187 IDs) | E-26 |
+| Melhoria dos cantos (prints + blocos no mundo: viga projetada, lanterna, escada) | lido 1 canto; padrão descrito em C-2 (a confirmar) | `tecnicas/cantos-e-vigas.md` C-2 |
+| "Não esqueça de anotar seus aprendizados no git, é muito importante; o foco é te ensinar e registrar" | checklist de fim de rodada | E-27 |

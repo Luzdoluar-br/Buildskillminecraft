@@ -225,7 +225,7 @@ def barraca(bx, bz, flip, cor, produto, nome):
     m.p(0, 1, 1, (M + "barrel", {"facing_direction": 1, "open_bit": False}))
     m.p(4, 1, 1, M + "crafting_table")
     for lx in range(1, 4):
-        m.p(lx, 2, 2, M + produto[lx % len(produto)])
+        (m.maq(lx, 2, 2, "pumpkin", SUL) if produto[lx % len(produto)] == "pumpkin" else m.p(lx, 2, 2, M + produto[lx % len(produto)]))
     for lx in range(-1, 6):
         for lz in range(-1, 4):
             m.p(lx, 4, lz, M + (cor if (lx + 1) % 2 == 0 else "white_wool"))

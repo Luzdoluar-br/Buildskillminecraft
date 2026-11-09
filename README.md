@@ -4,7 +4,7 @@ Memória arquitetônica externa para construir em **Minecraft Bedrock Edition**.
 Cada conhecimento aqui nasce de **evidência** (diferença medida entre a construção original e a versão modificada pelo dono do projeto), nunca de suposição.
 
 ## Como consultar
-0. **Leia `erros-e-licoes.md` (bugs já cometidos; anote lá todo erro novo) e rode `aulas/aula-02/codigo/auditoria.py` antes de entregar qualquer construção (valida IDs contra `blocos_validos.txt`).**
+0. **Consulte `referencia/blocos-bedrock.md` para QUALQUER bloco. Leia `erros-e-licoes.md` (bugs já cometidos; anote lá todo erro novo) e rode `aulas/aula-02/codigo/auditoria.py` antes de entregar qualquer construção (valida IDs contra `blocos_validos.txt`).**
 1. Leia `limitacoes-e-duvidas.md` (o que NÃO está provado).
 2. Escolha a técnica em `tecnicas/`.
 3. Se precisar do caso concreto, veja `aulas/aula-01/estruturas-analisadas.md`.
@@ -21,6 +21,9 @@ Cada conhecimento aqui nasce de **evidência** (diferença medida entre a constr
 | `tecnicas/vegetacao-e-ambientacao.md` | Cobertura de solo, árvores, musgo, flores |
 | `tecnicas/terreno-caminhos-e-pracas.md` | Caminhos, fonte, poço, portal |
 | `tecnicas/praca-e-espaco-publico.md` | Anel de passagem, escala da fonte, postes, bancos, árvores |
+| `referencia/blocos-bedrock.md` | **TODOS os IDs de bloco do Bedrock (1187) com estados observados: consultar antes de usar qualquer bloco** |
+| `referencia/estados-e-rotacao.md` | Rotação, estados e equivalências Java→Bedrock |
+| `tecnicas/cantos-e-vigas.md` | Cantos de madeira, vigas, melhoria do dono |
 | `tecnicas/postes-de-luz.md` | Modelo de poste do dono (blocos e porquê) |
 | `tecnicas/portas-e-entradas.md` | Portas, batentes, vergas, entradas livres (do dono, Aula 02) |
 | `erros-e-licoes.md` | **Registro de bugs/erros com causa e correção (obrigatório manter)** |

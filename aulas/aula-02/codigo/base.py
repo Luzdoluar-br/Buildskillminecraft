@@ -62,6 +62,12 @@ class Molde:
     def limpar(self, x1, y1, z1, x2, y2, z2):
         self.box(x1, y1, z1, x2, y2, z2, M + "air")
 
+    CARD = {LESTE: "east", OESTE: "west", SUL: "south", NORTE: "north"}
+
+    def maq(self, x, y, z, nome, frente_local):
+        """Forno/defumador/alto-forno/atril/bigorna/abóbora: a FRENTE olha para `frente_local` (SUL = para a frente da casa). Gira junto com a casa (flip)."""
+        self.p(x, y, z, (M + nome, {"minecraft:cardinal_direction": self.CARD[self.dirm(frente_local)]}))
+
     def esc(self, nome):
         if isinstance(nome, list):
             tot = sum(p for _, p in nome)

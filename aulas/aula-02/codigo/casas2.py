@@ -55,7 +55,7 @@ def casa_hortelao(c, x, z, y, flip=False):
     m.p(6, alto + 3, 3, M + "stone_brick_slab")
     # interior: cozinha
     m.p(1, 1, 1, M + "crafting_table")
-    m.p(2, 1, 1, (M + "smoker", {"facing_direction": 3}))
+    m.maq(2, 1, 1, "smoker", SUL)
     m.p(3, 1, 1, (M + "barrel", {"facing_direction": 1, "open_bit": False}))
     m.p(7, 1, 1, (M + "barrel", {"facing_direction": 1, "open_bit": False}))
     m.cama(6, 1, 6, 0)
@@ -137,7 +137,7 @@ def casa_cha(c, x, z, y, flip=False):
     # interior: salão de chá com mesa baixa
     m.box(3, 2, 3, 9, 2, 9, M + "light_gray_carpet")
     m.p(3, 2, 3, (M + "barrel", {"facing_direction": 1, "open_bit": False}))      # tudo no nível do piso (y=2): o carpete está em y=2
-    m.p(4, 2, 3, (M + "smoker", {"facing_direction": 3}))
+    m.maq(4, 2, 3, "smoker", SUL)
     m.p(9, 2, 3, M + "crafting_table")
     m.p(3, 2, 9, M + "bookshelf")
     m.p(6, 2, 6, M + "spruce_fence")                                                # mesa baixa: perna + tampo
