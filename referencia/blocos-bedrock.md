@@ -1,1196 +1,1476 @@
-# Blocos do Minecraft Bedrock: IDs de referência
+# Blocos do Minecraft Bedrock: IDs e estados OFICIAIS
 
-**1187 blocos.** Use SEMPRE `minecraft:<id>` exatamente como está na coluna ID. Se um bloco não está nesta tabela, **ele não existe** (ou foi renomeado): nunca usar nomes de memória ou do Java Edition.
+**1466 blocos.** Fonte primária: `mojang-blocks.json` do repositório oficial Mojang/bedrock-samples (versão 1.26.60.5, cópia em `fonte/mojang-blocks.json`). Use SEMPRE `minecraft:<id>` exatamente como está. **Se o ID não está aqui, ele não existe** (nem nomes do Java Edition ou de memória).
 
-- Estados mostrados = os que o jogo realmente gravou num mundo real (campo vazio = nenhum observado, não quer dizer que não existam). Rotação e convenções: ver `estados-e-rotacao.md`.
-- Gerado por `ferramentas/gerar_referencia_blocos.py` (fonte: lista oficial de IDs do Minecraft Creator Tools).
+- Coluna *estados*: propriedades oficiais do bloco e valores possíveis (`0..3` = inteiros de 0 a 3; booleanos aparecem como `0, 1`). Vazio = bloco sem estados.
+- Significado/rotação dos estados e armadilhas: `estados-e-rotacao.md`. Formato do arquivo de estrutura: `mcstructure-formato.md`.
+- Gerado por `ferramentas/gerar_referencia_blocos.py`. Regenerar quando sair uma versão nova do bedrock-samples.
 
-| ID | Nome (EN) | Categoria | Estados observados |
-|---|---|---|---|
-| `acacia_button` | Acacia Button | Blocks |  |
-| `acacia_door` | Acacia Door | Miscellaneous |  |
-| `acacia_double_slab` |  |  |  |
-| `acacia_fence` | Acacia Fence | Blocks |  |
-| `acacia_fence_gate` | Acacia Fence Gate | Blocks |  |
-| `acacia_hanging_sign` | Acacia Hanging Sign | Miscellaneous |  |
-| `acacia_leaves` | Acacia Leaves | Blocks |  |
-| `acacia_log` | Acacia Log | Blocks |  |
-| `acacia_planks` | Acacia Planks | Blocks |  |
-| `acacia_pressure_plate` | Acacia Pressure Plate | Blocks |  |
-| `acacia_sapling` | Acacia Sapling | Blocks |  |
-| `acacia_shelf` | Acacia Shelf | Blocks |  |
-| `acacia_slab` | Acacia Slab | Blocks |  |
-| `acacia_stairs` | Acacia Stairs | Blocks |  |
-| `acacia_standing_sign` |  |  |  |
-| `acacia_trapdoor` | Acacia Trapdoor | Blocks |  |
-| `acacia_wall_sign` |  |  |  |
-| `acacia_wood` | Acacia Wood | Blocks |  |
-| `activator_rail` | Activator Rail | Blocks |  |
-| `allium` | Allium | Blocks |  |
-| `allow` | Allow | Blocks |  |
-| `amethyst_block` | Amethyst Block | Materials |  |
-| `amethyst_cluster` | Amethyst Cluster | Materials |  |
-| `ancient_debris` | Ancient Debris | Blocks |  |
-| `andesite` | Andesite | Blocks |  |
-| `andesite_double_slab` |  |  |  |
-| `andesite_slab` | Andesite Slab | Blocks |  |
-| `andesite_stairs` | Andesite Stairs | Blocks |  |
-| `andesite_wall` | Andesite Wall | Blocks |  |
-| `anvil` | Anvil | Blocks | minecraft:cardinal_direction = south |
-| `azalea` | Azalea | Blocks |  |
-| `azalea_leaves` | Azalea Leaves | Blocks | persistent_bit = 0; update_bit = 0, 1 |
-| `azalea_leaves_flowered` | Azalea Leaves Flowered | Blocks | persistent_bit = 0, 1; update_bit = 0, 1 |
-| `azure_bluet` | Azure Bluet | Blocks |  |
-| `bamboo` | Bamboo | Miscellaneous | age_bit = 0, 1; bamboo_leaf_size = no_leaves; bamboo_stalk_thickness = thin |
-| `bamboo_block` | Bamboo Block | Blocks |  |
-| `bamboo_button` | Bamboo Button | Blocks |  |
-| `bamboo_door` | Bamboo Door | Miscellaneous |  |
-| `bamboo_double_slab` |  |  |  |
-| `bamboo_fence` | Bamboo Fence | Blocks |  |
-| `bamboo_fence_gate` | Bamboo Fence Gate | Blocks |  |
-| `bamboo_hanging_sign` | Bamboo Hanging Sign | Miscellaneous |  |
-| `bamboo_mosaic` | Bamboo Mosaic | Blocks |  |
-| `bamboo_mosaic_double_slab` |  |  |  |
-| `bamboo_mosaic_slab` | Bamboo Mosaic Slab | Blocks |  |
-| `bamboo_mosaic_stairs` | Bamboo Mosaic Stairs | Blocks |  |
-| `bamboo_planks` | Bamboo Planks | Blocks |  |
-| `bamboo_pressure_plate` | Bamboo Pressure Plate | Blocks |  |
-| `bamboo_sapling` |  |  |  |
-| `bamboo_shelf` | Bamboo Shelf | Blocks |  |
-| `bamboo_slab` | Bamboo Slab | Blocks |  |
-| `bamboo_stairs` | Bamboo Stairs | Blocks |  |
-| `bamboo_standing_sign` |  |  |  |
-| `bamboo_trapdoor` | Bamboo Trapdoor | Blocks |  |
-| `bamboo_wall_sign` |  |  |  |
-| `barrel` | Barrel | Blocks | facing_direction = 0, 1, 2, 3, 4, 5; open_bit = 0, 1 |
-| `barrier` | Barrier | Blocks |  |
-| `basalt` | Basalt | Blocks |  |
-| `beacon` | Beacon | Blocks |  |
-| `bed` | Bed | Miscellaneous | direction = 0, 2, 3; head_piece_bit = 0, 1; occupied_bit = 0 |
-| `bedrock` | Bedrock | Blocks | infiniburn_bit = 0 |
-| `bee_nest` | Bee Nest | Blocks |  |
-| `beehive` | Beehive | Blocks |  |
-| `beetroot` | Beetroot | Food |  |
-| `bell` | Bell | Blocks |  |
-| `big_dripleaf` | Big Dripleaf | Blocks |  |
-| `birch_button` | Birch Button | Blocks |  |
-| `birch_door` | Birch Door | Miscellaneous |  |
-| `birch_double_slab` |  |  |  |
-| `birch_fence` | Birch Fence | Blocks |  |
-| `birch_fence_gate` | Birch Fence Gate | Blocks |  |
-| `birch_hanging_sign` | Birch Hanging Sign | Miscellaneous |  |
-| `birch_leaves` | Birch Leaves | Blocks | persistent_bit = 0, 1; update_bit = 0, 1 |
-| `birch_log` | Birch Log | Blocks | pillar_axis = x, y, z |
-| `birch_planks` | Birch Planks | Blocks |  |
-| `birch_pressure_plate` | Birch Pressure Plate | Blocks |  |
-| `birch_sapling` | Birch Sapling | Blocks |  |
-| `birch_shelf` | Birch Shelf | Blocks |  |
-| `birch_slab` | Birch Slab | Blocks |  |
-| `birch_stairs` | Birch Stairs | Blocks |  |
-| `birch_standing_sign` |  |  |  |
-| `birch_trapdoor` | Birch Trapdoor | Blocks |  |
-| `birch_wall_sign` |  |  |  |
-| `birch_wood` | Birch Wood | Blocks |  |
-| `black_candle` | Black Candle | Blocks |  |
-| `black_candle_cake` |  |  |  |
-| `black_carpet` | Black Carpet | Blocks |  |
-| `black_concrete` | Black Concrete | Blocks |  |
-| `black_concrete_powder` | Black Concrete Powder | Blocks |  |
-| `black_glazed_terracotta` | Black Glazed Terracotta | Blocks |  |
-| `black_shulker_box` | Black Shulker Box | Blocks |  |
-| `black_stained_glass` | Black Stained Glass | Blocks |  |
-| `black_stained_glass_pane` | Black Stained Glass Pane | Blocks |  |
-| `black_terracotta` | Black Terracotta | Blocks |  |
-| `black_wool` | Black Wool | Blocks |  |
-| `blackstone` | Blackstone | Blocks |  |
-| `blackstone_double_slab` |  |  |  |
-| `blackstone_slab` | Blackstone Slab | Blocks |  |
-| `blackstone_stairs` | Blackstone Stairs | Blocks |  |
-| `blackstone_wall` | Blackstone Wall | Blocks |  |
-| `blast_furnace` | Blast Furnace | Blocks | minecraft:cardinal_direction = east, north, south |
-| `blue_candle` | Blue Candle | Blocks |  |
-| `blue_candle_cake` |  |  |  |
-| `blue_carpet` | Blue Carpet | Blocks |  |
-| `blue_concrete` | Blue Concrete | Blocks |  |
-| `blue_concrete_powder` | Blue Concrete Powder | Blocks |  |
-| `blue_glazed_terracotta` | Blue Glazed Terracotta | Blocks |  |
-| `blue_ice` | Blue Ice | Blocks |  |
-| `blue_orchid` | Blue Orchid | Blocks |  |
-| `blue_shulker_box` | Blue Shulker Box | Blocks |  |
-| `blue_stained_glass` | Blue Stained Glass | Blocks |  |
-| `blue_stained_glass_pane` | Blue Stained Glass Pane | Blocks |  |
-| `blue_terracotta` | Blue Terracotta | Blocks |  |
-| `blue_wool` | Blue Wool | Blocks |  |
-| `bone_block` | Bone Block | Materials |  |
-| `bookshelf` | Bookshelf | Blocks |  |
-| `border_block` | Border Block | Blocks |  |
-| `brain_coral` | Brain Coral | Blocks |  |
-| `brain_coral_block` | Brain Coral Block | Blocks |  |
-| `brain_coral_fan` | Brain Coral Fan | Blocks |  |
-| `brain_coral_wall_fan` |  |  |  |
-| `brewing_stand` | Brewing Stand | Brewing |  |
-| `brick_block` | Brick Block | Blocks |  |
-| `brick_double_slab` |  |  |  |
-| `brick_slab` | Brick Slab | Blocks |  |
-| `brick_stairs` | Brick Stairs | Blocks | minecraft:corner = none; upside_down_bit = 0; weirdo_direction = 2, 3 |
-| `brick_wall` | Brick Wall | Blocks |  |
-| `brown_candle` | Brown Candle | Blocks |  |
-| `brown_candle_cake` |  |  |  |
-| `brown_carpet` | Brown Carpet | Blocks |  |
-| `brown_concrete` | Brown Concrete | Blocks |  |
-| `brown_concrete_powder` | Brown Concrete Powder | Blocks |  |
-| `brown_glazed_terracotta` | Brown Glazed Terracotta | Blocks |  |
-| `brown_mushroom` | Brown Mushroom | Blocks |  |
-| `brown_mushroom_block` | Brown Mushroom Block | Blocks |  |
-| `brown_shulker_box` | Brown Shulker Box | Blocks |  |
-| `brown_stained_glass` | Brown Stained Glass | Blocks |  |
-| `brown_stained_glass_pane` | Brown Stained Glass Pane | Blocks | minecraft:connection_east = 0, 1; minecraft:connection_north = 0; minecraft:connection_south = 0; minecraft:connection_west = 0, 1 |
-| `brown_terracotta` | Brown Terracotta | Blocks |  |
-| `brown_wool` | Brown Wool | Blocks |  |
-| `bubble_column` |  |  |  |
-| `bubble_coral` | Bubble Coral | Blocks |  |
-| `bubble_coral_block` | Bubble Coral Block | Blocks |  |
-| `bubble_coral_fan` | Bubble Coral Fan | Blocks |  |
-| `bubble_coral_wall_fan` |  |  |  |
-| `budding_amethyst` | Budding Amethyst | Materials |  |
-| `bush` | Bush | Miscellaneous |  |
-| `cactus` | Cactus | Blocks |  |
-| `cactus_flower` | Cactus Flower | Blocks |  |
-| `cake` | Cake | Food |  |
-| `calcite` | Calcite | Blocks |  |
-| `calibrated_sculk_sensor` | Calibrated Sculk Sensor | Blocks |  |
-| `camera` |  |  |  |
-| `campfire` | Campfire | Miscellaneous | extinguished = 0; minecraft:cardinal_direction = east, north, south |
-| `candle` | Candle | Blocks |  |
-| `candle_cake` |  |  |  |
-| `carrots` |  |  | growth = 0, 7 |
-| `cartography_table` | Cartography Table | Blocks |  |
-| `carved_pumpkin` | Carved Pumpkin | Blocks |  |
-| `cauldron` | Cauldron | Miscellaneous |  |
-| `cave_vines` |  |  |  |
-| `cave_vines_body_with_berries` |  |  |  |
-| `cave_vines_head_with_berries` |  |  |  |
-| `chain_command_block` | Chain Command Block | Blocks |  |
-| `chemical_heat` |  |  |  |
-| `cherry_button` | Cherry Button | Blocks |  |
-| `cherry_door` | Cherry Door | Miscellaneous |  |
-| `cherry_double_slab` |  |  |  |
-| `cherry_fence` | Cherry Fence | Blocks |  |
-| `cherry_fence_gate` | Cherry Fence Gate | Blocks |  |
-| `cherry_hanging_sign` | Cherry Hanging Sign | Miscellaneous |  |
-| `cherry_leaves` | Cherry Leaves | Blocks | persistent_bit = 0, 1; update_bit = 0, 1 |
-| `cherry_log` | Cherry Log | Blocks | pillar_axis = x, y, z |
-| `cherry_planks` | Cherry Planks | Blocks |  |
-| `cherry_pressure_plate` | Cherry Pressure Plate | Blocks |  |
-| `cherry_sapling` | Cherry Sapling | Blocks |  |
-| `cherry_shelf` | Cherry Shelf | Blocks |  |
-| `cherry_slab` | Cherry Slab | Blocks |  |
-| `cherry_stairs` | Cherry Stairs | Blocks | minecraft:corner = none; upside_down_bit = 0; weirdo_direction = 0, 1, 2, 3 |
-| `cherry_standing_sign` |  |  |  |
-| `cherry_trapdoor` | Cherry Trapdoor | Blocks |  |
-| `cherry_wall_sign` |  |  |  |
-| `cherry_wood` | Cherry Wood | Blocks |  |
-| `chest` | Chest | Blocks |  |
-| `chipped_anvil` | Chipped Anvil | Blocks |  |
-| `chiseled_bookshelf` | Chiseled Bookshelf | Blocks | books_stored = 0; direction = 1 |
-| `chiseled_copper` | Chiseled Copper | Blocks |  |
-| `chiseled_deepslate` | Chiseled Deepslate | Blocks |  |
-| `chiseled_nether_bricks` | Chiseled Nether Bricks | Blocks |  |
-| `chiseled_polished_blackstone` | Chiseled Polished Blackstone | Blocks |  |
-| `chiseled_quartz_block` | Chiseled Quartz Block | Materials |  |
-| `chiseled_red_sandstone` | Chiseled Red Sandstone | Blocks |  |
-| `chiseled_resin_bricks` | Chiseled Resin Bricks | Blocks |  |
-| `chiseled_sandstone` | Chiseled Sandstone | Blocks |  |
-| `chiseled_stone_bricks` | Chiseled Stone Bricks | Blocks |  |
-| `chiseled_tuff` | Chiseled Tuff | Blocks |  |
-| `chiseled_tuff_bricks` | Chiseled Tuff Bricks | Blocks |  |
-| `chorus_flower` | Chorus Flower | Blocks |  |
-| `chorus_plant` | Chorus Plant | Blocks |  |
-| `clay` | Clay | Blocks |  |
-| `closed_eyeblossom` | Closed Eyeblossom | Blocks |  |
-| `coal_block` | Coal Block | Materials |  |
-| `coal_ore` | Coal Ore | Materials |  |
-| `coarse_dirt` | Coarse Dirt | Blocks |  |
-| `cobbled_deepslate` | Cobbled Deepslate | Blocks |  |
-| `cobbled_deepslate_double_slab` |  |  |  |
-| `cobbled_deepslate_slab` | Cobbled Deepslate Slab | Blocks |  |
-| `cobbled_deepslate_stairs` | Cobbled Deepslate Stairs | Blocks | minecraft:corner = none, outer_left, inner_right, outer_right; upside_down_bit = 0; weirdo_direction = 0, 1, 2, 3 |
-| `cobbled_deepslate_wall` | Cobbled Deepslate Wall | Blocks |  |
-| `cobblestone` | Cobblestone | Blocks |  |
-| `cobblestone_double_slab` |  |  |  |
-| `cobblestone_slab` | Cobblestone Slab | Blocks |  |
-| `cobblestone_wall` | Cobblestone Wall | Blocks |  |
-| `cocoa` |  |  |  |
-| `colored_torch_blue` |  |  |  |
-| `colored_torch_green` |  |  |  |
-| `colored_torch_purple` |  |  |  |
-| `colored_torch_red` |  |  |  |
-| `command_block` | Command Block | Blocks |  |
-| `composter` | Composter | Blocks |  |
-| `compound_creator` |  |  |  |
-| `conduit` | Conduit | Blocks |  |
-| `copper_bars` | Copper Bars | Blocks |  |
-| `copper_block` | Copper Block | Blocks |  |
-| `copper_bulb` | Copper Bulb | Blocks |  |
-| `copper_chain` | Copper Chain | Miscellaneous |  |
-| `copper_chest` | Copper Chest | Blocks |  |
-| `copper_door` | Copper Door | Miscellaneous |  |
-| `copper_golem_statue` | Copper Golem Statue | Blocks |  |
-| `copper_grate` | Copper Grate | Blocks |  |
-| `copper_lantern` | Copper Lantern | Miscellaneous |  |
-| `copper_ore` | Copper Ore | Blocks |  |
-| `copper_torch` | Copper Torch | Blocks |  |
-| `copper_trapdoor` | Copper Trapdoor | Blocks |  |
-| `cornflower` | Cornflower | Blocks |  |
-| `cracked_deepslate_bricks` | Cracked Deepslate Bricks | Blocks |  |
-| `cracked_deepslate_tiles` | Cracked Deepslate Tiles | Blocks |  |
-| `cracked_nether_bricks` | Cracked Nether Bricks | Blocks |  |
-| `cracked_polished_blackstone_bricks` | Cracked Polished Blackstone Bricks | Blocks |  |
-| `cracked_stone_bricks` | Cracked Stone Bricks | Blocks |  |
-| `crafter` | Crafter | Blocks |  |
-| `crafting_table` | Crafting Table | Blocks |  |
-| `creaking_heart` | Creaking Heart | Miscellaneous |  |
-| `creeper_head` | Creeper Head | Miscellaneous |  |
-| `crimson_button` | Crimson Button | Blocks |  |
-| `crimson_door` | Crimson Door | Miscellaneous |  |
-| `crimson_double_slab` |  |  |  |
-| `crimson_fence` | Crimson Fence | Blocks |  |
-| `crimson_fence_gate` | Crimson Fence Gate | Blocks |  |
-| `crimson_fungus` | Crimson Fungus | Blocks |  |
-| `crimson_hanging_sign` | Crimson Hanging Sign | Miscellaneous |  |
-| `crimson_hyphae` | Crimson Hyphae | Blocks |  |
-| `crimson_nylium` | Crimson Nylium | Blocks |  |
-| `crimson_planks` | Crimson Planks | Blocks |  |
-| `crimson_pressure_plate` | Crimson Pressure Plate | Blocks |  |
-| `crimson_roots` | Crimson Roots | Blocks |  |
-| `crimson_shelf` | Crimson Shelf | Blocks |  |
-| `crimson_slab` | Crimson Slab | Blocks |  |
-| `crimson_stairs` | Crimson Stairs | Blocks |  |
-| `crimson_standing_sign` |  |  |  |
-| `crimson_stem` | Crimson Stem | Blocks |  |
-| `crimson_trapdoor` | Crimson Trapdoor | Blocks |  |
-| `crimson_wall_sign` |  |  |  |
-| `crying_obsidian` | Crying Obsidian | Blocks |  |
-| `cut_copper` | Cut Copper | Blocks |  |
-| `cut_copper_slab` | Cut Copper Slab | Blocks |  |
-| `cut_copper_stairs` | Cut Copper Stairs | Blocks |  |
-| `cut_red_sandstone` | Cut Red Sandstone | Blocks |  |
-| `cut_red_sandstone_double_slab` |  |  |  |
-| `cut_red_sandstone_slab` | Cut Red Sandstone Slab | Blocks |  |
-| `cut_sandstone` | Cut Sandstone | Blocks |  |
-| `cut_sandstone_double_slab` |  |  |  |
-| `cut_sandstone_slab` | Cut Sandstone Slab | Blocks |  |
-| `cyan_candle` | Cyan Candle | Blocks |  |
-| `cyan_candle_cake` |  |  |  |
-| `cyan_carpet` | Cyan Carpet | Blocks |  |
-| `cyan_concrete` | Cyan Concrete | Blocks |  |
-| `cyan_concrete_powder` | Cyan Concrete Powder | Blocks |  |
-| `cyan_glazed_terracotta` | Cyan Glazed Terracotta | Blocks |  |
-| `cyan_shulker_box` | Cyan Shulker Box | Blocks |  |
-| `cyan_stained_glass` | Cyan Stained Glass | Blocks |  |
-| `cyan_stained_glass_pane` | Cyan Stained Glass Pane | Blocks |  |
-| `cyan_terracotta` | Cyan Terracotta | Blocks |  |
-| `cyan_wool` | Cyan Wool | Blocks |  |
-| `damaged_anvil` | Damaged Anvil | Blocks |  |
-| `dandelion` | Dandelion | Blocks |  |
-| `dark_oak_button` | Dark Oak Button | Blocks |  |
-| `dark_oak_door` | Dark Oak Door | Miscellaneous | door_hinge_bit = 0; minecraft:cardinal_direction = north, south; open_bit = 0, 1; upper_block_bit = 0, 1 |
-| `dark_oak_double_slab` |  |  | minecraft:vertical_half = bottom |
-| `dark_oak_fence` | Dark Oak Fence | Blocks | minecraft:connection_east = 0, 1; minecraft:connection_north = 0; minecraft:connection_south = 0, 1; minecraft:connection_west = 0 |
-| `dark_oak_fence_gate` | Dark Oak Fence Gate | Blocks |  |
-| `dark_oak_hanging_sign` | Dark Oak Hanging Sign | Miscellaneous |  |
-| `dark_oak_leaves` | Dark Oak Leaves | Blocks | persistent_bit = 0, 1; update_bit = 0, 1 |
-| `dark_oak_log` | Dark Oak Log | Blocks | pillar_axis = x, y, z |
-| `dark_oak_planks` | Dark Oak Planks | Blocks |  |
-| `dark_oak_pressure_plate` | Dark Oak Pressure Plate | Blocks |  |
-| `dark_oak_sapling` | Dark Oak Sapling | Blocks |  |
-| `dark_oak_shelf` | Dark Oak Shelf | Blocks |  |
-| `dark_oak_slab` | Dark Oak Slab | Blocks | minecraft:vertical_half = top, bottom |
-| `dark_oak_stairs` | Dark Oak Stairs | Blocks | minecraft:corner = none, inner_left, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0, 1, 2, 3 |
-| `dark_oak_trapdoor` | Dark Oak Trapdoor | Blocks | direction = 0, 1, 2, 3; open_bit = 0, 1; upside_down_bit = 1 |
-| `dark_oak_wood` | Dark Oak Wood | Blocks |  |
-| `dark_prismarine` | Dark Prismarine | Blocks |  |
-| `dark_prismarine_double_slab` |  |  |  |
-| `dark_prismarine_slab` | Dark Prismarine Slab | Blocks |  |
-| `dark_prismarine_stairs` | Dark Prismarine Stairs | Blocks |  |
-| `darkoak_standing_sign` |  |  |  |
-| `darkoak_wall_sign` |  |  |  |
-| `daylight_detector` | Daylight Detector | Blocks |  |
-| `daylight_detector_inverted` |  |  |  |
-| `dead_brain_coral` | Dead Brain Coral | Blocks |  |
-| `dead_brain_coral_block` | Dead Brain Coral Block | Blocks |  |
-| `dead_brain_coral_fan` | Dead Brain Coral Fan | Blocks |  |
-| `dead_brain_coral_wall_fan` |  |  |  |
-| `dead_bubble_coral` | Dead Bubble Coral | Blocks |  |
-| `dead_bubble_coral_block` | Dead Bubble Coral Block | Blocks |  |
-| `dead_bubble_coral_fan` | Dead Bubble Coral Fan | Blocks |  |
-| `dead_bubble_coral_wall_fan` |  |  |  |
-| `dead_fire_coral` | Dead Fire Coral | Blocks |  |
-| `dead_fire_coral_block` | Dead Fire Coral Block | Blocks |  |
-| `dead_fire_coral_fan` | Dead Fire Coral Fan | Blocks |  |
-| `dead_fire_coral_wall_fan` |  |  |  |
-| `dead_horn_coral` | Dead Horn Coral | Blocks |  |
-| `dead_horn_coral_block` | Dead Horn Coral Block | Blocks |  |
-| `dead_horn_coral_fan` | Dead Horn Coral Fan | Blocks |  |
-| `dead_horn_coral_wall_fan` |  |  |  |
-| `dead_tube_coral` | Dead Tube Coral | Blocks |  |
-| `dead_tube_coral_block` | Dead Tube Coral Block | Blocks |  |
-| `dead_tube_coral_fan` | Dead Tube Coral Fan | Blocks |  |
-| `dead_tube_coral_wall_fan` |  |  |  |
-| `deadbush` | Deadbush | Blocks |  |
-| `decorated_pot` | Decorated Pot | Blocks |  |
-| `deepslate` | Deepslate | Blocks |  |
-| `deepslate_brick_double_slab` |  |  |  |
-| `deepslate_brick_slab` | Deepslate Brick Slab | Blocks |  |
-| `deepslate_brick_stairs` | Deepslate Brick Stairs | Blocks |  |
-| `deepslate_brick_wall` | Deepslate Brick Wall | Blocks |  |
-| `deepslate_bricks` | Deepslate Bricks | Blocks |  |
-| `deepslate_coal_ore` | Deepslate Coal Ore | Materials |  |
-| `deepslate_copper_ore` | Deepslate Copper Ore | Blocks |  |
-| `deepslate_diamond_ore` | Deepslate Diamond Ore | Materials |  |
-| `deepslate_emerald_ore` | Deepslate Emerald Ore | Materials |  |
-| `deepslate_gold_ore` | Deepslate Gold Ore | Blocks |  |
-| `deepslate_iron_ore` | Deepslate Iron Ore | Blocks |  |
-| `deepslate_lapis_ore` | Deepslate Lapis Ore | Materials |  |
-| `deepslate_redstone_ore` | Deepslate Redstone Ore | Materials |  |
-| `deepslate_tile_double_slab` |  |  |  |
-| `deepslate_tile_slab` | Deepslate Tile Slab | Blocks | minecraft:vertical_half = bottom |
-| `deepslate_tile_stairs` | Deepslate Tile Stairs | Blocks | minecraft:corner = none, outer_left, outer_right; upside_down_bit = 0; weirdo_direction = 0, 1, 2, 3 |
-| `deepslate_tile_wall` | Deepslate Tile Wall | Blocks |  |
-| `deepslate_tiles` | Deepslate Tiles | Blocks |  |
-| `deny` | Deny | Blocks |  |
-| `detector_rail` | Detector Rail | Blocks |  |
-| `diamond_block` | Diamond Block | Materials |  |
-| `diamond_ore` | Diamond Ore | Materials |  |
-| `diorite` | Diorite | Blocks |  |
-| `diorite_double_slab` |  |  |  |
-| `diorite_slab` | Diorite Slab | Blocks |  |
-| `diorite_stairs` | Diorite Stairs | Blocks |  |
-| `diorite_wall` | Diorite Wall | Blocks |  |
-| `dirt` | Dirt | Blocks |  |
-| `dirt_with_roots` | Dirt With Roots | Blocks |  |
-| `dispenser` | Dispenser | Blocks |  |
-| `double_cut_copper_slab` |  |  |  |
-| `dragon_egg` | Dragon Egg | Blocks |  |
-| `dragon_head` | Dragon Head | Miscellaneous |  |
-| `dried_ghast` | Dried Ghast | Miscellaneous |  |
-| `dried_kelp_block` | Dried Kelp Block | Food |  |
-| `dripstone_block` | Dripstone Block | Blocks |  |
-| `dropper` | Dropper | Blocks |  |
-| `emerald_block` | Emerald Block | Materials |  |
-| `emerald_ore` | Emerald Ore | Materials |  |
-| `enchanting_table` | Enchanting Table | Blocks |  |
-| `end_brick_stairs` | End Brick Stairs | Blocks |  |
-| `end_bricks` | End Bricks | Blocks |  |
-| `end_portal` |  |  |  |
-| `end_portal_frame` | End Portal Frame | Blocks |  |
-| `end_rod` | End Rod | Blocks | facing_direction = 0 |
-| `end_stone` | End Stone | Blocks |  |
-| `end_stone_brick_double_slab` |  |  |  |
-| `end_stone_brick_slab` | End Stone Brick Slab | Blocks |  |
-| `end_stone_brick_wall` | End Stone Brick Wall | Blocks |  |
-| `ender_chest` | Ender Chest | Blocks |  |
-| `exposed_chiseled_copper` | Exposed Chiseled Copper | Blocks |  |
-| `exposed_copper` | Exposed Copper | Blocks |  |
-| `exposed_copper_bars` | Exposed Copper Bars | Blocks |  |
-| `exposed_copper_bulb` | Exposed Copper Bulb | Blocks |  |
-| `exposed_copper_chain` | Exposed Copper Chain | Miscellaneous | pillar_axis = y |
-| `exposed_copper_chest` | Exposed Copper Chest | Blocks |  |
-| `exposed_copper_door` | Exposed Copper Door | Miscellaneous |  |
-| `exposed_copper_golem_statue` | Exposed Copper Golem Statue | Blocks |  |
-| `exposed_copper_grate` | Exposed Copper Grate | Blocks |  |
-| `exposed_copper_lantern` | Exposed Copper Lantern | Miscellaneous |  |
-| `exposed_copper_trapdoor` | Exposed Copper Trapdoor | Blocks |  |
-| `exposed_cut_copper` | Exposed Cut Copper | Blocks |  |
-| `exposed_cut_copper_slab` | Exposed Cut Copper Slab | Blocks |  |
-| `exposed_cut_copper_stairs` | Exposed Cut Copper Stairs | Blocks |  |
-| `exposed_double_cut_copper_slab` |  |  |  |
-| `exposed_lightning_rod` | Exposed Lightning Rod | Blocks |  |
-| `farmland` | Farmland | Blocks | moisturized_amount = 0, 7 |
-| `fence_gate` | Fence Gate | Blocks |  |
-| `fern` | Fern | Blocks |  |
-| `fire` |  |  |  |
-| `fire_coral` | Fire Coral | Blocks |  |
-| `fire_coral_block` | Fire Coral Block | Blocks |  |
-| `fire_coral_fan` | Fire Coral Fan | Blocks |  |
-| `fire_coral_wall_fan` |  |  |  |
-| `firefly_bush` | Firefly Bush | Miscellaneous |  |
-| `fletching_table` | Fletching Table | Blocks |  |
-| `flower_pot` | Flower Pot | Miscellaneous | update_bit = 0, 1 |
-| `flowering_azalea` | Flowering Azalea | Blocks |  |
-| `flowing_lava` |  |  |  |
-| `flowing_water` |  |  |  |
-| `frame` | Frame | Miscellaneous | facing_direction = 2; item_frame_map_bit = 0; item_frame_photo_bit = 0 |
-| `frog_spawn` | Frog Spawn | Blocks |  |
-| `frosted_ice` | Frosted Ice | Blocks |  |
-| `furnace` | Furnace | Blocks | minecraft:cardinal_direction = west, south |
-| `gilded_blackstone` | Gilded Blackstone | Blocks |  |
-| `glass` | Glass | Blocks |  |
-| `glass_pane` | Glass Pane | Blocks | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
-| `glow_frame` | Glow Frame | Miscellaneous |  |
-| `glow_lichen` | Glow Lichen | Blocks |  |
-| `glowstone` | Glowstone | Blocks |  |
-| `gold_block` | Gold Block | Blocks |  |
-| `gold_ore` | Gold Ore | Blocks |  |
-| `golden_dandelion` | Golden Dandelion | Blocks |  |
-| `golden_rail` | Golden Rail | Blocks |  |
-| `granite` | Granite | Blocks |  |
-| `granite_double_slab` |  |  |  |
-| `granite_slab` | Granite Slab | Blocks |  |
-| `granite_stairs` | Granite Stairs | Blocks |  |
-| `granite_wall` | Granite Wall | Blocks |  |
-| `grass_block` | Grass Block | Blocks |  |
-| `grass_path` | Grass Path | Blocks |  |
-| `gravel` | Gravel | Blocks |  |
-| `gray_candle` | Gray Candle | Blocks |  |
-| `gray_candle_cake` |  |  |  |
-| `gray_carpet` | Gray Carpet | Blocks |  |
-| `gray_concrete` | Gray Concrete | Blocks |  |
-| `gray_concrete_powder` | Gray Concrete Powder | Blocks |  |
-| `gray_glazed_terracotta` | Gray Glazed Terracotta | Blocks |  |
-| `gray_shulker_box` | Gray Shulker Box | Blocks |  |
-| `gray_stained_glass` | Gray Stained Glass | Blocks |  |
-| `gray_stained_glass_pane` | Gray Stained Glass Pane | Blocks |  |
-| `gray_terracotta` | Gray Terracotta | Blocks |  |
-| `gray_wool` | Gray Wool | Blocks |  |
-| `green_candle` | Green Candle | Blocks |  |
-| `green_candle_cake` |  |  |  |
-| `green_carpet` | Green Carpet | Blocks |  |
-| `green_concrete` | Green Concrete | Blocks |  |
-| `green_concrete_powder` | Green Concrete Powder | Blocks |  |
-| `green_glazed_terracotta` | Green Glazed Terracotta | Blocks |  |
-| `green_shulker_box` | Green Shulker Box | Blocks |  |
-| `green_stained_glass` | Green Stained Glass | Blocks |  |
-| `green_stained_glass_pane` | Green Stained Glass Pane | Blocks |  |
-| `green_terracotta` | Green Terracotta | Blocks |  |
-| `green_wool` | Green Wool | Blocks |  |
-| `grindstone` | Grindstone | Blocks | attachment = hanging, standing; direction = 1, 2 |
-| `hanging_roots` | Hanging Roots | Miscellaneous |  |
-| `hard_black_stained_glass` |  |  |  |
-| `hard_black_stained_glass_pane` |  |  |  |
-| `hard_blue_stained_glass` |  |  |  |
-| `hard_blue_stained_glass_pane` |  |  |  |
-| `hard_brown_stained_glass` |  |  |  |
-| `hard_brown_stained_glass_pane` |  |  |  |
-| `hard_cyan_stained_glass` |  |  |  |
-| `hard_cyan_stained_glass_pane` |  |  |  |
-| `hard_glass` |  |  |  |
-| `hard_glass_pane` |  |  |  |
-| `hard_gray_stained_glass` |  |  |  |
-| `hard_gray_stained_glass_pane` |  |  |  |
-| `hard_green_stained_glass` |  |  |  |
-| `hard_green_stained_glass_pane` |  |  |  |
-| `hard_light_blue_stained_glass` |  |  |  |
-| `hard_light_blue_stained_glass_pane` |  |  |  |
-| `hard_light_gray_stained_glass` |  |  |  |
-| `hard_light_gray_stained_glass_pane` |  |  |  |
-| `hard_lime_stained_glass` |  |  |  |
-| `hard_lime_stained_glass_pane` |  |  |  |
-| `hard_magenta_stained_glass` |  |  |  |
-| `hard_magenta_stained_glass_pane` |  |  |  |
-| `hard_orange_stained_glass` |  |  |  |
-| `hard_orange_stained_glass_pane` |  |  |  |
-| `hard_pink_stained_glass` |  |  |  |
-| `hard_pink_stained_glass_pane` |  |  |  |
-| `hard_purple_stained_glass` |  |  |  |
-| `hard_purple_stained_glass_pane` |  |  |  |
-| `hard_red_stained_glass` |  |  |  |
-| `hard_red_stained_glass_pane` |  |  |  |
-| `hard_white_stained_glass` |  |  |  |
-| `hard_white_stained_glass_pane` |  |  |  |
-| `hard_yellow_stained_glass` |  |  |  |
-| `hard_yellow_stained_glass_pane` |  |  |  |
-| `hardened_clay` | Hardened Clay | Blocks |  |
-| `hay_block` | Hay Block | Blocks | deprecated = 0; pillar_axis = y |
-| `heavy_core` | Heavy Core | Blocks |  |
-| `heavy_weighted_pressure_plate` | Heavy Weighted Pressure Plate | Blocks |  |
-| `honey_block` | Honey Block | Miscellaneous |  |
-| `honeycomb_block` | Honeycomb Block | Blocks |  |
-| `hopper` | Hopper | Miscellaneous |  |
-| `horn_coral` | Horn Coral | Blocks |  |
-| `horn_coral_block` | Horn Coral Block | Blocks |  |
-| `horn_coral_fan` | Horn Coral Fan | Blocks |  |
-| `horn_coral_wall_fan` |  |  |  |
-| `ice` | Ice | Blocks |  |
-| `infested_chiseled_stone_bricks` | Infested Chiseled Stone Bricks | Blocks |  |
-| `infested_cobblestone` | Infested Cobblestone | Blocks |  |
-| `infested_cracked_stone_bricks` | Infested Cracked Stone Bricks | Blocks |  |
-| `infested_deepslate` | Infested Deepslate | Blocks |  |
-| `infested_mossy_stone_bricks` | Infested Mossy Stone Bricks | Blocks |  |
-| `infested_stone` | Infested Stone | Blocks |  |
-| `infested_stone_bricks` | Infested Stone Bricks | Blocks |  |
-| `iron_bars` | Iron Bars | Blocks | minecraft:connection_east = 0, 1; minecraft:connection_north = 0; minecraft:connection_south = 0; minecraft:connection_west = 0, 1 |
-| `iron_block` | Iron Block | Blocks |  |
-| `iron_chain` | Iron Chain | Miscellaneous | pillar_axis = y, z |
-| `iron_door` | Iron Door | Miscellaneous |  |
-| `iron_ore` | Iron Ore | Blocks |  |
-| `iron_trapdoor` | Iron Trapdoor | Blocks |  |
-| `jigsaw` | Jigsaw | Blocks |  |
-| `jukebox` | Jukebox | Blocks |  |
-| `jungle_button` | Jungle Button | Blocks |  |
-| `jungle_door` | Jungle Door | Miscellaneous |  |
-| `jungle_double_slab` |  |  |  |
-| `jungle_fence` | Jungle Fence | Blocks |  |
-| `jungle_fence_gate` | Jungle Fence Gate | Blocks |  |
-| `jungle_hanging_sign` | Jungle Hanging Sign | Miscellaneous |  |
-| `jungle_leaves` | Jungle Leaves | Blocks | persistent_bit = 0; update_bit = 0 |
-| `jungle_log` | Jungle Log | Blocks |  |
-| `jungle_planks` | Jungle Planks | Blocks |  |
-| `jungle_pressure_plate` | Jungle Pressure Plate | Blocks |  |
-| `jungle_sapling` | Jungle Sapling | Blocks |  |
-| `jungle_shelf` | Jungle Shelf | Blocks |  |
-| `jungle_slab` | Jungle Slab | Blocks |  |
-| `jungle_stairs` | Jungle Stairs | Blocks |  |
-| `jungle_standing_sign` |  |  |  |
-| `jungle_trapdoor` | Jungle Trapdoor | Blocks |  |
-| `jungle_wall_sign` |  |  |  |
-| `jungle_wood` | Jungle Wood | Blocks |  |
-| `kelp` | Kelp | Miscellaneous |  |
-| `lab_table` |  |  |  |
-| `ladder` | Ladder | Blocks | facing_direction = 4 |
-| `lantern` | Lantern | Miscellaneous | hanging = 0, 1 |
-| `lapis_block` | Lapis Block | Materials |  |
-| `lapis_ore` | Lapis Ore | Materials |  |
-| `large_amethyst_bud` | Large Amethyst Bud | Materials |  |
-| `large_fern` | Large Fern | Blocks | upper_block_bit = 0, 1 |
-| `lava` |  |  |  |
-| `leaf_litter` | Leaf Litter | Miscellaneous |  |
-| `lectern` | Lectern | Blocks | minecraft:cardinal_direction = north, south; powered_bit = 0 |
-| `lever` | Lever | Miscellaneous |  |
-| `light_block_0` | Light Block 0 | Miscellaneous |  |
-| `light_block_1` | Light Block 1 | Miscellaneous |  |
-| `light_block_10` | Light Block 10 | Miscellaneous |  |
-| `light_block_11` | Light Block 11 | Miscellaneous |  |
-| `light_block_12` | Light Block 12 | Miscellaneous |  |
-| `light_block_13` | Light Block 13 | Miscellaneous |  |
-| `light_block_14` | Light Block 14 | Miscellaneous |  |
-| `light_block_15` | Light Block 15 | Miscellaneous |  |
-| `light_block_2` | Light Block 2 | Miscellaneous |  |
-| `light_block_3` | Light Block 3 | Miscellaneous |  |
-| `light_block_4` | Light Block 4 | Miscellaneous |  |
-| `light_block_5` | Light Block 5 | Miscellaneous |  |
-| `light_block_6` | Light Block 6 | Miscellaneous |  |
-| `light_block_7` | Light Block 7 | Miscellaneous |  |
-| `light_block_8` | Light Block 8 | Miscellaneous |  |
-| `light_block_9` | Light Block 9 | Miscellaneous |  |
-| `light_blue_candle` | Light Blue Candle | Blocks |  |
-| `light_blue_candle_cake` |  |  |  |
-| `light_blue_carpet` | Light Blue Carpet | Blocks |  |
-| `light_blue_concrete` | Light Blue Concrete | Blocks |  |
-| `light_blue_concrete_powder` | Light Blue Concrete Powder | Blocks |  |
-| `light_blue_glazed_terracotta` | Light Blue Glazed Terracotta | Blocks |  |
-| `light_blue_shulker_box` | Light Blue Shulker Box | Blocks |  |
-| `light_blue_stained_glass` | Light Blue Stained Glass | Blocks |  |
-| `light_blue_stained_glass_pane` | Light Blue Stained Glass Pane | Blocks |  |
-| `light_blue_terracotta` | Light Blue Terracotta | Blocks |  |
-| `light_blue_wool` | Light Blue Wool | Blocks |  |
-| `light_gray_candle` | Light Gray Candle | Blocks |  |
-| `light_gray_candle_cake` |  |  |  |
-| `light_gray_carpet` | Light Gray Carpet | Blocks |  |
-| `light_gray_concrete` | Light Gray Concrete | Blocks |  |
-| `light_gray_concrete_powder` | Light Gray Concrete Powder | Blocks |  |
-| `light_gray_shulker_box` | Light Gray Shulker Box | Blocks |  |
-| `light_gray_stained_glass` | Light Gray Stained Glass | Blocks |  |
-| `light_gray_stained_glass_pane` | Light Gray Stained Glass Pane | Blocks |  |
-| `light_gray_terracotta` | Light Gray Terracotta | Blocks |  |
-| `light_gray_wool` | Light Gray Wool | Blocks |  |
-| `light_weighted_pressure_plate` | Light Weighted Pressure Plate | Blocks |  |
-| `lightning_rod` | Lightning Rod | Blocks | facing_direction = 0; powered_bit = 0 |
-| `lilac` | Lilac | Blocks |  |
-| `lily_of_the_valley` | Lily Of The Valley | Blocks |  |
-| `lime_candle` | Lime Candle | Blocks |  |
-| `lime_candle_cake` |  |  |  |
-| `lime_carpet` | Lime Carpet | Blocks |  |
-| `lime_concrete` | Lime Concrete | Blocks |  |
-| `lime_concrete_powder` | Lime Concrete Powder | Blocks |  |
-| `lime_glazed_terracotta` | Lime Glazed Terracotta | Blocks |  |
-| `lime_shulker_box` | Lime Shulker Box | Blocks |  |
-| `lime_stained_glass` | Lime Stained Glass | Blocks |  |
-| `lime_stained_glass_pane` | Lime Stained Glass Pane | Blocks |  |
-| `lime_terracotta` | Lime Terracotta | Blocks |  |
-| `lime_wool` | Lime Wool | Blocks |  |
-| `lit_blast_furnace` |  |  |  |
-| `lit_deepslate_redstone_ore` |  |  |  |
-| `lit_furnace` |  |  |  |
-| `lit_pumpkin` | Lit Pumpkin | Blocks |  |
-| `lit_redstone_lamp` |  |  |  |
-| `lit_redstone_ore` |  |  |  |
-| `lit_smoker` |  |  |  |
-| `lodestone` | Lodestone | Blocks |  |
-| `loom` | Loom | Blocks |  |
-| `magenta_candle` | Magenta Candle | Blocks |  |
-| `magenta_candle_cake` |  |  |  |
-| `magenta_carpet` | Magenta Carpet | Blocks |  |
-| `magenta_concrete` | Magenta Concrete | Blocks |  |
-| `magenta_concrete_powder` | Magenta Concrete Powder | Blocks |  |
-| `magenta_glazed_terracotta` | Magenta Glazed Terracotta | Blocks |  |
-| `magenta_shulker_box` | Magenta Shulker Box | Blocks |  |
-| `magenta_stained_glass` | Magenta Stained Glass | Blocks |  |
-| `magenta_stained_glass_pane` | Magenta Stained Glass Pane | Blocks | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
-| `magenta_terracotta` | Magenta Terracotta | Blocks |  |
-| `magenta_wool` | Magenta Wool | Blocks |  |
-| `magma` | Magma | Blocks |  |
-| `mangrove_button` | Mangrove Button | Blocks |  |
-| `mangrove_door` | Mangrove Door | Miscellaneous |  |
-| `mangrove_double_slab` |  |  |  |
-| `mangrove_fence` | Mangrove Fence | Blocks |  |
-| `mangrove_fence_gate` | Mangrove Fence Gate | Blocks |  |
-| `mangrove_hanging_sign` | Mangrove Hanging Sign | Miscellaneous |  |
-| `mangrove_leaves` | Mangrove Leaves | Blocks |  |
-| `mangrove_log` | Mangrove Log | Blocks |  |
-| `mangrove_planks` | Mangrove Planks | Blocks |  |
-| `mangrove_pressure_plate` | Mangrove Pressure Plate | Blocks |  |
-| `mangrove_propagule` | Mangrove Propagule | Miscellaneous |  |
-| `mangrove_roots` | Mangrove Roots | Blocks |  |
-| `mangrove_shelf` | Mangrove Shelf | Blocks |  |
-| `mangrove_slab` | Mangrove Slab | Blocks |  |
-| `mangrove_stairs` | Mangrove Stairs | Blocks |  |
-| `mangrove_standing_sign` |  |  |  |
-| `mangrove_trapdoor` | Mangrove Trapdoor | Blocks |  |
-| `mangrove_wall_sign` |  |  |  |
-| `mangrove_wood` | Mangrove Wood | Blocks |  |
-| `material_reducer` |  |  |  |
-| `medium_amethyst_bud` | Medium Amethyst Bud | Materials |  |
-| `melon_block` | Melon Block | Blocks |  |
-| `melon_stem` |  |  |  |
-| `mob_spawner` | Mob Spawner | Blocks |  |
-| `moss_block` | Moss Block | Blocks |  |
-| `moss_carpet` | Moss Carpet | Blocks |  |
-| `mossy_cobblestone` | Mossy Cobblestone | Blocks |  |
-| `mossy_cobblestone_double_slab` |  |  |  |
-| `mossy_cobblestone_slab` | Mossy Cobblestone Slab | Blocks |  |
-| `mossy_cobblestone_stairs` | Mossy Cobblestone Stairs | Blocks |  |
-| `mossy_cobblestone_wall` | Mossy Cobblestone Wall | Blocks |  |
-| `mossy_stone_brick_double_slab` |  |  |  |
-| `mossy_stone_brick_slab` | Mossy Stone Brick Slab | Blocks |  |
-| `mossy_stone_brick_stairs` | Mossy Stone Brick Stairs | Blocks | minecraft:corner = none; upside_down_bit = 0; weirdo_direction = 0, 2 |
-| `mossy_stone_brick_wall` | Mossy Stone Brick Wall | Blocks |  |
-| `mossy_stone_bricks` | Mossy Stone Bricks | Blocks |  |
-| `mud` | Mud | Blocks |  |
-| `mud_brick_double_slab` |  |  |  |
-| `mud_brick_slab` | Mud Brick Slab | Blocks |  |
-| `mud_brick_stairs` | Mud Brick Stairs | Blocks |  |
-| `mud_brick_wall` | Mud Brick Wall | Blocks |  |
-| `mud_bricks` | Mud Bricks | Blocks |  |
-| `muddy_mangrove_roots` | Muddy Mangrove Roots | Blocks |  |
-| `mushroom_stem` | Mushroom Stem | Blocks |  |
-| `mycelium` | Mycelium | Blocks |  |
-| `nether_brick` | Nether Brick | Blocks |  |
-| `nether_brick_double_slab` |  |  | minecraft:vertical_half = bottom |
-| `nether_brick_fence` | Nether Brick Fence | Blocks | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0; minecraft:connection_west = 0 |
-| `nether_brick_slab` | Nether Brick Slab | Blocks | minecraft:vertical_half = bottom |
-| `nether_brick_stairs` | Nether Brick Stairs | Blocks |  |
-| `nether_brick_wall` | Nether Brick Wall | Blocks | wall_connection_type_east = none; wall_connection_type_north = none; wall_connection_type_south = none, short; wall_connection_type_west = none; wall_post_bit = 1 |
-| `nether_gold_ore` | Nether Gold Ore | Blocks |  |
-| `nether_sprouts` | Nether Sprouts | Miscellaneous |  |
-| `nether_wart` | Nether Wart | Brewing |  |
-| `nether_wart_block` | Nether Wart Block | Brewing |  |
-| `netherite_block` | Netherite Block | Blocks |  |
-| `netherrack` | Netherrack | Blocks |  |
-| `normal_stone_double_slab` |  |  |  |
-| `normal_stone_slab` | Normal Stone Slab | Blocks |  |
-| `normal_stone_stairs` | Normal Stone Stairs | Blocks | minecraft:corner = none; upside_down_bit = 0, 1; weirdo_direction = 0, 1, 2, 3 |
-| `noteblock` | Noteblock | Blocks |  |
-| `oak_double_slab` |  |  |  |
-| `oak_fence` | Oak Fence | Blocks |  |
-| `oak_hanging_sign` | Oak Hanging Sign | Miscellaneous |  |
-| `oak_leaves` | Oak Leaves | Blocks | persistent_bit = 0, 1; update_bit = 0, 1 |
-| `oak_log` | Oak Log | Blocks | pillar_axis = x, y, z |
-| `oak_planks` | Oak Planks | Blocks |  |
-| `oak_sapling` | Oak Sapling | Blocks |  |
-| `oak_shelf` | Oak Shelf | Blocks |  |
-| `oak_slab` | Oak Slab | Blocks | minecraft:vertical_half = top, bottom |
-| `oak_stairs` | Oak Stairs | Blocks | minecraft:corner = none, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0, 1, 2, 3 |
-| `oak_wood` | Oak Wood | Blocks |  |
-| `observer` | Observer | Blocks |  |
-| `obsidian` | Obsidian | Blocks |  |
-| `ochre_froglight` | Ochre Froglight | Blocks |  |
-| `open_eyeblossom` | Open Eyeblossom | Blocks |  |
-| `orange_candle` | Orange Candle | Blocks |  |
-| `orange_candle_cake` |  |  |  |
-| `orange_carpet` | Orange Carpet | Blocks |  |
-| `orange_concrete` | Orange Concrete | Blocks |  |
-| `orange_concrete_powder` | Orange Concrete Powder | Blocks |  |
-| `orange_glazed_terracotta` | Orange Glazed Terracotta | Blocks |  |
-| `orange_shulker_box` | Orange Shulker Box | Blocks |  |
-| `orange_stained_glass` | Orange Stained Glass | Blocks |  |
-| `orange_stained_glass_pane` | Orange Stained Glass Pane | Blocks |  |
-| `orange_terracotta` | Orange Terracotta | Blocks |  |
-| `orange_tulip` | Orange Tulip | Blocks |  |
-| `orange_wool` | Orange Wool | Blocks |  |
-| `oxeye_daisy` | Oxeye Daisy | Blocks |  |
-| `oxidized_chiseled_copper` | Oxidized Chiseled Copper | Blocks |  |
-| `oxidized_copper` | Oxidized Copper | Blocks |  |
-| `oxidized_copper_bars` | Oxidized Copper Bars | Blocks |  |
-| `oxidized_copper_bulb` | Oxidized Copper Bulb | Blocks |  |
-| `oxidized_copper_chain` | Oxidized Copper Chain | Miscellaneous |  |
-| `oxidized_copper_chest` | Oxidized Copper Chest | Blocks |  |
-| `oxidized_copper_door` | Oxidized Copper Door | Miscellaneous |  |
-| `oxidized_copper_golem_statue` | Oxidized Copper Golem Statue | Blocks |  |
-| `oxidized_copper_grate` | Oxidized Copper Grate | Blocks |  |
-| `oxidized_copper_lantern` | Oxidized Copper Lantern | Miscellaneous |  |
-| `oxidized_copper_trapdoor` | Oxidized Copper Trapdoor | Blocks |  |
-| `oxidized_cut_copper` | Oxidized Cut Copper | Blocks |  |
-| `oxidized_cut_copper_slab` | Oxidized Cut Copper Slab | Blocks |  |
-| `oxidized_cut_copper_stairs` | Oxidized Cut Copper Stairs | Blocks |  |
-| `oxidized_double_cut_copper_slab` |  |  |  |
-| `oxidized_lightning_rod` | Oxidized Lightning Rod | Blocks |  |
-| `packed_ice` | Packed Ice | Blocks |  |
-| `packed_mud` | Packed Mud | Blocks |  |
-| `pale_hanging_moss` | Pale Hanging Moss | Blocks |  |
-| `pale_moss_block` | Pale Moss Block | Blocks |  |
-| `pale_moss_carpet` | Pale Moss Carpet | Blocks |  |
-| `pale_oak_button` | Pale Oak Button | Blocks |  |
-| `pale_oak_door` | Pale Oak Door | Miscellaneous | door_hinge_bit = 0, 1; minecraft:cardinal_direction = west, north, south; open_bit = 0, 1; upper_block_bit = 0, 1 |
-| `pale_oak_double_slab` |  |  | minecraft:vertical_half = bottom |
-| `pale_oak_fence` | Pale Oak Fence | Blocks | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
-| `pale_oak_fence_gate` | Pale Oak Fence Gate | Blocks |  |
-| `pale_oak_hanging_sign` | Pale Oak Hanging Sign | Miscellaneous |  |
-| `pale_oak_leaves` | Pale Oak Leaves | Blocks |  |
-| `pale_oak_log` | Pale Oak Log | Blocks |  |
-| `pale_oak_planks` | Pale Oak Planks | Blocks |  |
-| `pale_oak_pressure_plate` | Pale Oak Pressure Plate | Blocks |  |
-| `pale_oak_sapling` | Pale Oak Sapling | Blocks |  |
-| `pale_oak_shelf` | Pale Oak Shelf | Blocks |  |
-| `pale_oak_slab` | Pale Oak Slab | Blocks | minecraft:vertical_half = top, bottom |
-| `pale_oak_stairs` | Pale Oak Stairs | Blocks | minecraft:corner = none; upside_down_bit = 0, 1; weirdo_direction = 0, 1, 3 |
-| `pale_oak_standing_sign` |  |  |  |
-| `pale_oak_trapdoor` | Pale Oak Trapdoor | Blocks | direction = 0, 1, 2, 3; open_bit = 0, 1; upside_down_bit = 0, 1 |
-| `pale_oak_wall_sign` |  |  |  |
-| `pale_oak_wood` | Pale Oak Wood | Blocks |  |
-| `pearlescent_froglight` | Pearlescent Froglight | Blocks |  |
-| `peony` | Peony | Blocks |  |
-| `petrified_oak_double_slab` |  |  |  |
-| `petrified_oak_slab` | Petrified Oak Slab | Blocks |  |
-| `piglin_head` | Piglin Head | Miscellaneous |  |
-| `pink_candle` | Pink Candle | Blocks |  |
-| `pink_candle_cake` |  |  |  |
-| `pink_carpet` | Pink Carpet | Blocks |  |
-| `pink_concrete` | Pink Concrete | Blocks |  |
-| `pink_concrete_powder` | Pink Concrete Powder | Blocks |  |
-| `pink_glazed_terracotta` | Pink Glazed Terracotta | Blocks |  |
-| `pink_petals` | Pink Petals | Miscellaneous |  |
-| `pink_shulker_box` | Pink Shulker Box | Blocks |  |
-| `pink_stained_glass` | Pink Stained Glass | Blocks |  |
-| `pink_stained_glass_pane` | Pink Stained Glass Pane | Blocks | minecraft:connection_east = 1; minecraft:connection_north = 0; minecraft:connection_south = 0; minecraft:connection_west = 1 |
-| `pink_terracotta` | Pink Terracotta | Blocks |  |
-| `pink_tulip` | Pink Tulip | Blocks |  |
-| `pink_wool` | Pink Wool | Blocks |  |
-| `piston` | Piston | Blocks |  |
-| `piston_arm_collision` |  |  |  |
-| `pitcher_crop` |  |  |  |
-| `pitcher_plant` | Pitcher Plant | Blocks |  |
-| `player_head` | Player Head | Miscellaneous |  |
-| `podzol` | Podzol | Blocks |  |
-| `pointed_dripstone` | Pointed Dripstone | Blocks |  |
-| `polished_andesite` | Polished Andesite | Blocks |  |
-| `polished_andesite_double_slab` |  |  |  |
-| `polished_andesite_slab` | Polished Andesite Slab | Blocks |  |
-| `polished_andesite_stairs` | Polished Andesite Stairs | Blocks | minecraft:corner = none; upside_down_bit = 0, 1; weirdo_direction = 1, 2, 3 |
-| `polished_basalt` | Polished Basalt | Blocks |  |
-| `polished_blackstone` | Polished Blackstone | Blocks |  |
-| `polished_blackstone_brick_double_slab` |  |  |  |
-| `polished_blackstone_brick_slab` | Polished Blackstone Brick Slab | Blocks |  |
-| `polished_blackstone_brick_stairs` | Polished Blackstone Brick Stairs | Blocks |  |
-| `polished_blackstone_brick_wall` | Polished Blackstone Brick Wall | Blocks |  |
-| `polished_blackstone_bricks` | Polished Blackstone Bricks | Blocks |  |
-| `polished_blackstone_button` | Polished Blackstone Button | Blocks |  |
-| `polished_blackstone_double_slab` |  |  |  |
-| `polished_blackstone_pressure_plate` | Polished Blackstone Pressure Plate | Blocks |  |
-| `polished_blackstone_slab` | Polished Blackstone Slab | Blocks | minecraft:vertical_half = bottom |
-| `polished_blackstone_stairs` | Polished Blackstone Stairs | Blocks |  |
-| `polished_blackstone_wall` | Polished Blackstone Wall | Blocks |  |
-| `polished_deepslate` | Polished Deepslate | Blocks |  |
-| `polished_deepslate_double_slab` |  |  |  |
-| `polished_deepslate_slab` | Polished Deepslate Slab | Blocks |  |
-| `polished_deepslate_stairs` | Polished Deepslate Stairs | Blocks |  |
-| `polished_deepslate_wall` | Polished Deepslate Wall | Blocks |  |
-| `polished_diorite` | Polished Diorite | Blocks |  |
-| `polished_diorite_double_slab` |  |  |  |
-| `polished_diorite_slab` | Polished Diorite Slab | Blocks |  |
-| `polished_diorite_stairs` | Polished Diorite Stairs | Blocks |  |
-| `polished_granite` | Polished Granite | Blocks |  |
-| `polished_granite_double_slab` |  |  |  |
-| `polished_granite_slab` | Polished Granite Slab | Blocks |  |
-| `polished_granite_stairs` | Polished Granite Stairs | Blocks |  |
-| `polished_tuff` | Polished Tuff | Blocks |  |
-| `polished_tuff_double_slab` |  |  |  |
-| `polished_tuff_slab` | Polished Tuff Slab | Blocks | minecraft:vertical_half = top |
-| `polished_tuff_stairs` | Polished Tuff Stairs | Blocks | minecraft:corner = none; upside_down_bit = 0, 1; weirdo_direction = 0, 2, 3 |
-| `polished_tuff_wall` | Polished Tuff Wall | Blocks |  |
-| `poppy` | Poppy | Blocks |  |
-| `portal` |  |  |  |
-| `potatoes` |  |  | growth = 7 |
-| `powder_snow` |  |  |  |
-| `powered_comparator` |  |  |  |
-| `powered_repeater` |  |  |  |
-| `prismarine` | Prismarine | Blocks |  |
-| `prismarine_brick_double_slab` |  |  |  |
-| `prismarine_brick_slab` | Prismarine Brick Slab | Blocks |  |
-| `prismarine_bricks` | Prismarine Bricks | Blocks |  |
-| `prismarine_bricks_stairs` | Prismarine Bricks Stairs | Blocks |  |
-| `prismarine_double_slab` |  |  |  |
-| `prismarine_slab` | Prismarine Slab | Blocks |  |
-| `prismarine_stairs` | Prismarine Stairs | Blocks |  |
-| `prismarine_wall` | Prismarine Wall | Blocks |  |
-| `pumpkin` | Pumpkin | Blocks | minecraft:cardinal_direction = south |
-| `pumpkin_stem` |  |  |  |
-| `purple_candle` | Purple Candle | Blocks |  |
-| `purple_candle_cake` |  |  |  |
-| `purple_carpet` | Purple Carpet | Blocks |  |
-| `purple_concrete` | Purple Concrete | Blocks |  |
-| `purple_concrete_powder` | Purple Concrete Powder | Blocks |  |
-| `purple_glazed_terracotta` | Purple Glazed Terracotta | Blocks |  |
-| `purple_shulker_box` | Purple Shulker Box | Blocks |  |
-| `purple_stained_glass` | Purple Stained Glass | Blocks |  |
-| `purple_stained_glass_pane` | Purple Stained Glass Pane | Blocks | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0; minecraft:connection_west = 0, 1 |
-| `purple_terracotta` | Purple Terracotta | Blocks |  |
-| `purple_wool` | Purple Wool | Blocks |  |
-| `purpur_block` | Purpur Block | Blocks |  |
-| `purpur_double_slab` |  |  |  |
-| `purpur_pillar` | Purpur Pillar | Blocks |  |
-| `purpur_slab` | Purpur Slab | Blocks |  |
-| `purpur_stairs` | Purpur Stairs | Blocks |  |
-| `quartz_block` | Quartz Block | Materials |  |
-| `quartz_bricks` | Quartz Bricks | Materials |  |
-| `quartz_double_slab` |  |  |  |
-| `quartz_ore` | Quartz Ore | Materials |  |
-| `quartz_pillar` | Quartz Pillar | Materials |  |
-| `quartz_slab` | Quartz Slab | Materials |  |
-| `quartz_stairs` | Quartz Stairs | Materials |  |
-| `rail` | Rail | Blocks |  |
-| `raw_copper_block` | Raw Copper Block | Blocks |  |
-| `raw_gold_block` | Raw Gold Block | Blocks |  |
-| `raw_iron_block` | Raw Iron Block | Blocks |  |
-| `red_candle` | Red Candle | Blocks |  |
-| `red_candle_cake` |  |  |  |
-| `red_carpet` | Red Carpet | Blocks |  |
-| `red_concrete` | Red Concrete | Blocks |  |
-| `red_concrete_powder` | Red Concrete Powder | Blocks |  |
-| `red_glazed_terracotta` | Red Glazed Terracotta | Blocks |  |
-| `red_mushroom` | Red Mushroom | Blocks |  |
-| `red_mushroom_block` | Red Mushroom Block | Blocks |  |
-| `red_nether_brick` | Red Nether Brick | Blocks |  |
-| `red_nether_brick_double_slab` |  |  |  |
-| `red_nether_brick_slab` | Red Nether Brick Slab | Blocks |  |
-| `red_nether_brick_stairs` | Red Nether Brick Stairs | Blocks |  |
-| `red_nether_brick_wall` | Red Nether Brick Wall | Blocks |  |
-| `red_sand` | Red Sand | Blocks |  |
-| `red_sandstone` | Red Sandstone | Blocks |  |
-| `red_sandstone_double_slab` |  |  |  |
-| `red_sandstone_slab` | Red Sandstone Slab | Blocks |  |
-| `red_sandstone_stairs` | Red Sandstone Stairs | Blocks |  |
-| `red_sandstone_wall` | Red Sandstone Wall | Blocks |  |
-| `red_shulker_box` | Red Shulker Box | Blocks |  |
-| `red_stained_glass` | Red Stained Glass | Blocks |  |
-| `red_stained_glass_pane` | Red Stained Glass Pane | Blocks |  |
-| `red_terracotta` | Red Terracotta | Blocks |  |
-| `red_tulip` | Red Tulip | Blocks |  |
-| `red_wool` | Red Wool | Blocks |  |
-| `redstone_block` | Redstone Block | Materials |  |
-| `redstone_lamp` | Redstone Lamp | Materials |  |
-| `redstone_ore` | Redstone Ore | Materials |  |
-| `redstone_torch` | Redstone Torch | Materials |  |
-| `redstone_wire` |  |  |  |
-| `reeds` |  |  |  |
-| `reinforced_deepslate` | Reinforced Deepslate | Blocks |  |
-| `repeating_command_block` | Repeating Command Block | Blocks |  |
-| `resin_block` | Resin Block | Blocks |  |
-| `resin_brick_double_slab` |  |  |  |
-| `resin_brick_slab` | Resin Brick Slab | Blocks |  |
-| `resin_brick_stairs` | Resin Brick Stairs | Blocks |  |
-| `resin_brick_wall` | Resin Brick Wall | Blocks |  |
-| `resin_bricks` | Resin Bricks | Blocks |  |
-| `resin_clump` | Resin Clump | Miscellaneous |  |
-| `respawn_anchor` | Respawn Anchor | Blocks |  |
-| `rose_bush` | Rose Bush | Blocks | upper_block_bit = 0, 1 |
-| `sand` | Sand | Blocks |  |
-| `sandstone` | Sandstone | Blocks |  |
-| `sandstone_double_slab` |  |  |  |
-| `sandstone_slab` | Sandstone Slab | Blocks |  |
-| `sandstone_stairs` | Sandstone Stairs | Blocks |  |
-| `sandstone_wall` | Sandstone Wall | Blocks |  |
-| `scaffolding` | Scaffolding | Blocks |  |
-| `sculk` | Sculk | Blocks |  |
-| `sculk_catalyst` | Sculk Catalyst | Blocks |  |
-| `sculk_sensor` | Sculk Sensor | Blocks |  |
-| `sculk_shrieker` | Sculk Shrieker | Blocks |  |
-| `sculk_vein` | Sculk Vein | Blocks |  |
-| `sea_lantern` | Sea Lantern | Blocks |  |
-| `sea_pickle` | Sea Pickle | Miscellaneous |  |
-| `seagrass` | Seagrass | Blocks |  |
-| `short_dry_grass` | Short Dry Grass | Blocks |  |
-| `short_grass` | Short Grass | Blocks |  |
-| `shroomlight` | Shroomlight | Blocks |  |
-| `silver_glazed_terracotta` | Silver Glazed Terracotta | Blocks |  |
-| `skeleton_skull` | Skeleton Skull | Miscellaneous |  |
-| `slime` | Slime | Blocks |  |
-| `small_amethyst_bud` | Small Amethyst Bud | Materials |  |
-| `small_dripleaf_block` | Small Dripleaf Block | Blocks |  |
-| `smithing_table` | Smithing Table | Blocks |  |
-| `smoker` | Smoker | Blocks | minecraft:cardinal_direction = east, north, south |
-| `smooth_basalt` | Smooth Basalt | Blocks |  |
-| `smooth_quartz` | Smooth Quartz | Materials | pillar_axis = y |
-| `smooth_quartz_double_slab` |  |  |  |
-| `smooth_quartz_slab` | Smooth Quartz Slab | Materials |  |
-| `smooth_quartz_stairs` | Smooth Quartz Stairs | Materials |  |
-| `smooth_red_sandstone` | Smooth Red Sandstone | Blocks |  |
-| `smooth_red_sandstone_double_slab` |  |  |  |
-| `smooth_red_sandstone_slab` | Smooth Red Sandstone Slab | Blocks |  |
-| `smooth_red_sandstone_stairs` | Smooth Red Sandstone Stairs | Blocks |  |
-| `smooth_sandstone` | Smooth Sandstone | Blocks |  |
-| `smooth_sandstone_double_slab` |  |  |  |
-| `smooth_sandstone_slab` | Smooth Sandstone Slab | Blocks |  |
-| `smooth_sandstone_stairs` | Smooth Sandstone Stairs | Blocks |  |
-| `smooth_stone` | Smooth Stone | Blocks |  |
-| `smooth_stone_double_slab` |  |  | minecraft:vertical_half = bottom |
-| `smooth_stone_slab` | Smooth Stone Slab | Blocks | minecraft:vertical_half = bottom |
-| `sniffer_egg` | Sniffer Egg | Miscellaneous |  |
-| `snow` | Snow | Blocks |  |
-| `snow_layer` | Snow Layer | Blocks |  |
-| `soul_campfire` | Soul Campfire | Miscellaneous |  |
-| `soul_fire` |  |  |  |
-| `soul_lantern` | Soul Lantern | Miscellaneous | hanging = 0, 1 |
-| `soul_sand` | Soul Sand | Blocks |  |
-| `soul_soil` | Soul Soil | Blocks |  |
-| `soul_torch` | Soul Torch | Blocks |  |
-| `sponge` | Sponge | Blocks |  |
-| `spore_blossom` | Spore Blossom | Blocks |  |
-| `spruce_button` | Spruce Button | Blocks | button_pressed_bit = 0; facing_direction = 5 |
-| `spruce_door` | Spruce Door | Miscellaneous | door_hinge_bit = 0; minecraft:cardinal_direction = west, south; open_bit = 0, 1; upper_block_bit = 0, 1 |
-| `spruce_double_slab` |  |  | minecraft:vertical_half = bottom |
-| `spruce_fence` | Spruce Fence | Blocks | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
-| `spruce_fence_gate` | Spruce Fence Gate | Blocks |  |
-| `spruce_hanging_sign` | Spruce Hanging Sign | Miscellaneous |  |
-| `spruce_leaves` | Spruce Leaves | Blocks | persistent_bit = 0, 1; update_bit = 0, 1 |
-| `spruce_log` | Spruce Log | Blocks | pillar_axis = x, y, z |
-| `spruce_planks` | Spruce Planks | Blocks |  |
-| `spruce_pressure_plate` | Spruce Pressure Plate | Blocks |  |
-| `spruce_sapling` | Spruce Sapling | Blocks | age_bit = 0 |
-| `spruce_shelf` | Spruce Shelf | Blocks |  |
-| `spruce_slab` | Spruce Slab | Blocks | minecraft:vertical_half = top, bottom |
-| `spruce_stairs` | Spruce Stairs | Blocks | minecraft:corner = none, inner_left, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0, 1, 2, 3 |
-| `spruce_standing_sign` |  |  |  |
-| `spruce_trapdoor` | Spruce Trapdoor | Blocks | direction = 0, 1, 2, 3; open_bit = 0, 1; upside_down_bit = 0, 1 |
-| `spruce_wall_sign` |  |  |  |
-| `spruce_wood` | Spruce Wood | Blocks |  |
-| `standing_banner` |  |  |  |
-| `standing_sign` |  |  | ground_sign_direction = 0 |
-| `sticky_piston` | Sticky Piston | Blocks |  |
-| `sticky_piston_arm_collision` |  |  |  |
-| `stone` | Stone | Blocks |  |
-| `stone_brick_double_slab` |  |  | minecraft:vertical_half = bottom |
-| `stone_brick_slab` | Stone Brick Slab | Blocks | minecraft:vertical_half = top, bottom |
-| `stone_brick_stairs` | Stone Brick Stairs | Blocks | minecraft:corner = none, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0, 1, 2, 3 |
-| `stone_brick_wall` | Stone Brick Wall | Blocks | wall_connection_type_east = none, tall, short; wall_connection_type_north = none, tall, short; wall_connection_type_south = none, tall, short; wall_connection_type_west = none, tall, short; wall_post_bit = 0, 1 |
-| `stone_bricks` | Stone Bricks | Blocks |  |
-| `stone_button` | Stone Button | Blocks |  |
-| `stone_pressure_plate` | Stone Pressure Plate | Blocks |  |
-| `stone_stairs` | Stone Stairs | Blocks |  |
-| `stonecutter_block` | Stonecutter Block | Blocks |  |
-| `stripped_acacia_log` | Stripped Acacia Log | Blocks |  |
-| `stripped_acacia_wood` | Stripped Acacia Wood | Blocks |  |
-| `stripped_bamboo_block` | Stripped Bamboo Block | Blocks |  |
-| `stripped_birch_log` | Stripped Birch Log | Blocks | pillar_axis = y |
-| `stripped_birch_wood` | Stripped Birch Wood | Blocks |  |
-| `stripped_cherry_log` | Stripped Cherry Log | Blocks |  |
-| `stripped_cherry_wood` | Stripped Cherry Wood | Blocks |  |
-| `stripped_crimson_hyphae` | Stripped Crimson Hyphae | Blocks |  |
-| `stripped_crimson_stem` | Stripped Crimson Stem | Blocks |  |
-| `stripped_dark_oak_log` | Stripped Dark Oak Log | Blocks | pillar_axis = x, y, z |
-| `stripped_dark_oak_wood` | Stripped Dark Oak Wood | Blocks |  |
-| `stripped_jungle_log` | Stripped Jungle Log | Blocks |  |
-| `stripped_jungle_wood` | Stripped Jungle Wood | Blocks |  |
-| `stripped_mangrove_log` | Stripped Mangrove Log | Blocks |  |
-| `stripped_mangrove_wood` | Stripped Mangrove Wood | Blocks |  |
-| `stripped_oak_log` | Stripped Oak Log | Blocks | pillar_axis = x, y, z |
-| `stripped_oak_wood` | Stripped Oak Wood | Blocks |  |
-| `stripped_pale_oak_log` | Stripped Pale Oak Log | Blocks |  |
-| `stripped_pale_oak_wood` | Stripped Pale Oak Wood | Blocks |  |
-| `stripped_spruce_log` | Stripped Spruce Log | Blocks | pillar_axis = x, y, z |
-| `stripped_spruce_wood` | Stripped Spruce Wood | Blocks |  |
-| `stripped_warped_hyphae` | Stripped Warped Hyphae | Blocks |  |
-| `stripped_warped_stem` | Stripped Warped Stem | Blocks |  |
-| `structure_block` | Structure Block | Blocks |  |
-| `structure_void` | Structure Void | Blocks |  |
-| `sunflower` | Sunflower | Blocks |  |
-| `suspicious_gravel` | Suspicious Gravel | Blocks |  |
-| `suspicious_sand` | Suspicious Sand | Blocks |  |
-| `sweet_berry_bush` |  |  | growth = 0, 1, 2, 3 |
-| `tall_dry_grass` | Tall Dry Grass | Blocks |  |
-| `tall_grass` | Tall Grass | Blocks | upper_block_bit = 0, 1 |
-| `target` | Target | Blocks |  |
-| `tinted_glass` | Tinted Glass | Blocks |  |
-| `tnt` | Tnt | Blocks |  |
-| `torch` | Torch | Blocks |  |
-| `torchflower` | Torchflower | Blocks |  |
-| `torchflower_crop` |  |  |  |
-| `trapdoor` | Trapdoor | Blocks |  |
-| `trapped_chest` | Trapped Chest | Blocks |  |
-| `trial_spawner` | Trial Spawner | Blocks |  |
-| `trip_wire` |  |  |  |
-| `tripwire_hook` | Tripwire Hook | Blocks |  |
-| `tube_coral` | Tube Coral | Blocks |  |
-| `tube_coral_block` | Tube Coral Block | Blocks |  |
-| `tube_coral_fan` | Tube Coral Fan | Blocks |  |
-| `tube_coral_wall_fan` |  |  |  |
-| `tuff` | Tuff | Blocks |  |
-| `tuff_brick_double_slab` |  |  | minecraft:vertical_half = bottom |
-| `tuff_brick_slab` | Tuff Brick Slab | Blocks | minecraft:vertical_half = top, bottom |
-| `tuff_brick_stairs` | Tuff Brick Stairs | Blocks | minecraft:corner = none; upside_down_bit = 0, 1; weirdo_direction = 0, 1, 2, 3 |
-| `tuff_brick_wall` | Tuff Brick Wall | Blocks |  |
-| `tuff_bricks` | Tuff Bricks | Blocks |  |
-| `tuff_double_slab` |  |  |  |
-| `tuff_slab` | Tuff Slab | Blocks |  |
-| `tuff_stairs` | Tuff Stairs | Blocks |  |
-| `tuff_wall` | Tuff Wall | Blocks |  |
-| `turtle_egg` | Turtle Egg | Miscellaneous |  |
-| `twisting_vines` | Twisting Vines | Blocks |  |
-| `underwater_tnt` |  |  |  |
-| `underwater_torch` |  |  |  |
-| `undyed_shulker_box` | Undyed Shulker Box | Materials |  |
-| `unknown` |  |  |  |
-| `unlit_redstone_torch` |  |  |  |
-| `unpowered_comparator` |  |  |  |
-| `unpowered_repeater` |  |  |  |
-| `vault` | Vault | Blocks |  |
-| `verdant_froglight` | Verdant Froglight | Blocks |  |
-| `vine` | Vine | Blocks | vine_direction_bits = 1, 2, 4, 8 |
-| `wall_banner` |  |  |  |
-| `wall_sign` |  |  |  |
-| `warped_button` | Warped Button | Blocks |  |
-| `warped_door` | Warped Door | Miscellaneous |  |
-| `warped_double_slab` |  |  |  |
-| `warped_fence` | Warped Fence | Blocks |  |
-| `warped_fence_gate` | Warped Fence Gate | Blocks |  |
-| `warped_fungus` | Warped Fungus | Blocks |  |
-| `warped_hanging_sign` | Warped Hanging Sign | Miscellaneous |  |
-| `warped_hyphae` | Warped Hyphae | Blocks |  |
-| `warped_nylium` | Warped Nylium | Blocks |  |
-| `warped_planks` | Warped Planks | Blocks |  |
-| `warped_pressure_plate` | Warped Pressure Plate | Blocks |  |
-| `warped_roots` | Warped Roots | Blocks |  |
-| `warped_shelf` | Warped Shelf | Blocks |  |
-| `warped_slab` | Warped Slab | Blocks |  |
-| `warped_stairs` | Warped Stairs | Blocks |  |
-| `warped_standing_sign` |  |  |  |
-| `warped_stem` | Warped Stem | Blocks |  |
-| `warped_trapdoor` | Warped Trapdoor | Blocks |  |
-| `warped_wall_sign` |  |  |  |
-| `warped_wart_block` | Warped Wart Block | Blocks |  |
-| `water` |  |  | liquid_depth = 0, 1, 2, 3, 4, 5, 6, 7 |
-| `waterlily` | Waterlily | Blocks |  |
-| `waxed_chiseled_copper` | Waxed Chiseled Copper | Tools & Weapons |  |
-| `waxed_copper` | Waxed Copper | Tools & Weapons |  |
-| `waxed_copper_bars` | Waxed Copper Bars | Tools & Weapons |  |
-| `waxed_copper_bulb` | Waxed Copper Bulb | Tools & Weapons |  |
-| `waxed_copper_chain` | Waxed Copper Chain | Tools & Weapons |  |
-| `waxed_copper_chest` | Waxed Copper Chest | Tools & Weapons |  |
-| `waxed_copper_door` | Waxed Copper Door | Tools & Weapons |  |
-| `waxed_copper_golem_statue` | Waxed Copper Golem Statue | Tools & Weapons |  |
-| `waxed_copper_grate` | Waxed Copper Grate | Tools & Weapons |  |
-| `waxed_copper_lantern` | Waxed Copper Lantern | Tools & Weapons |  |
-| `waxed_copper_trapdoor` | Waxed Copper Trapdoor | Tools & Weapons |  |
-| `waxed_cut_copper` | Waxed Cut Copper | Tools & Weapons |  |
-| `waxed_cut_copper_slab` | Waxed Cut Copper Slab | Tools & Weapons |  |
-| `waxed_cut_copper_stairs` | Waxed Cut Copper Stairs | Tools & Weapons | minecraft:corner = none; upside_down_bit = 0; weirdo_direction = 0, 1 |
-| `waxed_double_cut_copper_slab` |  |  |  |
-| `waxed_exposed_chiseled_copper` | Waxed Exposed Chiseled Copper | Tools & Weapons |  |
-| `waxed_exposed_copper` | Waxed Exposed Copper | Tools & Weapons |  |
-| `waxed_exposed_copper_bars` | Waxed Exposed Copper Bars | Tools & Weapons |  |
-| `waxed_exposed_copper_bulb` | Waxed Exposed Copper Bulb | Tools & Weapons |  |
-| `waxed_exposed_copper_chain` | Waxed Exposed Copper Chain | Tools & Weapons |  |
-| `waxed_exposed_copper_chest` | Waxed Exposed Copper Chest | Tools & Weapons |  |
-| `waxed_exposed_copper_door` | Waxed Exposed Copper Door | Tools & Weapons |  |
-| `waxed_exposed_copper_golem_statue` | Waxed Exposed Copper Golem Statue | Tools & Weapons |  |
-| `waxed_exposed_copper_grate` | Waxed Exposed Copper Grate | Tools & Weapons |  |
-| `waxed_exposed_copper_lantern` | Waxed Exposed Copper Lantern | Tools & Weapons |  |
-| `waxed_exposed_copper_trapdoor` | Waxed Exposed Copper Trapdoor | Tools & Weapons |  |
-| `waxed_exposed_cut_copper` | Waxed Exposed Cut Copper | Tools & Weapons |  |
-| `waxed_exposed_cut_copper_slab` | Waxed Exposed Cut Copper Slab | Tools & Weapons |  |
-| `waxed_exposed_cut_copper_stairs` | Waxed Exposed Cut Copper Stairs | Tools & Weapons |  |
-| `waxed_exposed_double_cut_copper_slab` |  |  |  |
-| `waxed_exposed_lightning_rod` | Waxed Exposed Lightning Rod | Tools & Weapons |  |
-| `waxed_lightning_rod` | Waxed Lightning Rod | Tools & Weapons |  |
-| `waxed_oxidized_chiseled_copper` | Waxed Oxidized Chiseled Copper | Tools & Weapons |  |
-| `waxed_oxidized_copper` | Waxed Oxidized Copper | Tools & Weapons |  |
-| `waxed_oxidized_copper_bars` | Waxed Oxidized Copper Bars | Tools & Weapons |  |
-| `waxed_oxidized_copper_bulb` | Waxed Oxidized Copper Bulb | Tools & Weapons |  |
-| `waxed_oxidized_copper_chain` | Waxed Oxidized Copper Chain | Tools & Weapons |  |
-| `waxed_oxidized_copper_chest` | Waxed Oxidized Copper Chest | Tools & Weapons |  |
-| `waxed_oxidized_copper_door` | Waxed Oxidized Copper Door | Tools & Weapons |  |
-| `waxed_oxidized_copper_golem_statue` | Waxed Oxidized Copper Golem Statue | Tools & Weapons |  |
-| `waxed_oxidized_copper_grate` | Waxed Oxidized Copper Grate | Tools & Weapons |  |
-| `waxed_oxidized_copper_lantern` | Waxed Oxidized Copper Lantern | Tools & Weapons |  |
-| `waxed_oxidized_copper_trapdoor` | Waxed Oxidized Copper Trapdoor | Tools & Weapons |  |
-| `waxed_oxidized_cut_copper` | Waxed Oxidized Cut Copper | Tools & Weapons |  |
-| `waxed_oxidized_cut_copper_slab` | Waxed Oxidized Cut Copper Slab | Tools & Weapons | minecraft:vertical_half = bottom |
-| `waxed_oxidized_cut_copper_stairs` | Waxed Oxidized Cut Copper Stairs | Tools & Weapons | minecraft:corner = none, outer_left, outer_right; upside_down_bit = 0; weirdo_direction = 0, 1, 2, 3 |
-| `waxed_oxidized_double_cut_copper_slab` |  |  |  |
-| `waxed_oxidized_lightning_rod` | Waxed Oxidized Lightning Rod | Tools & Weapons |  |
-| `waxed_weathered_chiseled_copper` | Waxed Weathered Chiseled Copper | Tools & Weapons |  |
-| `waxed_weathered_copper` | Waxed Weathered Copper | Tools & Weapons |  |
-| `waxed_weathered_copper_bars` | Waxed Weathered Copper Bars | Tools & Weapons |  |
-| `waxed_weathered_copper_bulb` | Waxed Weathered Copper Bulb | Tools & Weapons |  |
-| `waxed_weathered_copper_chain` | Waxed Weathered Copper Chain | Tools & Weapons |  |
-| `waxed_weathered_copper_chest` | Waxed Weathered Copper Chest | Tools & Weapons |  |
-| `waxed_weathered_copper_door` | Waxed Weathered Copper Door | Tools & Weapons |  |
-| `waxed_weathered_copper_golem_statue` | Waxed Weathered Copper Golem Statue | Tools & Weapons |  |
-| `waxed_weathered_copper_grate` | Waxed Weathered Copper Grate | Tools & Weapons |  |
-| `waxed_weathered_copper_lantern` | Waxed Weathered Copper Lantern | Tools & Weapons |  |
-| `waxed_weathered_copper_trapdoor` | Waxed Weathered Copper Trapdoor | Tools & Weapons |  |
-| `waxed_weathered_cut_copper` | Waxed Weathered Cut Copper | Tools & Weapons |  |
-| `waxed_weathered_cut_copper_slab` | Waxed Weathered Cut Copper Slab | Tools & Weapons | minecraft:vertical_half = bottom |
-| `waxed_weathered_cut_copper_stairs` | Waxed Weathered Cut Copper Stairs | Tools & Weapons | minecraft:corner = none, outer_left, outer_right; upside_down_bit = 0; weirdo_direction = 0, 1, 2, 3 |
-| `waxed_weathered_double_cut_copper_slab` |  |  |  |
-| `waxed_weathered_lightning_rod` | Waxed Weathered Lightning Rod | Tools & Weapons |  |
-| `weathered_chiseled_copper` | Weathered Chiseled Copper | Blocks |  |
-| `weathered_copper` | Weathered Copper | Blocks |  |
-| `weathered_copper_bars` | Weathered Copper Bars | Blocks |  |
-| `weathered_copper_bulb` | Weathered Copper Bulb | Blocks |  |
-| `weathered_copper_chain` | Weathered Copper Chain | Miscellaneous |  |
-| `weathered_copper_chest` | Weathered Copper Chest | Blocks |  |
-| `weathered_copper_door` | Weathered Copper Door | Miscellaneous |  |
-| `weathered_copper_golem_statue` | Weathered Copper Golem Statue | Blocks |  |
-| `weathered_copper_grate` | Weathered Copper Grate | Blocks |  |
-| `weathered_copper_lantern` | Weathered Copper Lantern | Miscellaneous |  |
-| `weathered_copper_trapdoor` | Weathered Copper Trapdoor | Blocks |  |
-| `weathered_cut_copper` | Weathered Cut Copper | Blocks |  |
-| `weathered_cut_copper_slab` | Weathered Cut Copper Slab | Blocks |  |
-| `weathered_cut_copper_stairs` | Weathered Cut Copper Stairs | Blocks |  |
-| `weathered_double_cut_copper_slab` |  |  |  |
-| `weathered_lightning_rod` | Weathered Lightning Rod | Blocks |  |
-| `web` | Web | Blocks |  |
-| `weeping_vines` | Weeping Vines | Blocks |  |
-| `wet_sponge` | Wet Sponge | Blocks |  |
-| `wheat` | Wheat | Miscellaneous | growth = 7 |
-| `white_candle` | White Candle | Blocks |  |
-| `white_candle_cake` |  |  |  |
-| `white_carpet` | White Carpet | Blocks |  |
-| `white_concrete` | White Concrete | Blocks |  |
-| `white_concrete_powder` | White Concrete Powder | Blocks |  |
-| `white_glazed_terracotta` | White Glazed Terracotta | Blocks |  |
-| `white_shulker_box` | White Shulker Box | Blocks |  |
-| `white_stained_glass` | White Stained Glass | Blocks |  |
-| `white_stained_glass_pane` | White Stained Glass Pane | Blocks | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
-| `white_terracotta` | White Terracotta | Blocks |  |
-| `white_tulip` | White Tulip | Blocks |  |
-| `white_wool` | White Wool | Blocks |  |
-| `wildflowers` | Wildflowers | Miscellaneous |  |
-| `wither_rose` | Wither Rose | Blocks |  |
-| `wither_skeleton_skull` | Wither Skeleton Skull | Miscellaneous |  |
-| `wooden_button` | Wooden Button | Blocks |  |
-| `wooden_door` | Wooden Door | Miscellaneous |  |
-| `wooden_pressure_plate` | Wooden Pressure Plate | Blocks |  |
-| `yellow_candle` | Yellow Candle | Blocks |  |
-| `yellow_candle_cake` |  |  |  |
-| `yellow_carpet` | Yellow Carpet | Blocks |  |
-| `yellow_concrete` | Yellow Concrete | Blocks |  |
-| `yellow_concrete_powder` | Yellow Concrete Powder | Blocks |  |
-| `yellow_glazed_terracotta` | Yellow Glazed Terracotta | Blocks |  |
-| `yellow_shulker_box` | Yellow Shulker Box | Blocks |  |
-| `yellow_stained_glass` | Yellow Stained Glass | Blocks |  |
-| `yellow_stained_glass_pane` | Yellow Stained Glass Pane | Blocks |  |
-| `yellow_terracotta` | Yellow Terracotta | Blocks |  |
-| `yellow_wool` | Yellow Wool | Blocks |  |
-| `zombie_head` | Zombie Head | Miscellaneous |  |
+| ID | Nome (EN) | Estados oficiais |
+|---|---|---|
+| `acacia_button` | Acacia Button | button_pressed_bit = 0, 1; facing_direction = 0..5 |
+| `acacia_door` | Acacia Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `acacia_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `acacia_fence` | Acacia Fence | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `acacia_fence_gate` | Acacia Fence Gate | in_wall_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1 |
+| `acacia_hanging_sign` | Acacia Hanging Sign | attached_bit = 0, 1; facing_direction = 0..5; ground_sign_direction = 0..15; hanging = 0, 1 |
+| `acacia_leaves` | Acacia Leaves | persistent_bit = 0, 1; update_bit = 0, 1 |
+| `acacia_log` | Acacia Log | pillar_axis = y, x, z |
+| `acacia_planks` | Acacia Planks |  |
+| `acacia_pressure_plate` | Acacia Pressure Plate | redstone_signal = 0..15 |
+| `acacia_sapling` | Acacia Sapling | age_bit = 0, 1 |
+| `acacia_shelf` | Acacia Shelf | minecraft:cardinal_direction = south, west, north, east; powered_bit = 0, 1; powered_shelf_type = 0..3 |
+| `acacia_slab` | Acacia Slab | minecraft:vertical_half = bottom, top |
+| `acacia_stairs` | Acacia Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `acacia_standing_sign` |  | ground_sign_direction = 0..15 |
+| `acacia_trapdoor` | Acacia Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `acacia_wall_sign` |  | facing_direction = 0..5 |
+| `acacia_wood` | Acacia Wood | pillar_axis = y, x, z |
+| `activator_rail` | Activator Rail | rail_data_bit = 0, 1; rail_direction = 0..9 |
+| `air` |  |  |
+| `allium` | Allium |  |
+| `allow` | Allow |  |
+| `amethyst_block` | Amethyst Block |  |
+| `amethyst_cluster` | Amethyst Cluster | minecraft:block_face = down, up, north, south, west, east |
+| `ancient_debris` | Ancient Debris |  |
+| `andesite` | Andesite |  |
+| `andesite_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `andesite_slab` | Andesite Slab | minecraft:vertical_half = bottom, top |
+| `andesite_stairs` | Andesite Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `andesite_wall` | Andesite Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `anvil` | Anvil | minecraft:cardinal_direction = south, west, north, east |
+| `azalea` | Azalea |  |
+| `azalea_leaves` | Azalea Leaves | persistent_bit = 0, 1; update_bit = 0, 1 |
+| `azalea_leaves_flowered` | Azalea Leaves Flowered | persistent_bit = 0, 1; update_bit = 0, 1 |
+| `azure_bluet` | Azure Bluet |  |
+| `bamboo` | Bamboo | age_bit = 0, 1; bamboo_leaf_size = no_leaves, small_leaves, large_leaves; bamboo_stalk_thickness = thin, thick |
+| `bamboo_block` | Bamboo Block | pillar_axis = y, x, z |
+| `bamboo_button` | Bamboo Button | button_pressed_bit = 0, 1; facing_direction = 0..5 |
+| `bamboo_door` | Bamboo Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `bamboo_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `bamboo_fence` | Bamboo Fence | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `bamboo_fence_gate` | Bamboo Fence Gate | in_wall_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1 |
+| `bamboo_hanging_sign` | Bamboo Hanging Sign | attached_bit = 0, 1; facing_direction = 0..5; ground_sign_direction = 0..15; hanging = 0, 1 |
+| `bamboo_mosaic` | Bamboo Mosaic |  |
+| `bamboo_mosaic_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `bamboo_mosaic_slab` | Bamboo Mosaic Slab | minecraft:vertical_half = bottom, top |
+| `bamboo_mosaic_stairs` | Bamboo Mosaic Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `bamboo_planks` | Bamboo Planks |  |
+| `bamboo_pressure_plate` | Bamboo Pressure Plate | redstone_signal = 0..15 |
+| `bamboo_sapling` |  | age_bit = 0, 1 |
+| `bamboo_shelf` | Bamboo Shelf | minecraft:cardinal_direction = south, west, north, east; powered_bit = 0, 1; powered_shelf_type = 0..3 |
+| `bamboo_slab` | Bamboo Slab | minecraft:vertical_half = bottom, top |
+| `bamboo_stairs` | Bamboo Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `bamboo_standing_sign` |  | ground_sign_direction = 0..15 |
+| `bamboo_trapdoor` | Bamboo Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `bamboo_wall_sign` |  | facing_direction = 0..5 |
+| `barrel` | Barrel | facing_direction = 0..5; open_bit = 0, 1 |
+| `barrier` | Barrier |  |
+| `basalt` | Basalt | pillar_axis = y, x, z |
+| `beacon` | Beacon |  |
+| `bed` | Bed | direction = 0..3; head_piece_bit = 0, 1; occupied_bit = 0, 1 |
+| `bedrock` | Bedrock | infiniburn_bit = 0, 1 |
+| `bee_nest` | Bee Nest | direction = 0..3; honey_level = 0..5 |
+| `beehive` | Beehive | direction = 0..3; honey_level = 0..5 |
+| `beetroot` | Beetroot | growth = 0..7 |
+| `bell` | Bell | attachment = standing, hanging, side, multiple; direction = 0..3; toggle_bit = 0, 1 |
+| `big_dripleaf` | Big Dripleaf | big_dripleaf_head = 0, 1; big_dripleaf_tilt = none, unstable, partial_tilt, full_tilt; minecraft:cardinal_direction = south, west, north, east |
+| `birch_button` | Birch Button | button_pressed_bit = 0, 1; facing_direction = 0..5 |
+| `birch_door` | Birch Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `birch_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `birch_fence` | Birch Fence | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `birch_fence_gate` | Birch Fence Gate | in_wall_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1 |
+| `birch_hanging_sign` | Birch Hanging Sign | attached_bit = 0, 1; facing_direction = 0..5; ground_sign_direction = 0..15; hanging = 0, 1 |
+| `birch_leaves` | Birch Leaves | persistent_bit = 0, 1; update_bit = 0, 1 |
+| `birch_log` | Birch Log | pillar_axis = y, x, z |
+| `birch_planks` | Birch Planks |  |
+| `birch_pressure_plate` | Birch Pressure Plate | redstone_signal = 0..15 |
+| `birch_sapling` | Birch Sapling | age_bit = 0, 1 |
+| `birch_shelf` | Birch Shelf | minecraft:cardinal_direction = south, west, north, east; powered_bit = 0, 1; powered_shelf_type = 0..3 |
+| `birch_slab` | Birch Slab | minecraft:vertical_half = bottom, top |
+| `birch_stairs` | Birch Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `birch_standing_sign` |  | ground_sign_direction = 0..15 |
+| `birch_trapdoor` | Birch Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `birch_wall_sign` |  | facing_direction = 0..5 |
+| `birch_wood` | Birch Wood | pillar_axis = y, x, z |
+| `black_candle` | Black Candle | candles = 0..3; lit = 0, 1 |
+| `black_candle_cake` |  | lit = 0, 1 |
+| `black_carpet` | Black Carpet |  |
+| `black_concrete` | Black Concrete |  |
+| `black_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `black_concrete_powder` | Black Concrete Powder |  |
+| `black_concrete_slab` | Black Concrete Slab | minecraft:vertical_half = bottom, top |
+| `black_concrete_stairs` | Black Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `black_glazed_terracotta` | Black Glazed Terracotta | facing_direction = 0..5 |
+| `black_shulker_box` | Black Shulker Box |  |
+| `black_stained_glass` | Black Stained Glass |  |
+| `black_stained_glass_pane` | Black Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `black_terracotta` | Black Terracotta |  |
+| `black_wool` | Black Wool |  |
+| `black_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `black_wool_slab` | Black Wool Slab | minecraft:vertical_half = bottom, top |
+| `black_wool_stairs` | Black Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `blackstone` | Blackstone |  |
+| `blackstone_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `blackstone_slab` | Blackstone Slab | minecraft:vertical_half = bottom, top |
+| `blackstone_stairs` | Blackstone Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `blackstone_wall` | Blackstone Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `blast_furnace` | Blast Furnace | minecraft:cardinal_direction = south, west, north, east |
+| `blue_candle` | Blue Candle | candles = 0..3; lit = 0, 1 |
+| `blue_candle_cake` |  | lit = 0, 1 |
+| `blue_carpet` | Blue Carpet |  |
+| `blue_concrete` | Blue Concrete |  |
+| `blue_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `blue_concrete_powder` | Blue Concrete Powder |  |
+| `blue_concrete_slab` | Blue Concrete Slab | minecraft:vertical_half = bottom, top |
+| `blue_concrete_stairs` | Blue Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `blue_glazed_terracotta` | Blue Glazed Terracotta | facing_direction = 0..5 |
+| `blue_ice` | Blue Ice |  |
+| `blue_orchid` | Blue Orchid |  |
+| `blue_shulker_box` | Blue Shulker Box |  |
+| `blue_stained_glass` | Blue Stained Glass |  |
+| `blue_stained_glass_pane` | Blue Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `blue_terracotta` | Blue Terracotta |  |
+| `blue_wool` | Blue Wool |  |
+| `blue_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `blue_wool_slab` | Blue Wool Slab | minecraft:vertical_half = bottom, top |
+| `blue_wool_stairs` | Blue Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `bone_block` | Bone Block | deprecated = 0..3; pillar_axis = y, x, z |
+| `bookshelf` | Bookshelf |  |
+| `border_block` | Border Block | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `brain_coral` | Brain Coral |  |
+| `brain_coral_block` | Brain Coral Block |  |
+| `brain_coral_fan` | Brain Coral Fan | coral_fan_direction = 0..1 |
+| `brain_coral_wall_fan` |  | coral_direction = 0..3 |
+| `brewing_stand` | Brewing Stand | brewing_stand_slot_a_bit = 0, 1; brewing_stand_slot_b_bit = 0, 1; brewing_stand_slot_c_bit = 0, 1 |
+| `brick_block` | Brick Block |  |
+| `brick_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `brick_slab` | Brick Slab | minecraft:vertical_half = bottom, top |
+| `brick_stairs` | Brick Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `brick_wall` | Brick Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `brown_candle` | Brown Candle | candles = 0..3; lit = 0, 1 |
+| `brown_candle_cake` |  | lit = 0, 1 |
+| `brown_carpet` | Brown Carpet |  |
+| `brown_concrete` | Brown Concrete |  |
+| `brown_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `brown_concrete_powder` | Brown Concrete Powder |  |
+| `brown_concrete_slab` | Brown Concrete Slab | minecraft:vertical_half = bottom, top |
+| `brown_concrete_stairs` | Brown Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `brown_glazed_terracotta` | Brown Glazed Terracotta | facing_direction = 0..5 |
+| `brown_mushroom` | Brown Mushroom |  |
+| `brown_mushroom_block` | Brown Mushroom Block | huge_mushroom_bits = 0..15 |
+| `brown_shulker_box` | Brown Shulker Box |  |
+| `brown_stained_glass` | Brown Stained Glass |  |
+| `brown_stained_glass_pane` | Brown Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `brown_terracotta` | Brown Terracotta |  |
+| `brown_wool` | Brown Wool |  |
+| `brown_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `brown_wool_slab` | Brown Wool Slab | minecraft:vertical_half = bottom, top |
+| `brown_wool_stairs` | Brown Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `bubble_column` |  | drag_down = 0, 1 |
+| `bubble_coral` | Bubble Coral |  |
+| `bubble_coral_block` | Bubble Coral Block |  |
+| `bubble_coral_fan` | Bubble Coral Fan | coral_fan_direction = 0..1 |
+| `bubble_coral_wall_fan` |  | coral_direction = 0..3 |
+| `budding_amethyst` | Budding Amethyst |  |
+| `bush` | Bush |  |
+| `cactus` | Cactus | age = 0..15 |
+| `cactus_flower` | Cactus Flower |  |
+| `cake` | Cake | bite_counter = 0..6 |
+| `calcite` | Calcite |  |
+| `calibrated_sculk_sensor` | Calibrated Sculk Sensor | minecraft:cardinal_direction = south, west, north, east; sculk_sensor_phase = 0..2 |
+| `camera` |  |  |
+| `campfire` | Campfire | extinguished = 0, 1; minecraft:cardinal_direction = south, west, north, east |
+| `candle` | Candle | candles = 0..3; lit = 0, 1 |
+| `candle_cake` |  | lit = 0, 1 |
+| `carrots` |  | growth = 0..7 |
+| `cartography_table` | Cartography Table |  |
+| `carved_pumpkin` | Carved Pumpkin | minecraft:cardinal_direction = south, west, north, east |
+| `cauldron` | Cauldron | cauldron_liquid = water, lava, powder_snow; fill_level = 0..6 |
+| `cave_vines` |  | growing_plant_age = 0..25 |
+| `cave_vines_body_with_berries` |  | growing_plant_age = 0..25 |
+| `cave_vines_head_with_berries` |  | growing_plant_age = 0..25 |
+| `chain_command_block` | Chain Command Block | conditional_bit = 0, 1; facing_direction = 0..5 |
+| `chemical_heat` |  |  |
+| `cherry_button` | Cherry Button | button_pressed_bit = 0, 1; facing_direction = 0..5 |
+| `cherry_door` | Cherry Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `cherry_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `cherry_fence` | Cherry Fence | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `cherry_fence_gate` | Cherry Fence Gate | in_wall_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1 |
+| `cherry_hanging_sign` | Cherry Hanging Sign | attached_bit = 0, 1; facing_direction = 0..5; ground_sign_direction = 0..15; hanging = 0, 1 |
+| `cherry_leaves` | Cherry Leaves | persistent_bit = 0, 1; update_bit = 0, 1 |
+| `cherry_log` | Cherry Log | pillar_axis = y, x, z |
+| `cherry_planks` | Cherry Planks |  |
+| `cherry_pressure_plate` | Cherry Pressure Plate | redstone_signal = 0..15 |
+| `cherry_sapling` | Cherry Sapling | age_bit = 0, 1 |
+| `cherry_shelf` | Cherry Shelf | minecraft:cardinal_direction = south, west, north, east; powered_bit = 0, 1; powered_shelf_type = 0..3 |
+| `cherry_slab` | Cherry Slab | minecraft:vertical_half = bottom, top |
+| `cherry_stairs` | Cherry Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `cherry_standing_sign` |  | ground_sign_direction = 0..15 |
+| `cherry_trapdoor` | Cherry Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `cherry_wall_sign` |  | facing_direction = 0..5 |
+| `cherry_wood` | Cherry Wood | pillar_axis = y, x, z |
+| `chest` | Chest | minecraft:cardinal_direction = south, west, north, east |
+| `chipped_anvil` | Chipped Anvil | minecraft:cardinal_direction = south, west, north, east |
+| `chiseled_bookshelf` | Chiseled Bookshelf | books_stored = 0..63; direction = 0..3 |
+| `chiseled_cinnabar` | Chiseled Cinnabar |  |
+| `chiseled_copper` | Chiseled Copper |  |
+| `chiseled_deepslate` | Chiseled Deepslate |  |
+| `chiseled_nether_bricks` | Chiseled Nether Bricks |  |
+| `chiseled_polished_blackstone` | Chiseled Polished Blackstone |  |
+| `chiseled_quartz_block` | Chiseled Quartz Block | pillar_axis = y, x, z |
+| `chiseled_red_sandstone` | Chiseled Red Sandstone |  |
+| `chiseled_resin_bricks` | Chiseled Resin Bricks |  |
+| `chiseled_sandstone` | Chiseled Sandstone |  |
+| `chiseled_stone_bricks` | Chiseled Stone Bricks |  |
+| `chiseled_sulfur` | Chiseled Sulfur |  |
+| `chiseled_tuff` | Chiseled Tuff |  |
+| `chiseled_tuff_bricks` | Chiseled Tuff Bricks |  |
+| `chorus_flower` | Chorus Flower | age = 0..15 |
+| `chorus_plant` | Chorus Plant | minecraft:connection_down = 0, 1; minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_up = 0, 1; minecraft:connection_west = 0, 1 |
+| `cinnabar` | Cinnabar |  |
+| `cinnabar_brick_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `cinnabar_brick_slab` | Cinnabar Brick Slab | minecraft:vertical_half = bottom, top |
+| `cinnabar_brick_stairs` | Cinnabar Brick Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `cinnabar_brick_wall` | Cinnabar Brick Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `cinnabar_bricks` | Cinnabar Bricks |  |
+| `cinnabar_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `cinnabar_slab` | Cinnabar Slab | minecraft:vertical_half = bottom, top |
+| `cinnabar_stairs` | Cinnabar Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `cinnabar_wall` | Cinnabar Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `clay` | Clay |  |
+| `closed_eyeblossom` | Closed Eyeblossom |  |
+| `coal_block` | Coal Block |  |
+| `coal_ore` | Coal Ore |  |
+| `coarse_dirt` | Coarse Dirt |  |
+| `cobbled_deepslate` | Cobbled Deepslate |  |
+| `cobbled_deepslate_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `cobbled_deepslate_slab` | Cobbled Deepslate Slab | minecraft:vertical_half = bottom, top |
+| `cobbled_deepslate_stairs` | Cobbled Deepslate Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `cobbled_deepslate_wall` | Cobbled Deepslate Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `cobblestone` | Cobblestone |  |
+| `cobblestone_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `cobblestone_slab` | Cobblestone Slab | minecraft:vertical_half = bottom, top |
+| `cobblestone_wall` | Cobblestone Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `cocoa` |  | age = 0..15; direction = 0..3 |
+| `colored_torch_blue` |  | torch_facing_direction = unknown, west, east, north, south, top |
+| `colored_torch_green` |  | torch_facing_direction = unknown, west, east, north, south, top |
+| `colored_torch_purple` |  | torch_facing_direction = unknown, west, east, north, south, top |
+| `colored_torch_red` |  | torch_facing_direction = unknown, west, east, north, south, top |
+| `command_block` | Command Block | conditional_bit = 0, 1; facing_direction = 0..5 |
+| `composter` | Composter | composter_fill_level = 0..8 |
+| `compound_creator` |  | direction = 0..3 |
+| `conduit` | Conduit |  |
+| `copper_bars` | Copper Bars | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `copper_block` | Copper Block |  |
+| `copper_bulb` | Copper Bulb | lit = 0, 1; powered_bit = 0, 1 |
+| `copper_chain` | Copper Chain | pillar_axis = y, x, z |
+| `copper_chest` | Copper Chest | minecraft:cardinal_direction = south, west, north, east |
+| `copper_door` | Copper Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `copper_golem_statue` | Copper Golem Statue | minecraft:cardinal_direction = south, west, north, east |
+| `copper_grate` | Copper Grate |  |
+| `copper_lantern` | Copper Lantern | hanging = 0, 1 |
+| `copper_ore` | Copper Ore |  |
+| `copper_torch` | Copper Torch | torch_facing_direction = unknown, west, east, north, south, top |
+| `copper_trapdoor` | Copper Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `cornflower` | Cornflower |  |
+| `cracked_deepslate_bricks` | Cracked Deepslate Bricks |  |
+| `cracked_deepslate_tiles` | Cracked Deepslate Tiles |  |
+| `cracked_nether_bricks` | Cracked Nether Bricks |  |
+| `cracked_polished_blackstone_bricks` | Cracked Polished Blackstone Bricks |  |
+| `cracked_stone_bricks` | Cracked Stone Bricks |  |
+| `crafter` | Crafter | crafting = 0, 1; orientation = down_east, down_north, down_south, down_west, up_east, up_north, up_south, up_west, west_up, east_up, north_up, south_up; triggered_bit = 0, 1 |
+| `crafting_table` | Crafting Table |  |
+| `creaking_heart` | Creaking Heart | creaking_heart_state = uprooted, dormant, awake; natural = 0, 1; pillar_axis = y, x, z |
+| `creeper_head` | Creeper Head | facing_direction = 0..5 |
+| `crimson_button` | Crimson Button | button_pressed_bit = 0, 1; facing_direction = 0..5 |
+| `crimson_door` | Crimson Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `crimson_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `crimson_fence` | Crimson Fence | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `crimson_fence_gate` | Crimson Fence Gate | in_wall_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1 |
+| `crimson_fungus` | Crimson Fungus |  |
+| `crimson_hanging_sign` | Crimson Hanging Sign | attached_bit = 0, 1; facing_direction = 0..5; ground_sign_direction = 0..15; hanging = 0, 1 |
+| `crimson_hyphae` | Crimson Hyphae | pillar_axis = y, x, z |
+| `crimson_nylium` | Crimson Nylium |  |
+| `crimson_planks` | Crimson Planks |  |
+| `crimson_pressure_plate` | Crimson Pressure Plate | redstone_signal = 0..15 |
+| `crimson_roots` | Crimson Roots |  |
+| `crimson_shelf` | Crimson Shelf | minecraft:cardinal_direction = south, west, north, east; powered_bit = 0, 1; powered_shelf_type = 0..3 |
+| `crimson_slab` | Crimson Slab | minecraft:vertical_half = bottom, top |
+| `crimson_stairs` | Crimson Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `crimson_standing_sign` |  | ground_sign_direction = 0..15 |
+| `crimson_stem` | Crimson Stem | pillar_axis = y, x, z |
+| `crimson_trapdoor` | Crimson Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `crimson_wall_sign` |  | facing_direction = 0..5 |
+| `crying_obsidian` | Crying Obsidian |  |
+| `cut_copper` | Cut Copper |  |
+| `cut_copper_slab` | Cut Copper Slab | minecraft:vertical_half = bottom, top |
+| `cut_copper_stairs` | Cut Copper Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `cut_red_sandstone` | Cut Red Sandstone |  |
+| `cut_red_sandstone_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `cut_red_sandstone_slab` | Cut Red Sandstone Slab | minecraft:vertical_half = bottom, top |
+| `cut_sandstone` | Cut Sandstone |  |
+| `cut_sandstone_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `cut_sandstone_slab` | Cut Sandstone Slab | minecraft:vertical_half = bottom, top |
+| `cyan_candle` | Cyan Candle | candles = 0..3; lit = 0, 1 |
+| `cyan_candle_cake` |  | lit = 0, 1 |
+| `cyan_carpet` | Cyan Carpet |  |
+| `cyan_concrete` | Cyan Concrete |  |
+| `cyan_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `cyan_concrete_powder` | Cyan Concrete Powder |  |
+| `cyan_concrete_slab` | Cyan Concrete Slab | minecraft:vertical_half = bottom, top |
+| `cyan_concrete_stairs` | Cyan Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `cyan_glazed_terracotta` | Cyan Glazed Terracotta | facing_direction = 0..5 |
+| `cyan_shulker_box` | Cyan Shulker Box |  |
+| `cyan_stained_glass` | Cyan Stained Glass |  |
+| `cyan_stained_glass_pane` | Cyan Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `cyan_terracotta` | Cyan Terracotta |  |
+| `cyan_wool` | Cyan Wool |  |
+| `cyan_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `cyan_wool_slab` | Cyan Wool Slab | minecraft:vertical_half = bottom, top |
+| `cyan_wool_stairs` | Cyan Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `damaged_anvil` | Damaged Anvil | minecraft:cardinal_direction = south, west, north, east |
+| `dandelion` | Dandelion |  |
+| `dark_oak_button` | Dark Oak Button | button_pressed_bit = 0, 1; facing_direction = 0..5 |
+| `dark_oak_door` | Dark Oak Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `dark_oak_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `dark_oak_fence` | Dark Oak Fence | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `dark_oak_fence_gate` | Dark Oak Fence Gate | in_wall_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1 |
+| `dark_oak_hanging_sign` | Dark Oak Hanging Sign | attached_bit = 0, 1; facing_direction = 0..5; ground_sign_direction = 0..15; hanging = 0, 1 |
+| `dark_oak_leaves` | Dark Oak Leaves | persistent_bit = 0, 1; update_bit = 0, 1 |
+| `dark_oak_log` | Dark Oak Log | pillar_axis = y, x, z |
+| `dark_oak_planks` | Dark Oak Planks |  |
+| `dark_oak_pressure_plate` | Dark Oak Pressure Plate | redstone_signal = 0..15 |
+| `dark_oak_sapling` | Dark Oak Sapling | age_bit = 0, 1 |
+| `dark_oak_shelf` | Dark Oak Shelf | minecraft:cardinal_direction = south, west, north, east; powered_bit = 0, 1; powered_shelf_type = 0..3 |
+| `dark_oak_slab` | Dark Oak Slab | minecraft:vertical_half = bottom, top |
+| `dark_oak_stairs` | Dark Oak Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `dark_oak_trapdoor` | Dark Oak Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `dark_oak_wood` | Dark Oak Wood | pillar_axis = y, x, z |
+| `dark_prismarine` | Dark Prismarine |  |
+| `dark_prismarine_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `dark_prismarine_slab` | Dark Prismarine Slab | minecraft:vertical_half = bottom, top |
+| `dark_prismarine_stairs` | Dark Prismarine Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `darkoak_standing_sign` |  | ground_sign_direction = 0..15 |
+| `darkoak_wall_sign` |  | facing_direction = 0..5 |
+| `daylight_detector` | Daylight Detector | redstone_signal = 0..15 |
+| `daylight_detector_inverted` |  | redstone_signal = 0..15 |
+| `dead_brain_coral` | Dead Brain Coral |  |
+| `dead_brain_coral_block` | Dead Brain Coral Block |  |
+| `dead_brain_coral_fan` | Dead Brain Coral Fan | coral_fan_direction = 0..1 |
+| `dead_brain_coral_wall_fan` |  | coral_direction = 0..3 |
+| `dead_bubble_coral` | Dead Bubble Coral |  |
+| `dead_bubble_coral_block` | Dead Bubble Coral Block |  |
+| `dead_bubble_coral_fan` | Dead Bubble Coral Fan | coral_fan_direction = 0..1 |
+| `dead_bubble_coral_wall_fan` |  | coral_direction = 0..3 |
+| `dead_fire_coral` | Dead Fire Coral |  |
+| `dead_fire_coral_block` | Dead Fire Coral Block |  |
+| `dead_fire_coral_fan` | Dead Fire Coral Fan | coral_fan_direction = 0..1 |
+| `dead_fire_coral_wall_fan` |  | coral_direction = 0..3 |
+| `dead_horn_coral` | Dead Horn Coral |  |
+| `dead_horn_coral_block` | Dead Horn Coral Block |  |
+| `dead_horn_coral_fan` | Dead Horn Coral Fan | coral_fan_direction = 0..1 |
+| `dead_horn_coral_wall_fan` |  | coral_direction = 0..3 |
+| `dead_tube_coral` | Dead Tube Coral |  |
+| `dead_tube_coral_block` | Dead Tube Coral Block |  |
+| `dead_tube_coral_fan` | Dead Tube Coral Fan | coral_fan_direction = 0..1 |
+| `dead_tube_coral_wall_fan` |  | coral_direction = 0..3 |
+| `deadbush` | Deadbush |  |
+| `decorated_pot` | Decorated Pot | direction = 0..3 |
+| `deepslate` | Deepslate | pillar_axis = y, x, z |
+| `deepslate_brick_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `deepslate_brick_slab` | Deepslate Brick Slab | minecraft:vertical_half = bottom, top |
+| `deepslate_brick_stairs` | Deepslate Brick Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `deepslate_brick_wall` | Deepslate Brick Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `deepslate_bricks` | Deepslate Bricks |  |
+| `deepslate_coal_ore` | Deepslate Coal Ore |  |
+| `deepslate_copper_ore` | Deepslate Copper Ore |  |
+| `deepslate_diamond_ore` | Deepslate Diamond Ore |  |
+| `deepslate_emerald_ore` | Deepslate Emerald Ore |  |
+| `deepslate_gold_ore` | Deepslate Gold Ore |  |
+| `deepslate_iron_ore` | Deepslate Iron Ore |  |
+| `deepslate_lapis_ore` | Deepslate Lapis Ore |  |
+| `deepslate_redstone_ore` | Deepslate Redstone Ore |  |
+| `deepslate_tile_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `deepslate_tile_slab` | Deepslate Tile Slab | minecraft:vertical_half = bottom, top |
+| `deepslate_tile_stairs` | Deepslate Tile Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `deepslate_tile_wall` | Deepslate Tile Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `deepslate_tiles` | Deepslate Tiles |  |
+| `deny` | Deny |  |
+| `detector_rail` | Detector Rail | rail_data_bit = 0, 1; rail_direction = 0..9 |
+| `diamond_block` | Diamond Block |  |
+| `diamond_ore` | Diamond Ore |  |
+| `diorite` | Diorite |  |
+| `diorite_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `diorite_slab` | Diorite Slab | minecraft:vertical_half = bottom, top |
+| `diorite_stairs` | Diorite Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `diorite_wall` | Diorite Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `dirt` | Dirt |  |
+| `dirt_with_roots` | Dirt With Roots |  |
+| `disc_press` |  | minecraft:cardinal_direction = south, west, north, east |
+| `dispenser` | Dispenser | facing_direction = 0..5; triggered_bit = 0, 1 |
+| `double_cut_copper_slab` |  | minecraft:vertical_half = bottom, top |
+| `dragon_egg` | Dragon Egg |  |
+| `dragon_head` | Dragon Head | facing_direction = 0..5 |
+| `dried_ghast` | Dried Ghast | minecraft:cardinal_direction = south, west, north, east; rehydration_level = 0..3 |
+| `dried_kelp_block` | Dried Kelp Block |  |
+| `dripstone_block` | Dripstone Block |  |
+| `dropper` | Dropper | facing_direction = 0..5; triggered_bit = 0, 1 |
+| `element_0` |  |  |
+| `element_1` |  |  |
+| `element_10` |  |  |
+| `element_100` |  |  |
+| `element_101` |  |  |
+| `element_102` |  |  |
+| `element_103` |  |  |
+| `element_104` |  |  |
+| `element_105` |  |  |
+| `element_106` |  |  |
+| `element_107` |  |  |
+| `element_108` |  |  |
+| `element_109` |  |  |
+| `element_11` |  |  |
+| `element_110` |  |  |
+| `element_111` |  |  |
+| `element_112` |  |  |
+| `element_113` |  |  |
+| `element_114` |  |  |
+| `element_115` |  |  |
+| `element_116` |  |  |
+| `element_117` |  |  |
+| `element_118` |  |  |
+| `element_12` |  |  |
+| `element_13` |  |  |
+| `element_14` |  |  |
+| `element_15` |  |  |
+| `element_16` |  |  |
+| `element_17` |  |  |
+| `element_18` |  |  |
+| `element_19` |  |  |
+| `element_2` |  |  |
+| `element_20` |  |  |
+| `element_21` |  |  |
+| `element_22` |  |  |
+| `element_23` |  |  |
+| `element_24` |  |  |
+| `element_25` |  |  |
+| `element_26` |  |  |
+| `element_27` |  |  |
+| `element_28` |  |  |
+| `element_29` |  |  |
+| `element_3` |  |  |
+| `element_30` |  |  |
+| `element_31` |  |  |
+| `element_32` |  |  |
+| `element_33` |  |  |
+| `element_34` |  |  |
+| `element_35` |  |  |
+| `element_36` |  |  |
+| `element_37` |  |  |
+| `element_38` |  |  |
+| `element_39` |  |  |
+| `element_4` |  |  |
+| `element_40` |  |  |
+| `element_41` |  |  |
+| `element_42` |  |  |
+| `element_43` |  |  |
+| `element_44` |  |  |
+| `element_45` |  |  |
+| `element_46` |  |  |
+| `element_47` |  |  |
+| `element_48` |  |  |
+| `element_49` |  |  |
+| `element_5` |  |  |
+| `element_50` |  |  |
+| `element_51` |  |  |
+| `element_52` |  |  |
+| `element_53` |  |  |
+| `element_54` |  |  |
+| `element_55` |  |  |
+| `element_56` |  |  |
+| `element_57` |  |  |
+| `element_58` |  |  |
+| `element_59` |  |  |
+| `element_6` |  |  |
+| `element_60` |  |  |
+| `element_61` |  |  |
+| `element_62` |  |  |
+| `element_63` |  |  |
+| `element_64` |  |  |
+| `element_65` |  |  |
+| `element_66` |  |  |
+| `element_67` |  |  |
+| `element_68` |  |  |
+| `element_69` |  |  |
+| `element_7` |  |  |
+| `element_70` |  |  |
+| `element_71` |  |  |
+| `element_72` |  |  |
+| `element_73` |  |  |
+| `element_74` |  |  |
+| `element_75` |  |  |
+| `element_76` |  |  |
+| `element_77` |  |  |
+| `element_78` |  |  |
+| `element_79` |  |  |
+| `element_8` |  |  |
+| `element_80` |  |  |
+| `element_81` |  |  |
+| `element_82` |  |  |
+| `element_83` |  |  |
+| `element_84` |  |  |
+| `element_85` |  |  |
+| `element_86` |  |  |
+| `element_87` |  |  |
+| `element_88` |  |  |
+| `element_89` |  |  |
+| `element_9` |  |  |
+| `element_90` |  |  |
+| `element_91` |  |  |
+| `element_92` |  |  |
+| `element_93` |  |  |
+| `element_94` |  |  |
+| `element_95` |  |  |
+| `element_96` |  |  |
+| `element_97` |  |  |
+| `element_98` |  |  |
+| `element_99` |  |  |
+| `element_constructor` |  | direction = 0..3 |
+| `emerald_block` | Emerald Block |  |
+| `emerald_ore` | Emerald Ore |  |
+| `enchanting_table` | Enchanting Table |  |
+| `end_brick_stairs` | End Brick Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `end_bricks` | End Bricks |  |
+| `end_portal` |  |  |
+| `end_portal_frame` | End Portal Frame | end_portal_eye_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east |
+| `end_rod` | End Rod | facing_direction = 0..5 |
+| `end_stone` | End Stone |  |
+| `end_stone_brick_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `end_stone_brick_slab` | End Stone Brick Slab | minecraft:vertical_half = bottom, top |
+| `end_stone_brick_wall` | End Stone Brick Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `ender_chest` | Ender Chest | minecraft:cardinal_direction = south, west, north, east |
+| `exposed_chiseled_copper` | Exposed Chiseled Copper |  |
+| `exposed_copper` | Exposed Copper |  |
+| `exposed_copper_bars` | Exposed Copper Bars | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `exposed_copper_bulb` | Exposed Copper Bulb | lit = 0, 1; powered_bit = 0, 1 |
+| `exposed_copper_chain` | Exposed Copper Chain | pillar_axis = y, x, z |
+| `exposed_copper_chest` | Exposed Copper Chest | minecraft:cardinal_direction = south, west, north, east |
+| `exposed_copper_door` | Exposed Copper Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `exposed_copper_golem_statue` | Exposed Copper Golem Statue | minecraft:cardinal_direction = south, west, north, east |
+| `exposed_copper_grate` | Exposed Copper Grate |  |
+| `exposed_copper_lantern` | Exposed Copper Lantern | hanging = 0, 1 |
+| `exposed_copper_trapdoor` | Exposed Copper Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `exposed_cut_copper` | Exposed Cut Copper |  |
+| `exposed_cut_copper_slab` | Exposed Cut Copper Slab | minecraft:vertical_half = bottom, top |
+| `exposed_cut_copper_stairs` | Exposed Cut Copper Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `exposed_double_cut_copper_slab` |  | minecraft:vertical_half = bottom, top |
+| `exposed_lightning_rod` | Exposed Lightning Rod | facing_direction = 0..5; powered_bit = 0, 1 |
+| `farmland` | Farmland | moisturized_amount = 0..7 |
+| `fence_gate` | Fence Gate | in_wall_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1 |
+| `fern` | Fern |  |
+| `fire` |  | age = 0..15; minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_up = 0, 1; minecraft:connection_west = 0, 1 |
+| `fire_coral` | Fire Coral |  |
+| `fire_coral_block` | Fire Coral Block |  |
+| `fire_coral_fan` | Fire Coral Fan | coral_fan_direction = 0..1 |
+| `fire_coral_wall_fan` |  | coral_direction = 0..3 |
+| `firefly_bush` | Firefly Bush |  |
+| `fletching_table` | Fletching Table |  |
+| `flower_pot` | Flower Pot | update_bit = 0, 1 |
+| `flowering_azalea` | Flowering Azalea |  |
+| `flowing_lava` |  | liquid_depth = 0..15 |
+| `flowing_water` |  | liquid_depth = 0..15 |
+| `frame` | Frame | facing_direction = 0..5; item_frame_map_bit = 0, 1; item_frame_photo_bit = 0, 1 |
+| `frog_spawn` | Frog Spawn |  |
+| `frosted_ice` | Frosted Ice | age = 0..15 |
+| `furnace` | Furnace | minecraft:cardinal_direction = south, west, north, east |
+| `gilded_blackstone` | Gilded Blackstone |  |
+| `glass` | Glass |  |
+| `glass_pane` | Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `glow_frame` | Glow Frame | facing_direction = 0..5; item_frame_map_bit = 0, 1; item_frame_photo_bit = 0, 1 |
+| `glow_lichen` | Glow Lichen | multi_face_direction_bits = 0..63 |
+| `glowstone` | Glowstone |  |
+| `gold_block` | Gold Block |  |
+| `gold_ore` | Gold Ore |  |
+| `golden_dandelion` | Golden Dandelion |  |
+| `golden_rail` | Golden Rail | rail_data_bit = 0, 1; rail_direction = 0..9 |
+| `granite` | Granite |  |
+| `granite_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `granite_slab` | Granite Slab | minecraft:vertical_half = bottom, top |
+| `granite_stairs` | Granite Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `granite_wall` | Granite Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `grass_block` | Grass Block |  |
+| `grass_path` | Grass Path |  |
+| `gravel` | Gravel |  |
+| `gray_candle` | Gray Candle | candles = 0..3; lit = 0, 1 |
+| `gray_candle_cake` |  | lit = 0, 1 |
+| `gray_carpet` | Gray Carpet |  |
+| `gray_concrete` | Gray Concrete |  |
+| `gray_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `gray_concrete_powder` | Gray Concrete Powder |  |
+| `gray_concrete_slab` | Gray Concrete Slab | minecraft:vertical_half = bottom, top |
+| `gray_concrete_stairs` | Gray Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `gray_glazed_terracotta` | Gray Glazed Terracotta | facing_direction = 0..5 |
+| `gray_shulker_box` | Gray Shulker Box |  |
+| `gray_stained_glass` | Gray Stained Glass |  |
+| `gray_stained_glass_pane` | Gray Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `gray_terracotta` | Gray Terracotta |  |
+| `gray_wool` | Gray Wool |  |
+| `gray_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `gray_wool_slab` | Gray Wool Slab | minecraft:vertical_half = bottom, top |
+| `gray_wool_stairs` | Gray Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `green_candle` | Green Candle | candles = 0..3; lit = 0, 1 |
+| `green_candle_cake` |  | lit = 0, 1 |
+| `green_carpet` | Green Carpet |  |
+| `green_concrete` | Green Concrete |  |
+| `green_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `green_concrete_powder` | Green Concrete Powder |  |
+| `green_concrete_slab` | Green Concrete Slab | minecraft:vertical_half = bottom, top |
+| `green_concrete_stairs` | Green Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `green_glazed_terracotta` | Green Glazed Terracotta | facing_direction = 0..5 |
+| `green_shulker_box` | Green Shulker Box |  |
+| `green_stained_glass` | Green Stained Glass |  |
+| `green_stained_glass_pane` | Green Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `green_terracotta` | Green Terracotta |  |
+| `green_wool` | Green Wool |  |
+| `green_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `green_wool_slab` | Green Wool Slab | minecraft:vertical_half = bottom, top |
+| `green_wool_stairs` | Green Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `grindstone` | Grindstone | attachment = standing, hanging, side, multiple; direction = 0..3 |
+| `hanging_roots` | Hanging Roots |  |
+| `hard_black_stained_glass` |  |  |
+| `hard_black_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_blue_stained_glass` |  |  |
+| `hard_blue_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_brown_stained_glass` |  |  |
+| `hard_brown_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_cyan_stained_glass` |  |  |
+| `hard_cyan_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_glass` |  |  |
+| `hard_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_gray_stained_glass` |  |  |
+| `hard_gray_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_green_stained_glass` |  |  |
+| `hard_green_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_light_blue_stained_glass` |  |  |
+| `hard_light_blue_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_light_gray_stained_glass` |  |  |
+| `hard_light_gray_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_lime_stained_glass` |  |  |
+| `hard_lime_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_magenta_stained_glass` |  |  |
+| `hard_magenta_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_orange_stained_glass` |  |  |
+| `hard_orange_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_pink_stained_glass` |  |  |
+| `hard_pink_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_purple_stained_glass` |  |  |
+| `hard_purple_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_red_stained_glass` |  |  |
+| `hard_red_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_white_stained_glass` |  |  |
+| `hard_white_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hard_yellow_stained_glass` |  |  |
+| `hard_yellow_stained_glass_pane` |  | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `hardened_clay` | Hardened Clay |  |
+| `hay_block` | Hay Block | deprecated = 0..3; pillar_axis = y, x, z |
+| `heavy_core` | Heavy Core |  |
+| `heavy_weighted_pressure_plate` | Heavy Weighted Pressure Plate | redstone_signal = 0..15 |
+| `honey_block` | Honey Block |  |
+| `honeycomb_block` | Honeycomb Block |  |
+| `hopper` | Hopper | facing_direction = 0..5; toggle_bit = 0, 1 |
+| `horn_coral` | Horn Coral |  |
+| `horn_coral_block` | Horn Coral Block |  |
+| `horn_coral_fan` | Horn Coral Fan | coral_fan_direction = 0..1 |
+| `horn_coral_wall_fan` |  | coral_direction = 0..3 |
+| `ice` | Ice |  |
+| `ice_crystal` | Ice Crystal | minecraft:block_face = down, up, north, south, west, east |
+| `icicle` | Icicle | attached_bit = 0, 1; dripstone_thickness = tip, frustum, middle, base, merge; hanging = 0, 1 |
+| `infested_chiseled_stone_bricks` | Infested Chiseled Stone Bricks |  |
+| `infested_cobblestone` | Infested Cobblestone |  |
+| `infested_cracked_stone_bricks` | Infested Cracked Stone Bricks |  |
+| `infested_deepslate` | Infested Deepslate | pillar_axis = y, x, z |
+| `infested_mossy_stone_bricks` | Infested Mossy Stone Bricks |  |
+| `infested_stone` | Infested Stone |  |
+| `infested_stone_bricks` | Infested Stone Bricks |  |
+| `iron_bars` | Iron Bars | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `iron_block` | Iron Block |  |
+| `iron_chain` | Iron Chain | pillar_axis = y, x, z |
+| `iron_door` | Iron Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `iron_ore` | Iron Ore |  |
+| `iron_trapdoor` | Iron Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `jigsaw` | Jigsaw | facing_direction = 0..5; rotation = 0..3 |
+| `jukebox` | Jukebox |  |
+| `jungle_button` | Jungle Button | button_pressed_bit = 0, 1; facing_direction = 0..5 |
+| `jungle_door` | Jungle Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `jungle_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `jungle_fence` | Jungle Fence | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `jungle_fence_gate` | Jungle Fence Gate | in_wall_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1 |
+| `jungle_hanging_sign` | Jungle Hanging Sign | attached_bit = 0, 1; facing_direction = 0..5; ground_sign_direction = 0..15; hanging = 0, 1 |
+| `jungle_leaves` | Jungle Leaves | persistent_bit = 0, 1; update_bit = 0, 1 |
+| `jungle_log` | Jungle Log | pillar_axis = y, x, z |
+| `jungle_planks` | Jungle Planks |  |
+| `jungle_pressure_plate` | Jungle Pressure Plate | redstone_signal = 0..15 |
+| `jungle_sapling` | Jungle Sapling | age_bit = 0, 1 |
+| `jungle_shelf` | Jungle Shelf | minecraft:cardinal_direction = south, west, north, east; powered_bit = 0, 1; powered_shelf_type = 0..3 |
+| `jungle_slab` | Jungle Slab | minecraft:vertical_half = bottom, top |
+| `jungle_stairs` | Jungle Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `jungle_standing_sign` |  | ground_sign_direction = 0..15 |
+| `jungle_trapdoor` | Jungle Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `jungle_wall_sign` |  | facing_direction = 0..5 |
+| `jungle_wood` | Jungle Wood | pillar_axis = y, x, z |
+| `kelp` | Kelp | kelp_age = 0..25 |
+| `lab_table` |  | direction = 0..3 |
+| `ladder` | Ladder | facing_direction = 0..5 |
+| `lantern` | Lantern | hanging = 0, 1 |
+| `lapis_block` | Lapis Block |  |
+| `lapis_ore` | Lapis Ore |  |
+| `large_amethyst_bud` | Large Amethyst Bud | minecraft:block_face = down, up, north, south, west, east |
+| `large_fern` | Large Fern | upper_block_bit = 0, 1 |
+| `lava` |  | liquid_depth = 0..15 |
+| `leaf_litter` | Leaf Litter | growth = 0..7; minecraft:cardinal_direction = south, west, north, east |
+| `lectern` | Lectern | minecraft:cardinal_direction = south, west, north, east; powered_bit = 0, 1 |
+| `lever` | Lever | lever_direction = down_east_west, east, west, south, north, up_north_south, up_east_west, down_north_south; open_bit = 0, 1 |
+| `light_block_0` | Light Block 0 |  |
+| `light_block_1` | Light Block 1 |  |
+| `light_block_10` | Light Block 10 |  |
+| `light_block_11` | Light Block 11 |  |
+| `light_block_12` | Light Block 12 |  |
+| `light_block_13` | Light Block 13 |  |
+| `light_block_14` | Light Block 14 |  |
+| `light_block_15` | Light Block 15 |  |
+| `light_block_2` | Light Block 2 |  |
+| `light_block_3` | Light Block 3 |  |
+| `light_block_4` | Light Block 4 |  |
+| `light_block_5` | Light Block 5 |  |
+| `light_block_6` | Light Block 6 |  |
+| `light_block_7` | Light Block 7 |  |
+| `light_block_8` | Light Block 8 |  |
+| `light_block_9` | Light Block 9 |  |
+| `light_blue_candle` | Light Blue Candle | candles = 0..3; lit = 0, 1 |
+| `light_blue_candle_cake` |  | lit = 0, 1 |
+| `light_blue_carpet` | Light Blue Carpet |  |
+| `light_blue_concrete` | Light Blue Concrete |  |
+| `light_blue_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `light_blue_concrete_powder` | Light Blue Concrete Powder |  |
+| `light_blue_concrete_slab` | Light Blue Concrete Slab | minecraft:vertical_half = bottom, top |
+| `light_blue_concrete_stairs` | Light Blue Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `light_blue_glazed_terracotta` | Light Blue Glazed Terracotta | facing_direction = 0..5 |
+| `light_blue_shulker_box` | Light Blue Shulker Box |  |
+| `light_blue_stained_glass` | Light Blue Stained Glass |  |
+| `light_blue_stained_glass_pane` | Light Blue Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `light_blue_terracotta` | Light Blue Terracotta |  |
+| `light_blue_wool` | Light Blue Wool |  |
+| `light_blue_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `light_blue_wool_slab` | Light Blue Wool Slab | minecraft:vertical_half = bottom, top |
+| `light_blue_wool_stairs` | Light Blue Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `light_gray_candle` | Light Gray Candle | candles = 0..3; lit = 0, 1 |
+| `light_gray_candle_cake` |  | lit = 0, 1 |
+| `light_gray_carpet` | Light Gray Carpet |  |
+| `light_gray_concrete` | Light Gray Concrete |  |
+| `light_gray_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `light_gray_concrete_powder` | Light Gray Concrete Powder |  |
+| `light_gray_concrete_slab` | Light Gray Concrete Slab | minecraft:vertical_half = bottom, top |
+| `light_gray_concrete_stairs` | Light Gray Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `light_gray_shulker_box` | Light Gray Shulker Box |  |
+| `light_gray_stained_glass` | Light Gray Stained Glass |  |
+| `light_gray_stained_glass_pane` | Light Gray Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `light_gray_terracotta` | Light Gray Terracotta |  |
+| `light_gray_wool` | Light Gray Wool |  |
+| `light_gray_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `light_gray_wool_slab` | Light Gray Wool Slab | minecraft:vertical_half = bottom, top |
+| `light_gray_wool_stairs` | Light Gray Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `light_weighted_pressure_plate` | Light Weighted Pressure Plate | redstone_signal = 0..15 |
+| `lightning_rod` | Lightning Rod | facing_direction = 0..5; powered_bit = 0, 1 |
+| `lilac` | Lilac | upper_block_bit = 0, 1 |
+| `lily_of_the_valley` | Lily Of The Valley |  |
+| `lime_candle` | Lime Candle | candles = 0..3; lit = 0, 1 |
+| `lime_candle_cake` |  | lit = 0, 1 |
+| `lime_carpet` | Lime Carpet |  |
+| `lime_concrete` | Lime Concrete |  |
+| `lime_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `lime_concrete_powder` | Lime Concrete Powder |  |
+| `lime_concrete_slab` | Lime Concrete Slab | minecraft:vertical_half = bottom, top |
+| `lime_concrete_stairs` | Lime Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `lime_glazed_terracotta` | Lime Glazed Terracotta | facing_direction = 0..5 |
+| `lime_shulker_box` | Lime Shulker Box |  |
+| `lime_stained_glass` | Lime Stained Glass |  |
+| `lime_stained_glass_pane` | Lime Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `lime_terracotta` | Lime Terracotta |  |
+| `lime_wool` | Lime Wool |  |
+| `lime_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `lime_wool_slab` | Lime Wool Slab | minecraft:vertical_half = bottom, top |
+| `lime_wool_stairs` | Lime Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `lit_blast_furnace` |  | minecraft:cardinal_direction = south, west, north, east |
+| `lit_deepslate_redstone_ore` |  |  |
+| `lit_furnace` |  | minecraft:cardinal_direction = south, west, north, east |
+| `lit_pumpkin` | Lit Pumpkin | minecraft:cardinal_direction = south, west, north, east |
+| `lit_redstone_lamp` |  |  |
+| `lit_redstone_ore` |  |  |
+| `lit_smoker` |  | minecraft:cardinal_direction = south, west, north, east |
+| `lodestone` | Lodestone |  |
+| `loom` | Loom | direction = 0..3 |
+| `magenta_candle` | Magenta Candle | candles = 0..3; lit = 0, 1 |
+| `magenta_candle_cake` |  | lit = 0, 1 |
+| `magenta_carpet` | Magenta Carpet |  |
+| `magenta_concrete` | Magenta Concrete |  |
+| `magenta_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `magenta_concrete_powder` | Magenta Concrete Powder |  |
+| `magenta_concrete_slab` | Magenta Concrete Slab | minecraft:vertical_half = bottom, top |
+| `magenta_concrete_stairs` | Magenta Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `magenta_glazed_terracotta` | Magenta Glazed Terracotta | facing_direction = 0..5 |
+| `magenta_shulker_box` | Magenta Shulker Box |  |
+| `magenta_stained_glass` | Magenta Stained Glass |  |
+| `magenta_stained_glass_pane` | Magenta Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `magenta_terracotta` | Magenta Terracotta |  |
+| `magenta_wool` | Magenta Wool |  |
+| `magenta_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `magenta_wool_slab` | Magenta Wool Slab | minecraft:vertical_half = bottom, top |
+| `magenta_wool_stairs` | Magenta Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `magma` | Magma |  |
+| `mangrove_button` | Mangrove Button | button_pressed_bit = 0, 1; facing_direction = 0..5 |
+| `mangrove_door` | Mangrove Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `mangrove_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `mangrove_fence` | Mangrove Fence | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `mangrove_fence_gate` | Mangrove Fence Gate | in_wall_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1 |
+| `mangrove_hanging_sign` | Mangrove Hanging Sign | attached_bit = 0, 1; facing_direction = 0..5; ground_sign_direction = 0..15; hanging = 0, 1 |
+| `mangrove_leaves` | Mangrove Leaves | persistent_bit = 0, 1; update_bit = 0, 1 |
+| `mangrove_log` | Mangrove Log | pillar_axis = y, x, z |
+| `mangrove_planks` | Mangrove Planks |  |
+| `mangrove_pressure_plate` | Mangrove Pressure Plate | redstone_signal = 0..15 |
+| `mangrove_propagule` | Mangrove Propagule | hanging = 0, 1; propagule_stage = 0..4 |
+| `mangrove_roots` | Mangrove Roots |  |
+| `mangrove_shelf` | Mangrove Shelf | minecraft:cardinal_direction = south, west, north, east; powered_bit = 0, 1; powered_shelf_type = 0..3 |
+| `mangrove_slab` | Mangrove Slab | minecraft:vertical_half = bottom, top |
+| `mangrove_stairs` | Mangrove Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `mangrove_standing_sign` |  | ground_sign_direction = 0..15 |
+| `mangrove_trapdoor` | Mangrove Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `mangrove_wall_sign` |  | facing_direction = 0..5 |
+| `mangrove_wood` | Mangrove Wood | pillar_axis = y, x, z |
+| `material_reducer` |  | direction = 0..3 |
+| `medium_amethyst_bud` | Medium Amethyst Bud | minecraft:block_face = down, up, north, south, west, east |
+| `melon_block` | Melon Block |  |
+| `melon_stem` |  | facing_direction = 0..5; growth = 0..7 |
+| `mob_spawner` | Mob Spawner |  |
+| `moss_block` | Moss Block |  |
+| `moss_carpet` | Moss Carpet |  |
+| `mossy_cobblestone` | Mossy Cobblestone |  |
+| `mossy_cobblestone_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `mossy_cobblestone_slab` | Mossy Cobblestone Slab | minecraft:vertical_half = bottom, top |
+| `mossy_cobblestone_stairs` | Mossy Cobblestone Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `mossy_cobblestone_wall` | Mossy Cobblestone Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `mossy_stone_brick_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `mossy_stone_brick_slab` | Mossy Stone Brick Slab | minecraft:vertical_half = bottom, top |
+| `mossy_stone_brick_stairs` | Mossy Stone Brick Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `mossy_stone_brick_wall` | Mossy Stone Brick Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `mossy_stone_bricks` | Mossy Stone Bricks |  |
+| `mud` | Mud |  |
+| `mud_brick_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `mud_brick_slab` | Mud Brick Slab | minecraft:vertical_half = bottom, top |
+| `mud_brick_stairs` | Mud Brick Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `mud_brick_wall` | Mud Brick Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `mud_bricks` | Mud Bricks |  |
+| `muddy_mangrove_roots` | Muddy Mangrove Roots | pillar_axis = y, x, z |
+| `mushroom_stem` | Mushroom Stem | huge_mushroom_bits = 0..15 |
+| `mycelium` | Mycelium |  |
+| `nether_brick` | Nether Brick |  |
+| `nether_brick_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `nether_brick_fence` | Nether Brick Fence | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `nether_brick_slab` | Nether Brick Slab | minecraft:vertical_half = bottom, top |
+| `nether_brick_stairs` | Nether Brick Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `nether_brick_wall` | Nether Brick Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `nether_gold_ore` | Nether Gold Ore |  |
+| `nether_sprouts` | Nether Sprouts |  |
+| `nether_wart` | Nether Wart | age = 0..15 |
+| `nether_wart_block` | Nether Wart Block |  |
+| `netherite_block` | Netherite Block |  |
+| `netherrack` | Netherrack |  |
+| `normal_stone_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `normal_stone_slab` | Normal Stone Slab | minecraft:vertical_half = bottom, top |
+| `normal_stone_stairs` | Normal Stone Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `noteblock` | Noteblock |  |
+| `oak_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `oak_fence` | Oak Fence | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `oak_hanging_sign` | Oak Hanging Sign | attached_bit = 0, 1; facing_direction = 0..5; ground_sign_direction = 0..15; hanging = 0, 1 |
+| `oak_leaves` | Oak Leaves | persistent_bit = 0, 1; update_bit = 0, 1 |
+| `oak_log` | Oak Log | pillar_axis = y, x, z |
+| `oak_planks` | Oak Planks |  |
+| `oak_sapling` | Oak Sapling | age_bit = 0, 1 |
+| `oak_shelf` | Oak Shelf | minecraft:cardinal_direction = south, west, north, east; powered_bit = 0, 1; powered_shelf_type = 0..3 |
+| `oak_slab` | Oak Slab | minecraft:vertical_half = bottom, top |
+| `oak_stairs` | Oak Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `oak_wood` | Oak Wood | pillar_axis = y, x, z |
+| `observer` | Observer | minecraft:facing_direction = down, up, north, south, west, east; powered_bit = 0, 1 |
+| `obsidian` | Obsidian |  |
+| `ochre_froglight` | Ochre Froglight | pillar_axis = y, x, z |
+| `open_eyeblossom` | Open Eyeblossom |  |
+| `orange_candle` | Orange Candle | candles = 0..3; lit = 0, 1 |
+| `orange_candle_cake` |  | lit = 0, 1 |
+| `orange_carpet` | Orange Carpet |  |
+| `orange_concrete` | Orange Concrete |  |
+| `orange_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `orange_concrete_powder` | Orange Concrete Powder |  |
+| `orange_concrete_slab` | Orange Concrete Slab | minecraft:vertical_half = bottom, top |
+| `orange_concrete_stairs` | Orange Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `orange_glazed_terracotta` | Orange Glazed Terracotta | facing_direction = 0..5 |
+| `orange_poplar_leaves` | Orange Poplar Leaves | persistent_bit = 0, 1; update_bit = 0, 1 |
+| `orange_shulker_box` | Orange Shulker Box |  |
+| `orange_stained_glass` | Orange Stained Glass |  |
+| `orange_stained_glass_pane` | Orange Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `orange_terracotta` | Orange Terracotta |  |
+| `orange_tulip` | Orange Tulip |  |
+| `orange_wool` | Orange Wool |  |
+| `orange_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `orange_wool_slab` | Orange Wool Slab | minecraft:vertical_half = bottom, top |
+| `orange_wool_stairs` | Orange Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `oxeye_daisy` | Oxeye Daisy |  |
+| `oxidized_chiseled_copper` | Oxidized Chiseled Copper |  |
+| `oxidized_copper` | Oxidized Copper |  |
+| `oxidized_copper_bars` | Oxidized Copper Bars | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `oxidized_copper_bulb` | Oxidized Copper Bulb | lit = 0, 1; powered_bit = 0, 1 |
+| `oxidized_copper_chain` | Oxidized Copper Chain | pillar_axis = y, x, z |
+| `oxidized_copper_chest` | Oxidized Copper Chest | minecraft:cardinal_direction = south, west, north, east |
+| `oxidized_copper_door` | Oxidized Copper Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `oxidized_copper_golem_statue` | Oxidized Copper Golem Statue | minecraft:cardinal_direction = south, west, north, east |
+| `oxidized_copper_grate` | Oxidized Copper Grate |  |
+| `oxidized_copper_lantern` | Oxidized Copper Lantern | hanging = 0, 1 |
+| `oxidized_copper_trapdoor` | Oxidized Copper Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `oxidized_cut_copper` | Oxidized Cut Copper |  |
+| `oxidized_cut_copper_slab` | Oxidized Cut Copper Slab | minecraft:vertical_half = bottom, top |
+| `oxidized_cut_copper_stairs` | Oxidized Cut Copper Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `oxidized_double_cut_copper_slab` |  | minecraft:vertical_half = bottom, top |
+| `oxidized_lightning_rod` | Oxidized Lightning Rod | facing_direction = 0..5; powered_bit = 0, 1 |
+| `packed_ice` | Packed Ice |  |
+| `packed_mud` | Packed Mud |  |
+| `pale_hanging_moss` | Pale Hanging Moss | tip = 0, 1 |
+| `pale_moss_block` | Pale Moss Block |  |
+| `pale_moss_carpet` | Pale Moss Carpet | pale_moss_carpet_side_east = none, short, tall; pale_moss_carpet_side_north = none, short, tall; pale_moss_carpet_side_south = none, short, tall; pale_moss_carpet_side_west = none, short, tall; upper_block_bit = 0, 1 |
+| `pale_oak_button` | Pale Oak Button | button_pressed_bit = 0, 1; facing_direction = 0..5 |
+| `pale_oak_door` | Pale Oak Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `pale_oak_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `pale_oak_fence` | Pale Oak Fence | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `pale_oak_fence_gate` | Pale Oak Fence Gate | in_wall_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1 |
+| `pale_oak_hanging_sign` | Pale Oak Hanging Sign | attached_bit = 0, 1; facing_direction = 0..5; ground_sign_direction = 0..15; hanging = 0, 1 |
+| `pale_oak_leaves` | Pale Oak Leaves | persistent_bit = 0, 1; update_bit = 0, 1 |
+| `pale_oak_log` | Pale Oak Log | pillar_axis = y, x, z |
+| `pale_oak_planks` | Pale Oak Planks |  |
+| `pale_oak_pressure_plate` | Pale Oak Pressure Plate | redstone_signal = 0..15 |
+| `pale_oak_sapling` | Pale Oak Sapling | age_bit = 0, 1 |
+| `pale_oak_shelf` | Pale Oak Shelf | minecraft:cardinal_direction = south, west, north, east; powered_bit = 0, 1; powered_shelf_type = 0..3 |
+| `pale_oak_slab` | Pale Oak Slab | minecraft:vertical_half = bottom, top |
+| `pale_oak_stairs` | Pale Oak Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `pale_oak_standing_sign` |  | ground_sign_direction = 0..15 |
+| `pale_oak_trapdoor` | Pale Oak Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `pale_oak_wall_sign` |  | facing_direction = 0..5 |
+| `pale_oak_wood` | Pale Oak Wood | pillar_axis = y, x, z |
+| `pearlescent_froglight` | Pearlescent Froglight | pillar_axis = y, x, z |
+| `peony` | Peony | upper_block_bit = 0, 1 |
+| `petrified_oak_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `petrified_oak_slab` | Petrified Oak Slab | minecraft:vertical_half = bottom, top |
+| `piglin_head` | Piglin Head | facing_direction = 0..5 |
+| `pink_candle` | Pink Candle | candles = 0..3; lit = 0, 1 |
+| `pink_candle_cake` |  | lit = 0, 1 |
+| `pink_carpet` | Pink Carpet |  |
+| `pink_concrete` | Pink Concrete |  |
+| `pink_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `pink_concrete_powder` | Pink Concrete Powder |  |
+| `pink_concrete_slab` | Pink Concrete Slab | minecraft:vertical_half = bottom, top |
+| `pink_concrete_stairs` | Pink Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `pink_glazed_terracotta` | Pink Glazed Terracotta | facing_direction = 0..5 |
+| `pink_petals` | Pink Petals | growth = 0..7; minecraft:cardinal_direction = south, west, north, east |
+| `pink_shulker_box` | Pink Shulker Box |  |
+| `pink_stained_glass` | Pink Stained Glass |  |
+| `pink_stained_glass_pane` | Pink Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `pink_terracotta` | Pink Terracotta |  |
+| `pink_tulip` | Pink Tulip |  |
+| `pink_wool` | Pink Wool |  |
+| `pink_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `pink_wool_slab` | Pink Wool Slab | minecraft:vertical_half = bottom, top |
+| `pink_wool_stairs` | Pink Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `piston` | Piston | facing_direction = 0..5 |
+| `piston_arm_collision` |  | facing_direction = 0..5 |
+| `pitcher_crop` |  | growth = 0..7; upper_block_bit = 0, 1 |
+| `pitcher_plant` | Pitcher Plant | upper_block_bit = 0, 1 |
+| `player_head` | Player Head | facing_direction = 0..5 |
+| `podzol` | Podzol |  |
+| `pointed_dripstone` | Pointed Dripstone | dripstone_thickness = tip, frustum, middle, base, merge; hanging = 0, 1 |
+| `polished_andesite` | Polished Andesite |  |
+| `polished_andesite_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `polished_andesite_slab` | Polished Andesite Slab | minecraft:vertical_half = bottom, top |
+| `polished_andesite_stairs` | Polished Andesite Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `polished_basalt` | Polished Basalt | pillar_axis = y, x, z |
+| `polished_blackstone` | Polished Blackstone |  |
+| `polished_blackstone_brick_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `polished_blackstone_brick_slab` | Polished Blackstone Brick Slab | minecraft:vertical_half = bottom, top |
+| `polished_blackstone_brick_stairs` | Polished Blackstone Brick Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `polished_blackstone_brick_wall` | Polished Blackstone Brick Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `polished_blackstone_bricks` | Polished Blackstone Bricks |  |
+| `polished_blackstone_button` | Polished Blackstone Button | button_pressed_bit = 0, 1; facing_direction = 0..5 |
+| `polished_blackstone_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `polished_blackstone_pressure_plate` | Polished Blackstone Pressure Plate | redstone_signal = 0..15 |
+| `polished_blackstone_slab` | Polished Blackstone Slab | minecraft:vertical_half = bottom, top |
+| `polished_blackstone_stairs` | Polished Blackstone Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `polished_blackstone_wall` | Polished Blackstone Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `polished_cinnabar` | Polished Cinnabar |  |
+| `polished_cinnabar_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `polished_cinnabar_slab` | Polished Cinnabar Slab | minecraft:vertical_half = bottom, top |
+| `polished_cinnabar_stairs` | Polished Cinnabar Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `polished_cinnabar_wall` | Polished Cinnabar Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `polished_deepslate` | Polished Deepslate |  |
+| `polished_deepslate_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `polished_deepslate_slab` | Polished Deepslate Slab | minecraft:vertical_half = bottom, top |
+| `polished_deepslate_stairs` | Polished Deepslate Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `polished_deepslate_wall` | Polished Deepslate Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `polished_diorite` | Polished Diorite |  |
+| `polished_diorite_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `polished_diorite_slab` | Polished Diorite Slab | minecraft:vertical_half = bottom, top |
+| `polished_diorite_stairs` | Polished Diorite Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `polished_granite` | Polished Granite |  |
+| `polished_granite_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `polished_granite_slab` | Polished Granite Slab | minecraft:vertical_half = bottom, top |
+| `polished_granite_stairs` | Polished Granite Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `polished_sulfur` | Polished Sulfur |  |
+| `polished_sulfur_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `polished_sulfur_slab` | Polished Sulfur Slab | minecraft:vertical_half = bottom, top |
+| `polished_sulfur_stairs` | Polished Sulfur Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `polished_sulfur_wall` | Polished Sulfur Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `polished_tuff` | Polished Tuff |  |
+| `polished_tuff_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `polished_tuff_slab` | Polished Tuff Slab | minecraft:vertical_half = bottom, top |
+| `polished_tuff_stairs` | Polished Tuff Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `polished_tuff_wall` | Polished Tuff Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `poplar_button` | Poplar Button | button_pressed_bit = 0, 1; facing_direction = 0..5 |
+| `poplar_door` | Poplar Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `poplar_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `poplar_fence` | Poplar Fence | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `poplar_fence_gate` | Poplar Fence Gate | in_wall_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1 |
+| `poplar_hanging_sign` | Poplar Hanging Sign | attached_bit = 0, 1; facing_direction = 0..5; ground_sign_direction = 0..15; hanging = 0, 1 |
+| `poplar_log` | Poplar Log | pillar_axis = y, x, z |
+| `poplar_planks` | Poplar Planks |  |
+| `poplar_pressure_plate` | Poplar Pressure Plate | redstone_signal = 0..15 |
+| `poplar_sapling` | Poplar Sapling | age_bit = 0, 1 |
+| `poplar_shelf` | Poplar Shelf | minecraft:cardinal_direction = south, west, north, east; powered_bit = 0, 1; powered_shelf_type = 0..3 |
+| `poplar_slab` | Poplar Slab | minecraft:vertical_half = bottom, top |
+| `poplar_stairs` | Poplar Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `poplar_standing_sign` |  | ground_sign_direction = 0..15 |
+| `poplar_trapdoor` | Poplar Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `poplar_wall_sign` |  | facing_direction = 0..5 |
+| `poplar_wood` | Poplar Wood | pillar_axis = y, x, z |
+| `poppy` | Poppy |  |
+| `portal` |  | portal_axis = unknown, x, z |
+| `potatoes` |  | growth = 0..7 |
+| `potent_sulfur` | Potent Sulfur | potent_sulfur_state = dry, wet, dormant, erupting, continuous |
+| `powder_snow` |  |  |
+| `powered_comparator` |  | minecraft:cardinal_direction = south, west, north, east; output_lit_bit = 0, 1; output_subtract_bit = 0, 1 |
+| `powered_repeater` |  | minecraft:cardinal_direction = south, west, north, east; repeater_delay = 0..3 |
+| `prismarine` | Prismarine |  |
+| `prismarine_brick_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `prismarine_brick_slab` | Prismarine Brick Slab | minecraft:vertical_half = bottom, top |
+| `prismarine_bricks` | Prismarine Bricks |  |
+| `prismarine_bricks_stairs` | Prismarine Bricks Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `prismarine_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `prismarine_slab` | Prismarine Slab | minecraft:vertical_half = bottom, top |
+| `prismarine_stairs` | Prismarine Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `prismarine_wall` | Prismarine Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `pumpkin` | Pumpkin | minecraft:cardinal_direction = south, west, north, east |
+| `pumpkin_stem` |  | facing_direction = 0..5; growth = 0..7 |
+| `purple_candle` | Purple Candle | candles = 0..3; lit = 0, 1 |
+| `purple_candle_cake` |  | lit = 0, 1 |
+| `purple_carpet` | Purple Carpet |  |
+| `purple_concrete` | Purple Concrete |  |
+| `purple_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `purple_concrete_powder` | Purple Concrete Powder |  |
+| `purple_concrete_slab` | Purple Concrete Slab | minecraft:vertical_half = bottom, top |
+| `purple_concrete_stairs` | Purple Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `purple_glazed_terracotta` | Purple Glazed Terracotta | facing_direction = 0..5 |
+| `purple_shulker_box` | Purple Shulker Box |  |
+| `purple_stained_glass` | Purple Stained Glass |  |
+| `purple_stained_glass_pane` | Purple Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `purple_terracotta` | Purple Terracotta |  |
+| `purple_wool` | Purple Wool |  |
+| `purple_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `purple_wool_slab` | Purple Wool Slab | minecraft:vertical_half = bottom, top |
+| `purple_wool_stairs` | Purple Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `purpur_block` | Purpur Block | pillar_axis = y, x, z |
+| `purpur_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `purpur_pillar` | Purpur Pillar | pillar_axis = y, x, z |
+| `purpur_slab` | Purpur Slab | minecraft:vertical_half = bottom, top |
+| `purpur_stairs` | Purpur Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `quartz_block` | Quartz Block | pillar_axis = y, x, z |
+| `quartz_bricks` | Quartz Bricks |  |
+| `quartz_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `quartz_ore` | Quartz Ore |  |
+| `quartz_pillar` | Quartz Pillar | pillar_axis = y, x, z |
+| `quartz_slab` | Quartz Slab | minecraft:vertical_half = bottom, top |
+| `quartz_stairs` | Quartz Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `rail` | Rail | rail_direction = 0..9 |
+| `raw_copper_block` | Raw Copper Block |  |
+| `raw_gold_block` | Raw Gold Block |  |
+| `raw_iron_block` | Raw Iron Block |  |
+| `red_candle` | Red Candle | candles = 0..3; lit = 0, 1 |
+| `red_candle_cake` |  | lit = 0, 1 |
+| `red_carpet` | Red Carpet |  |
+| `red_concrete` | Red Concrete |  |
+| `red_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `red_concrete_powder` | Red Concrete Powder |  |
+| `red_concrete_slab` | Red Concrete Slab | minecraft:vertical_half = bottom, top |
+| `red_concrete_stairs` | Red Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `red_glazed_terracotta` | Red Glazed Terracotta | facing_direction = 0..5 |
+| `red_mushroom` | Red Mushroom |  |
+| `red_mushroom_block` | Red Mushroom Block | huge_mushroom_bits = 0..15 |
+| `red_nether_brick` | Red Nether Brick |  |
+| `red_nether_brick_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `red_nether_brick_slab` | Red Nether Brick Slab | minecraft:vertical_half = bottom, top |
+| `red_nether_brick_stairs` | Red Nether Brick Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `red_nether_brick_wall` | Red Nether Brick Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `red_poplar_leaves` | Red Poplar Leaves | persistent_bit = 0, 1; update_bit = 0, 1 |
+| `red_sand` | Red Sand |  |
+| `red_sandstone` | Red Sandstone |  |
+| `red_sandstone_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `red_sandstone_slab` | Red Sandstone Slab | minecraft:vertical_half = bottom, top |
+| `red_sandstone_stairs` | Red Sandstone Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `red_sandstone_wall` | Red Sandstone Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `red_shrub` | Red Shrub |  |
+| `red_shulker_box` | Red Shulker Box |  |
+| `red_stained_glass` | Red Stained Glass |  |
+| `red_stained_glass_pane` | Red Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `red_terracotta` | Red Terracotta |  |
+| `red_tulip` | Red Tulip |  |
+| `red_wool` | Red Wool |  |
+| `red_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `red_wool_slab` | Red Wool Slab | minecraft:vertical_half = bottom, top |
+| `red_wool_stairs` | Red Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `redstone_block` | Redstone Block |  |
+| `redstone_lamp` | Redstone Lamp |  |
+| `redstone_ore` | Redstone Ore |  |
+| `redstone_torch` | Redstone Torch | torch_facing_direction = unknown, west, east, north, south, top |
+| `redstone_wire` |  | redstone_east = none, side, up; redstone_north = none, side, up; redstone_signal = 0..15; redstone_south = none, side, up; redstone_west = none, side, up |
+| `reeds` |  | age = 0..15 |
+| `reinforced_deepslate` | Reinforced Deepslate |  |
+| `repeating_command_block` | Repeating Command Block | conditional_bit = 0, 1; facing_direction = 0..5 |
+| `resin_block` | Resin Block |  |
+| `resin_brick_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `resin_brick_slab` | Resin Brick Slab | minecraft:vertical_half = bottom, top |
+| `resin_brick_stairs` | Resin Brick Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `resin_brick_wall` | Resin Brick Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `resin_bricks` | Resin Bricks |  |
+| `resin_clump` | Resin Clump | multi_face_direction_bits = 0..63 |
+| `respawn_anchor` | Respawn Anchor | respawn_anchor_charge = 0..4 |
+| `rose_bush` | Rose Bush | upper_block_bit = 0, 1 |
+| `sand` | Sand |  |
+| `sandstone` | Sandstone |  |
+| `sandstone_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `sandstone_slab` | Sandstone Slab | minecraft:vertical_half = bottom, top |
+| `sandstone_stairs` | Sandstone Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `sandstone_wall` | Sandstone Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `scaffolding` | Scaffolding | stability = 0..7; stability_check = 0, 1 |
+| `sculk` | Sculk |  |
+| `sculk_catalyst` | Sculk Catalyst | bloom = 0, 1 |
+| `sculk_sensor` | Sculk Sensor | sculk_sensor_phase = 0..2 |
+| `sculk_shrieker` | Sculk Shrieker | active = 0, 1; can_summon = 0, 1 |
+| `sculk_vein` | Sculk Vein | multi_face_direction_bits = 0..63 |
+| `sea_lantern` | Sea Lantern |  |
+| `sea_pickle` | Sea Pickle | cluster_count = 0..3; dead_bit = 0, 1 |
+| `seagrass` | Seagrass | sea_grass_type = default, double_top, double_bot |
+| `shelf_mushroom` | Shelf Mushroom | growth = 0..7; minecraft:cardinal_direction = south, west, north, east |
+| `short_dry_grass` | Short Dry Grass |  |
+| `short_grass` | Short Grass |  |
+| `shroomlight` | Shroomlight |  |
+| `silver_glazed_terracotta` | Silver Glazed Terracotta | facing_direction = 0..5 |
+| `skeleton_skull` | Skeleton Skull | facing_direction = 0..5 |
+| `slime` | Slime |  |
+| `small_amethyst_bud` | Small Amethyst Bud | minecraft:block_face = down, up, north, south, west, east |
+| `small_dripleaf_block` | Small Dripleaf Block | minecraft:cardinal_direction = south, west, north, east; upper_block_bit = 0, 1 |
+| `smithing_table` | Smithing Table |  |
+| `smoker` | Smoker | minecraft:cardinal_direction = south, west, north, east |
+| `smooth_basalt` | Smooth Basalt |  |
+| `smooth_quartz` | Smooth Quartz | pillar_axis = y, x, z |
+| `smooth_quartz_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `smooth_quartz_slab` | Smooth Quartz Slab | minecraft:vertical_half = bottom, top |
+| `smooth_quartz_stairs` | Smooth Quartz Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `smooth_red_sandstone` | Smooth Red Sandstone |  |
+| `smooth_red_sandstone_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `smooth_red_sandstone_slab` | Smooth Red Sandstone Slab | minecraft:vertical_half = bottom, top |
+| `smooth_red_sandstone_stairs` | Smooth Red Sandstone Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `smooth_sandstone` | Smooth Sandstone |  |
+| `smooth_sandstone_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `smooth_sandstone_slab` | Smooth Sandstone Slab | minecraft:vertical_half = bottom, top |
+| `smooth_sandstone_stairs` | Smooth Sandstone Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `smooth_stone` | Smooth Stone |  |
+| `smooth_stone_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `smooth_stone_slab` | Smooth Stone Slab | minecraft:vertical_half = bottom, top |
+| `sniffer_egg` | Sniffer Egg | cracked_state = no_cracks, cracked, max_cracked |
+| `snow` | Snow |  |
+| `snow_layer` | Snow Layer | covered_bit = 0, 1; height = 0..7 |
+| `soul_campfire` | Soul Campfire | extinguished = 0, 1; minecraft:cardinal_direction = south, west, north, east |
+| `soul_fire` |  | age = 0..15 |
+| `soul_lantern` | Soul Lantern | hanging = 0, 1 |
+| `soul_sand` | Soul Sand |  |
+| `soul_soil` | Soul Soil |  |
+| `soul_torch` | Soul Torch | torch_facing_direction = unknown, west, east, north, south, top |
+| `sponge` | Sponge |  |
+| `spore_blossom` | Spore Blossom |  |
+| `spruce_button` | Spruce Button | button_pressed_bit = 0, 1; facing_direction = 0..5 |
+| `spruce_door` | Spruce Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `spruce_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `spruce_fence` | Spruce Fence | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `spruce_fence_gate` | Spruce Fence Gate | in_wall_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1 |
+| `spruce_hanging_sign` | Spruce Hanging Sign | attached_bit = 0, 1; facing_direction = 0..5; ground_sign_direction = 0..15; hanging = 0, 1 |
+| `spruce_leaves` | Spruce Leaves | persistent_bit = 0, 1; update_bit = 0, 1 |
+| `spruce_log` | Spruce Log | pillar_axis = y, x, z |
+| `spruce_planks` | Spruce Planks |  |
+| `spruce_pressure_plate` | Spruce Pressure Plate | redstone_signal = 0..15 |
+| `spruce_sapling` | Spruce Sapling | age_bit = 0, 1 |
+| `spruce_shelf` | Spruce Shelf | minecraft:cardinal_direction = south, west, north, east; powered_bit = 0, 1; powered_shelf_type = 0..3 |
+| `spruce_slab` | Spruce Slab | minecraft:vertical_half = bottom, top |
+| `spruce_stairs` | Spruce Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `spruce_standing_sign` |  | ground_sign_direction = 0..15 |
+| `spruce_trapdoor` | Spruce Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `spruce_wall_sign` |  | facing_direction = 0..5 |
+| `spruce_wood` | Spruce Wood | pillar_axis = y, x, z |
+| `standing_banner` |  | ground_sign_direction = 0..15 |
+| `standing_sign` |  | ground_sign_direction = 0..15 |
+| `sticky_piston` | Sticky Piston | facing_direction = 0..5 |
+| `sticky_piston_arm_collision` |  | facing_direction = 0..5 |
+| `stone` | Stone |  |
+| `stone_brick_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `stone_brick_slab` | Stone Brick Slab | minecraft:vertical_half = bottom, top |
+| `stone_brick_stairs` | Stone Brick Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `stone_brick_wall` | Stone Brick Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `stone_bricks` | Stone Bricks |  |
+| `stone_button` | Stone Button | button_pressed_bit = 0, 1; facing_direction = 0..5 |
+| `stone_pressure_plate` | Stone Pressure Plate | redstone_signal = 0..15 |
+| `stone_stairs` | Stone Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `stonecutter_block` | Stonecutter Block | minecraft:cardinal_direction = south, west, north, east |
+| `straw_bed` | Straw Bed | head_piece_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; occupied_bit = 0, 1 |
+| `stripped_acacia_log` | Stripped Acacia Log | pillar_axis = y, x, z |
+| `stripped_acacia_wood` | Stripped Acacia Wood | pillar_axis = y, x, z |
+| `stripped_bamboo_block` | Stripped Bamboo Block | pillar_axis = y, x, z |
+| `stripped_birch_log` | Stripped Birch Log | pillar_axis = y, x, z |
+| `stripped_birch_wood` | Stripped Birch Wood | pillar_axis = y, x, z |
+| `stripped_cherry_log` | Stripped Cherry Log | pillar_axis = y, x, z |
+| `stripped_cherry_wood` | Stripped Cherry Wood | pillar_axis = y, x, z |
+| `stripped_crimson_hyphae` | Stripped Crimson Hyphae | pillar_axis = y, x, z |
+| `stripped_crimson_stem` | Stripped Crimson Stem | pillar_axis = y, x, z |
+| `stripped_dark_oak_log` | Stripped Dark Oak Log | pillar_axis = y, x, z |
+| `stripped_dark_oak_wood` | Stripped Dark Oak Wood | pillar_axis = y, x, z |
+| `stripped_jungle_log` | Stripped Jungle Log | pillar_axis = y, x, z |
+| `stripped_jungle_wood` | Stripped Jungle Wood | pillar_axis = y, x, z |
+| `stripped_mangrove_log` | Stripped Mangrove Log | pillar_axis = y, x, z |
+| `stripped_mangrove_wood` | Stripped Mangrove Wood | pillar_axis = y, x, z |
+| `stripped_oak_log` | Stripped Oak Log | pillar_axis = y, x, z |
+| `stripped_oak_wood` | Stripped Oak Wood | pillar_axis = y, x, z |
+| `stripped_pale_oak_log` | Stripped Pale Oak Log | pillar_axis = y, x, z |
+| `stripped_pale_oak_wood` | Stripped Pale Oak Wood | pillar_axis = y, x, z |
+| `stripped_poplar_log` | Stripped Poplar Log | pillar_axis = y, x, z |
+| `stripped_poplar_wood` | Stripped Poplar Wood | pillar_axis = y, x, z |
+| `stripped_spruce_log` | Stripped Spruce Log | pillar_axis = y, x, z |
+| `stripped_spruce_wood` | Stripped Spruce Wood | pillar_axis = y, x, z |
+| `stripped_warped_hyphae` | Stripped Warped Hyphae | pillar_axis = y, x, z |
+| `stripped_warped_stem` | Stripped Warped Stem | pillar_axis = y, x, z |
+| `structure_block` | Structure Block | structure_block_type = data, save, load, corner, invalid, export |
+| `structure_void` | Structure Void |  |
+| `sulfur` | Sulfur |  |
+| `sulfur_brick_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `sulfur_brick_slab` | Sulfur Brick Slab | minecraft:vertical_half = bottom, top |
+| `sulfur_brick_stairs` | Sulfur Brick Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `sulfur_brick_wall` | Sulfur Brick Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `sulfur_bricks` | Sulfur Bricks |  |
+| `sulfur_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `sulfur_slab` | Sulfur Slab | minecraft:vertical_half = bottom, top |
+| `sulfur_spike` | Sulfur Spike | dripstone_thickness = tip, frustum, middle, base, merge; hanging = 0, 1 |
+| `sulfur_stairs` | Sulfur Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `sulfur_wall` | Sulfur Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `sunflower` | Sunflower | upper_block_bit = 0, 1 |
+| `suspicious_gravel` | Suspicious Gravel | brushed_progress = 0..3; hanging = 0, 1 |
+| `suspicious_sand` | Suspicious Sand | brushed_progress = 0..3; hanging = 0, 1 |
+| `sweet_berry_bush` |  | growth = 0..7 |
+| `tall_dry_grass` | Tall Dry Grass |  |
+| `tall_grass` | Tall Grass | upper_block_bit = 0, 1 |
+| `target` | Target |  |
+| `tinted_glass` | Tinted Glass |  |
+| `tnt` | Tnt | explode_bit = 0, 1 |
+| `torch` | Torch | torch_facing_direction = unknown, west, east, north, south, top |
+| `torchflower` | Torchflower |  |
+| `torchflower_crop` |  | growth = 0..7 |
+| `trapdoor` | Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `trapped_chest` | Trapped Chest | minecraft:cardinal_direction = south, west, north, east |
+| `trial_spawner` | Trial Spawner | ominous = 0, 1; trial_spawner_state = 0..5 |
+| `trip_wire` |  | attached_bit = 0, 1; disarmed_bit = 0, 1; minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1; powered_bit = 0, 1; suspended_bit = 0, 1 |
+| `tripwire_hook` | Tripwire Hook | attached_bit = 0, 1; direction = 0..3; powered_bit = 0, 1 |
+| `tube_coral` | Tube Coral |  |
+| `tube_coral_block` | Tube Coral Block |  |
+| `tube_coral_fan` | Tube Coral Fan | coral_fan_direction = 0..1 |
+| `tube_coral_wall_fan` |  | coral_direction = 0..3 |
+| `tuff` | Tuff |  |
+| `tuff_brick_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `tuff_brick_slab` | Tuff Brick Slab | minecraft:vertical_half = bottom, top |
+| `tuff_brick_stairs` | Tuff Brick Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `tuff_brick_wall` | Tuff Brick Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `tuff_bricks` | Tuff Bricks |  |
+| `tuff_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `tuff_slab` | Tuff Slab | minecraft:vertical_half = bottom, top |
+| `tuff_stairs` | Tuff Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `tuff_wall` | Tuff Wall | wall_connection_type_east = none, short, tall; wall_connection_type_north = none, short, tall; wall_connection_type_south = none, short, tall; wall_connection_type_west = none, short, tall; wall_post_bit = 0, 1 |
+| `turtle_egg` | Turtle Egg | cracked_state = no_cracks, cracked, max_cracked; turtle_egg_count = one_egg, two_egg, three_egg, four_egg |
+| `twisting_vines` | Twisting Vines | twisting_vines_age = 0..25 |
+| `underwater_tnt` |  | explode_bit = 0, 1 |
+| `underwater_torch` |  | torch_facing_direction = unknown, west, east, north, south, top |
+| `undyed_shulker_box` | Undyed Shulker Box |  |
+| `unknown` |  |  |
+| `unlit_redstone_torch` |  | torch_facing_direction = unknown, west, east, north, south, top |
+| `unpowered_comparator` |  | minecraft:cardinal_direction = south, west, north, east; output_lit_bit = 0, 1; output_subtract_bit = 0, 1 |
+| `unpowered_repeater` |  | minecraft:cardinal_direction = south, west, north, east; repeater_delay = 0..3 |
+| `vault` | Vault | minecraft:cardinal_direction = south, west, north, east; ominous = 0, 1; vault_state = inactive, active, unlocking, ejecting |
+| `verdant_froglight` | Verdant Froglight | pillar_axis = y, x, z |
+| `vine` | Vine | vine_direction_bits = 0..15 |
+| `wall_banner` |  | facing_direction = 0..5 |
+| `wall_sign` |  | facing_direction = 0..5 |
+| `warped_button` | Warped Button | button_pressed_bit = 0, 1; facing_direction = 0..5 |
+| `warped_door` | Warped Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `warped_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `warped_fence` | Warped Fence | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `warped_fence_gate` | Warped Fence Gate | in_wall_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1 |
+| `warped_fungus` | Warped Fungus |  |
+| `warped_hanging_sign` | Warped Hanging Sign | attached_bit = 0, 1; facing_direction = 0..5; ground_sign_direction = 0..15; hanging = 0, 1 |
+| `warped_hyphae` | Warped Hyphae | pillar_axis = y, x, z |
+| `warped_nylium` | Warped Nylium |  |
+| `warped_planks` | Warped Planks |  |
+| `warped_pressure_plate` | Warped Pressure Plate | redstone_signal = 0..15 |
+| `warped_roots` | Warped Roots |  |
+| `warped_shelf` | Warped Shelf | minecraft:cardinal_direction = south, west, north, east; powered_bit = 0, 1; powered_shelf_type = 0..3 |
+| `warped_slab` | Warped Slab | minecraft:vertical_half = bottom, top |
+| `warped_stairs` | Warped Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `warped_standing_sign` |  | ground_sign_direction = 0..15 |
+| `warped_stem` | Warped Stem | pillar_axis = y, x, z |
+| `warped_trapdoor` | Warped Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `warped_wall_sign` |  | facing_direction = 0..5 |
+| `warped_wart_block` | Warped Wart Block |  |
+| `water` |  | liquid_depth = 0..15 |
+| `waterlily` | Waterlily |  |
+| `waxed_chiseled_copper` | Waxed Chiseled Copper |  |
+| `waxed_copper` | Waxed Copper |  |
+| `waxed_copper_bars` | Waxed Copper Bars | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `waxed_copper_bulb` | Waxed Copper Bulb | lit = 0, 1; powered_bit = 0, 1 |
+| `waxed_copper_chain` | Waxed Copper Chain | pillar_axis = y, x, z |
+| `waxed_copper_chest` | Waxed Copper Chest | minecraft:cardinal_direction = south, west, north, east |
+| `waxed_copper_door` | Waxed Copper Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `waxed_copper_golem_statue` | Waxed Copper Golem Statue | minecraft:cardinal_direction = south, west, north, east |
+| `waxed_copper_grate` | Waxed Copper Grate |  |
+| `waxed_copper_lantern` | Waxed Copper Lantern | hanging = 0, 1 |
+| `waxed_copper_trapdoor` | Waxed Copper Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `waxed_cut_copper` | Waxed Cut Copper |  |
+| `waxed_cut_copper_slab` | Waxed Cut Copper Slab | minecraft:vertical_half = bottom, top |
+| `waxed_cut_copper_stairs` | Waxed Cut Copper Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `waxed_double_cut_copper_slab` |  | minecraft:vertical_half = bottom, top |
+| `waxed_exposed_chiseled_copper` | Waxed Exposed Chiseled Copper |  |
+| `waxed_exposed_copper` | Waxed Exposed Copper |  |
+| `waxed_exposed_copper_bars` | Waxed Exposed Copper Bars | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `waxed_exposed_copper_bulb` | Waxed Exposed Copper Bulb | lit = 0, 1; powered_bit = 0, 1 |
+| `waxed_exposed_copper_chain` | Waxed Exposed Copper Chain | pillar_axis = y, x, z |
+| `waxed_exposed_copper_chest` | Waxed Exposed Copper Chest | minecraft:cardinal_direction = south, west, north, east |
+| `waxed_exposed_copper_door` | Waxed Exposed Copper Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `waxed_exposed_copper_golem_statue` | Waxed Exposed Copper Golem Statue | minecraft:cardinal_direction = south, west, north, east |
+| `waxed_exposed_copper_grate` | Waxed Exposed Copper Grate |  |
+| `waxed_exposed_copper_lantern` | Waxed Exposed Copper Lantern | hanging = 0, 1 |
+| `waxed_exposed_copper_trapdoor` | Waxed Exposed Copper Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `waxed_exposed_cut_copper` | Waxed Exposed Cut Copper |  |
+| `waxed_exposed_cut_copper_slab` | Waxed Exposed Cut Copper Slab | minecraft:vertical_half = bottom, top |
+| `waxed_exposed_cut_copper_stairs` | Waxed Exposed Cut Copper Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `waxed_exposed_double_cut_copper_slab` |  | minecraft:vertical_half = bottom, top |
+| `waxed_exposed_lightning_rod` | Waxed Exposed Lightning Rod | facing_direction = 0..5; powered_bit = 0, 1 |
+| `waxed_lightning_rod` | Waxed Lightning Rod | facing_direction = 0..5; powered_bit = 0, 1 |
+| `waxed_oxidized_chiseled_copper` | Waxed Oxidized Chiseled Copper |  |
+| `waxed_oxidized_copper` | Waxed Oxidized Copper |  |
+| `waxed_oxidized_copper_bars` | Waxed Oxidized Copper Bars | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `waxed_oxidized_copper_bulb` | Waxed Oxidized Copper Bulb | lit = 0, 1; powered_bit = 0, 1 |
+| `waxed_oxidized_copper_chain` | Waxed Oxidized Copper Chain | pillar_axis = y, x, z |
+| `waxed_oxidized_copper_chest` | Waxed Oxidized Copper Chest | minecraft:cardinal_direction = south, west, north, east |
+| `waxed_oxidized_copper_door` | Waxed Oxidized Copper Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `waxed_oxidized_copper_golem_statue` | Waxed Oxidized Copper Golem Statue | minecraft:cardinal_direction = south, west, north, east |
+| `waxed_oxidized_copper_grate` | Waxed Oxidized Copper Grate |  |
+| `waxed_oxidized_copper_lantern` | Waxed Oxidized Copper Lantern | hanging = 0, 1 |
+| `waxed_oxidized_copper_trapdoor` | Waxed Oxidized Copper Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `waxed_oxidized_cut_copper` | Waxed Oxidized Cut Copper |  |
+| `waxed_oxidized_cut_copper_slab` | Waxed Oxidized Cut Copper Slab | minecraft:vertical_half = bottom, top |
+| `waxed_oxidized_cut_copper_stairs` | Waxed Oxidized Cut Copper Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `waxed_oxidized_double_cut_copper_slab` |  | minecraft:vertical_half = bottom, top |
+| `waxed_oxidized_lightning_rod` | Waxed Oxidized Lightning Rod | facing_direction = 0..5; powered_bit = 0, 1 |
+| `waxed_weathered_chiseled_copper` | Waxed Weathered Chiseled Copper |  |
+| `waxed_weathered_copper` | Waxed Weathered Copper |  |
+| `waxed_weathered_copper_bars` | Waxed Weathered Copper Bars | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `waxed_weathered_copper_bulb` | Waxed Weathered Copper Bulb | lit = 0, 1; powered_bit = 0, 1 |
+| `waxed_weathered_copper_chain` | Waxed Weathered Copper Chain | pillar_axis = y, x, z |
+| `waxed_weathered_copper_chest` | Waxed Weathered Copper Chest | minecraft:cardinal_direction = south, west, north, east |
+| `waxed_weathered_copper_door` | Waxed Weathered Copper Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `waxed_weathered_copper_golem_statue` | Waxed Weathered Copper Golem Statue | minecraft:cardinal_direction = south, west, north, east |
+| `waxed_weathered_copper_grate` | Waxed Weathered Copper Grate |  |
+| `waxed_weathered_copper_lantern` | Waxed Weathered Copper Lantern | hanging = 0, 1 |
+| `waxed_weathered_copper_trapdoor` | Waxed Weathered Copper Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `waxed_weathered_cut_copper` | Waxed Weathered Cut Copper |  |
+| `waxed_weathered_cut_copper_slab` | Waxed Weathered Cut Copper Slab | minecraft:vertical_half = bottom, top |
+| `waxed_weathered_cut_copper_stairs` | Waxed Weathered Cut Copper Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `waxed_weathered_double_cut_copper_slab` |  | minecraft:vertical_half = bottom, top |
+| `waxed_weathered_lightning_rod` | Waxed Weathered Lightning Rod | facing_direction = 0..5; powered_bit = 0, 1 |
+| `weathered_chiseled_copper` | Weathered Chiseled Copper |  |
+| `weathered_copper` | Weathered Copper |  |
+| `weathered_copper_bars` | Weathered Copper Bars | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `weathered_copper_bulb` | Weathered Copper Bulb | lit = 0, 1; powered_bit = 0, 1 |
+| `weathered_copper_chain` | Weathered Copper Chain | pillar_axis = y, x, z |
+| `weathered_copper_chest` | Weathered Copper Chest | minecraft:cardinal_direction = south, west, north, east |
+| `weathered_copper_door` | Weathered Copper Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `weathered_copper_golem_statue` | Weathered Copper Golem Statue | minecraft:cardinal_direction = south, west, north, east |
+| `weathered_copper_grate` | Weathered Copper Grate |  |
+| `weathered_copper_lantern` | Weathered Copper Lantern | hanging = 0, 1 |
+| `weathered_copper_trapdoor` | Weathered Copper Trapdoor | direction = 0..3; open_bit = 0, 1; upside_down_bit = 0, 1 |
+| `weathered_cut_copper` | Weathered Cut Copper |  |
+| `weathered_cut_copper_slab` | Weathered Cut Copper Slab | minecraft:vertical_half = bottom, top |
+| `weathered_cut_copper_stairs` | Weathered Cut Copper Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `weathered_double_cut_copper_slab` |  | minecraft:vertical_half = bottom, top |
+| `weathered_lightning_rod` | Weathered Lightning Rod | facing_direction = 0..5; powered_bit = 0, 1 |
+| `web` | Web |  |
+| `weeping_vines` | Weeping Vines | weeping_vines_age = 0..25 |
+| `wet_sponge` | Wet Sponge |  |
+| `wheat` | Wheat | growth = 0..7 |
+| `white_candle` | White Candle | candles = 0..3; lit = 0, 1 |
+| `white_candle_cake` |  | lit = 0, 1 |
+| `white_carpet` | White Carpet |  |
+| `white_concrete` | White Concrete |  |
+| `white_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `white_concrete_powder` | White Concrete Powder |  |
+| `white_concrete_slab` | White Concrete Slab | minecraft:vertical_half = bottom, top |
+| `white_concrete_stairs` | White Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `white_glazed_terracotta` | White Glazed Terracotta | facing_direction = 0..5 |
+| `white_shulker_box` | White Shulker Box |  |
+| `white_stained_glass` | White Stained Glass |  |
+| `white_stained_glass_pane` | White Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `white_terracotta` | White Terracotta |  |
+| `white_tulip` | White Tulip |  |
+| `white_wool` | White Wool |  |
+| `white_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `white_wool_slab` | White Wool Slab | minecraft:vertical_half = bottom, top |
+| `white_wool_stairs` | White Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `wildflowers` | Wildflowers | growth = 0..7; minecraft:cardinal_direction = south, west, north, east |
+| `wither_rose` | Wither Rose |  |
+| `wither_skeleton_skull` | Wither Skeleton Skull | facing_direction = 0..5 |
+| `wooden_button` | Wooden Button | button_pressed_bit = 0, 1; facing_direction = 0..5 |
+| `wooden_door` | Wooden Door | door_hinge_bit = 0, 1; minecraft:cardinal_direction = south, west, north, east; open_bit = 0, 1; upper_block_bit = 0, 1 |
+| `wooden_pressure_plate` | Wooden Pressure Plate | redstone_signal = 0..15 |
+| `yellow_candle` | Yellow Candle | candles = 0..3; lit = 0, 1 |
+| `yellow_candle_cake` |  | lit = 0, 1 |
+| `yellow_carpet` | Yellow Carpet |  |
+| `yellow_concrete` | Yellow Concrete |  |
+| `yellow_concrete_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `yellow_concrete_powder` | Yellow Concrete Powder |  |
+| `yellow_concrete_slab` | Yellow Concrete Slab | minecraft:vertical_half = bottom, top |
+| `yellow_concrete_stairs` | Yellow Concrete Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `yellow_glazed_terracotta` | Yellow Glazed Terracotta | facing_direction = 0..5 |
+| `yellow_poplar_leaves` | Yellow Poplar Leaves | persistent_bit = 0, 1; update_bit = 0, 1 |
+| `yellow_shulker_box` | Yellow Shulker Box |  |
+| `yellow_stained_glass` | Yellow Stained Glass |  |
+| `yellow_stained_glass_pane` | Yellow Stained Glass Pane | minecraft:connection_east = 0, 1; minecraft:connection_north = 0, 1; minecraft:connection_south = 0, 1; minecraft:connection_west = 0, 1 |
+| `yellow_terracotta` | Yellow Terracotta |  |
+| `yellow_wool` | Yellow Wool |  |
+| `yellow_wool_double_slab` |  | minecraft:vertical_half = bottom, top |
+| `yellow_wool_slab` | Yellow Wool Slab | minecraft:vertical_half = bottom, top |
+| `yellow_wool_stairs` | Yellow Wool Stairs | minecraft:corner = none, inner_left, inner_right, outer_left, outer_right; upside_down_bit = 0, 1; weirdo_direction = 0..3 |
+| `zombie_head` | Zombie Head | facing_direction = 0..5 |

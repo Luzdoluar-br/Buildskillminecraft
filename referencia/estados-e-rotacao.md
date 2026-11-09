@@ -1,5 +1,7 @@
 # Estados e rotação de blocos (Bedrock)
 
+**Fonte oficial dos estados**: `blocos-bedrock.md` (gerado do `mojang-blocks.json` da Mojang). Esta página explica o SIGNIFICADO e as armadilhas.
+
 **Evidência**: os estados abaixo foram observados em dados que o próprio jogo gravou num mundo real (ver a coluna "Estados observados" em `blocos-bedrock.md`). Onde marcado *(a confirmar)* é interpretação.
 
 ## Regra de ouro
