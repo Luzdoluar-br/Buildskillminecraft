@@ -75,7 +75,7 @@ def auditar():
             d = (1, 0) if eixo == "x" else (0, 1)
             for s in (1, -1):
                 viz = nome(c.pegar(x + d[0] * s, y, z + d[1] * s))
-                if viz == "air":
+                if viz == "air" and nome(c.pegar(x, y - 1, z)) != "lantern":
                     erros.append(("E-23 ponta de tronco exposta (canto/encontro errado)", (x, y, z), "%s axis=%s" % (n, eixo)))
                     break
     # E-24 máquinas orientadas: a FRENTE (cardinal_direction) tem de dar para um espaço livre, não para parede

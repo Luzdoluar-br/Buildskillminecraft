@@ -62,6 +62,7 @@ def casa_hortelao(c, x, z, y, flip=False):
     m.box(2, 1, 3, 5, 1, 7, M + "light_gray_carpet")
     m.box(1, 1, 8, 1, 2, 8, M + "bookshelf")
     m.p(4, 5, 5, (M + "lantern", {"hanging": True}))
+    canto_lampada(m, 0, 0, 8, 9, 5, 1, "stripped_dark_oak_log", "dark_oak_stairs")    # por último: só entra onde o alpendre não ocupou
     return m
 
 
@@ -106,6 +107,7 @@ def casa_cha(c, x, z, y, flip=False):
     m.porta(6, 2, 10, "pale_oak")
     for lx in (5, 6, 7):
         m.st(lx, 1, 11, "stone_brick_stairs", NORTE)     # sobe em direção à porta
+    canto_lampada(m, 2, 2, 10, 10, 5, 2, "stripped_dark_oak_log", "dark_oak_stairs")
     # primeiro beiral: 2 linhas largas, forro de lajes invertidas sob a borda (R2/R3)
     m.box(0, 6, 0, 12, 6, 12, pal([("pale_oak_planks", 3), ("spruce_planks", 1)], 62))
     m.tenda(2, 10, 2, 10, 7, TELHA_CHA, beiral=2, linhas=2)

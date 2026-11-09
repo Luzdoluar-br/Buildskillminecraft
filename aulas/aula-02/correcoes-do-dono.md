@@ -46,3 +46,8 @@ O dono não usa mais `/function vila/salvar`: ele passa prints e descrições; e
 | "Quero um arquivo com todos os blocos do Minecraft e seus IDs" | `referencia/blocos-bedrock.md` (1187 IDs) | E-26 |
 | Melhoria dos cantos (prints + blocos no mundo: viga projetada, lanterna, escada) | lido 1 canto; padrão descrito em C-2 (a confirmar) | `tecnicas/cantos-e-vigas.md` C-2 |
 | "Não esqueça de anotar seus aprendizados no git, é muito importante; o foco é te ensinar e registrar" | checklist de fim de rodada | E-27 |
+
+## 2026-11-09 · Canto do dono confirmado para todos os cantos
+| Observação do dono | O que fiz |
+|---|---|
+| "Só coloquei 1 canto como exemplo, é para usar nos cantos em geral. E como assim mísula?" | explicado o termo (degrau de escada sob a viga); `canto_lampada()` aplicada em chalé, hortelão e casa de chá; padrão C-2 marcado como confirmado; E-28 |

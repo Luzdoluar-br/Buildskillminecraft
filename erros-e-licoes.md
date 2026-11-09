@@ -9,6 +9,11 @@ Formato: **Sintoma** → **Causa** → **Correção** → **Como evitar / checar
 ## 2026-11-09 — Aula 02 (Vila Pedra-Musgo)
 Descobertos pelo dono ao entrar no jogo (primeiro teste real) e confirmados lendo o LevelDB do mundo.
 
+### E-28 · Termo técnico sem explicar ("mísula") e padrão do canto
+- O dono perguntou o que era "mísula": **explicar em palavras simples** (suporte em degrau embaixo da viga). Evitar jargão com o dono.
+- Ele também esclareceu que o canto mostrado como exemplo vale para TODOS os cantos: quando ele mostrar 1 exemplo, **o padrão é para tudo**; perguntar só o que for realmente ambíguo e depois aplicar em todas as construções (C-2).
+- Cuidado de implementação: a coluna de canto só deve ser colocada **depois** de varandas/alpendres/forros (ou checar se o espaço está livre), senão eles sobrescrevem a lanterna e deixam uma ponta de viga solta (acontecido no alpendre do hortelão).
+
 ### E-27 · PROCESSO: registrar aprendizados no git NA HORA (cobrança repetida do dono)
 - O foco do trabalho é **ensinar a IA e registrar**: tudo o que o dono corrige, mostra em print ou pede vira registro no git no mesmo turno (erro, causa, correção, técnica). Não deixar acumular.
 - Checklist ao fim de cada rodada: `erros-e-licoes.md` + `aulas/aula-02/correcoes-do-dono.md` + `tecnicas/` + código + `git push` + confirmar com `git ls-remote`.

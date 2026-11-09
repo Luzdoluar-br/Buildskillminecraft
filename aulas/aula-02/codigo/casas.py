@@ -32,6 +32,25 @@ def anel(m, x1, z1, x2, z2, y, b, eixo=True):
         m.log(lx, y, lz, b, "y")
 
 
+def canto_lampada(m, x1, z1, x2, z2, y_top, y_base, tronco, escada_nome):
+    """CANTO DO DONO (lido no mundo, tecnicas/cantos-e-vigas.md C-2): em cada canto, FORA da parede e alinhado com a parede lateral, sobe uma coluna:
+    troncos verticais até a escada -> degrau de escada que sobe EM DIREÇÃO à casa -> lanterna pendurada -> ponta da viga lateral (axis z) que avança 1 bloco.
+    A ponta da viga exposta é intencional. Só coloca onde o espaço está livre (varanda/alpendre ocupam alguns cantos)."""
+    feitos = 0
+    for (cx, cz) in ((x1, z1), (x2, z1), (x1, z2), (x2, z2)):
+        oz = -1 if cz == z1 else 1
+        z = cz + oz
+        if any(m.c.pegar(*m.mundo(cx, y, z)) is not None for y in range(y_base, y_top + 1)):
+            continue
+        for y in range(y_base, y_top - 2):
+            m.log(cx, y, z, tronco, "y")
+        m.st(cx, y_top - 2, z, escada_nome, NORTE if oz == 1 else SUL)
+        m.p(cx, y_top - 1, z, (M + "lantern", {"hanging": True}))
+        m.log(cx, y_top, z, tronco, "z")
+        feitos += 1
+    return feitos
+
+
 def janela(m, x, y, z, h=2, vidro="white_stained_glass_pane", persiana=None):
     for k in range(h):
         m.p(x, y + k, z, M + vidro)
@@ -107,8 +126,10 @@ def chale_enxaimel(c, x, z, y, flip=False):
     for lx in (4, 8):
         m.st(lx, 3, 10, "spruce_stairs", NORTE, True)      # mao-francesa sob o deck
     # forro de lajes sob o beiral frontal (R3)
+    canto_lampada(m, 0, 0, 12, 8, 8, 1, "stripped_spruce_log", "spruce_stairs")
     for lx in range(-1, 14):
-        m.sl(lx, 8, 9, "spruce", True)
+        if lx not in (0, 12):
+            m.sl(lx, 8, 9, "spruce", True)
     # telhado principal (mistura de madeira) + empena cruzada frontal
     m.telhado_x(0, 12, 0, 8, 9, TELHA_MADEIRA, REBOCO, beiral=1, beiral_x=1)
     # janelinha na empena (luz no sótão) e viga de cumeeira aparente
