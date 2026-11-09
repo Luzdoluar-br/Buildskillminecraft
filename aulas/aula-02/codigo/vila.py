@@ -174,6 +174,7 @@ for k in range(1, 4):
     c.ponto(FX, y0 + k, FZ, M + "stone_bricks")
 c.ponto(FX, y0 + 4, FZ, PEDRA)
 for (dx, dz) in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+    c.ponto(FX + dx, y0 + 3, FZ + dz, escada(M + "stone_brick_stairs", {(1, 0): OESTE, (-1, 0): LESTE, (0, 1): NORTE, (0, -1): SUL}[(dx, dz)], True))   # mísula: sustenta a copa (nada flutuando)
     c.ponto(FX + dx, y0 + 4, FZ + dz, M + "stone_brick_wall")
     c.ponto(FX + dx, y0 + 5, FZ + dz, M + "stone_brick_wall")
 c.ponto(FX, y0 + 5, FZ, (M + "water", {"liquid_depth": 0}))
@@ -258,7 +259,7 @@ if livre([(bx + k, bz) for k in range(-2, 3)]) and reservar("banco", [(bx + k, b
 for (x, z) in AGUA:
     c.ponto(x, 0, z, (M + "water", {"liquid_depth": 0}))
     if rnd.random() < 0.18:
-        c.ponto(x, 1, z, M + "lily_pad")
+        c.ponto(x, 1, z, M + "waterlily")
 PIER = retangulo(32, 41, 35, 46)
 reservar("pier", PIER)
 for x in range(W):
@@ -270,10 +271,13 @@ for x in range(W):
 for z in range(41, 47):
     c.ponto(33, 1, z, M + "spruce_planks")
     c.ponto(34, 1, z, M + "spruce_planks")
+for z in (43, 45):                                           # estacas do píer descem até o fundo da lagoa
+    for x in (33, 34):
+        c.ponto(x, 0, z, M + "spruce_fence")
 for z in (42, 46):
     for x in (32, 35):
-        c.ponto(x, 1, z, M + "spruce_fence")
-        c.ponto(x, 2, z, M + "spruce_fence")
+        for yy in (0, 1, 2):                                 # poste começa DENTRO da água, apoiado no fundo
+            c.ponto(x, yy, z, M + "spruce_fence")
     c.ponto(32, 3, z, (M + "lantern", {"hanging": False}))
 
 
@@ -281,30 +285,28 @@ for z in (42, 46):
 POSTES = []
 
 
-def poste_h(px, pz, dr, altura=4, braco=2):
-    madeira = "spruce"
-    lado = {(1, 0): "east", (-1, 0): "west", (0, 1): "south", (0, -1): "north"}[dr]
+def poste_h(px, pz, dr, altura=4, braco=1):
+    """Poste no ESTILO DO DONO (lido no mundo, erros-e-licoes E-22): parede de pedra na base, 2 de cerca, laje de topo, braço em escada
+    (sobe para fora) com a lanterna pendurada embaixo e laje invertida de contrapeso atrás. Base no TERRENO, só em espaço livre."""
+    ascende = {(1, 0): LESTE, (-1, 0): OESTE, (0, 1): SUL, (0, -1): NORTE}[dr]
     for desloc in (0, 1, -1, 2, -2, 3, -3):
         x, z = px + desloc, pz
-        arm = [(x + dr[0] * i, z + dr[1] * i) for i in range(0, braco + 1)]
+        frente, tras = (x + dr[0], z + dr[1]), (x - dr[0], z - dr[1])
         perto = any(abs(x - a) < 4 and abs(z - b) < 4 for a, b in POSTES)
-        base_ok = livre([(x, z)])
-        braco_ok = all((0 <= a < W and 0 <= b < D) and (RES.get((a, b), (None, 'anel'))[1] == 'anel') and (a, b) not in AGUA for (a, b) in arm[1:])   # o braço pende sobre a rua/anel (aéreo), mas nunca sobre objetos
-        if perto or not base_ok or not braco_ok:
+        aereo_ok = all((0 <= a < W and 0 <= b < D) and (RES.get((a, b), (None, 'anel'))[1] == 'anel') and (a, b) not in AGUA for (a, b) in (frente, tras))
+        if perto or not livre([(x, z)]) or not aereo_ok:
             continue
         y = H[x][z] + 1
-        if c.pegar(x, H[x][z], z) is None or any(c.pegar(a, y + i, b) is not None for (a, b) in arm for i in range(0, altura)):
+        if c.pegar(x, H[x][z], z) is None or any(c.pegar(a, y + i, b) is not None for (a, b) in ((x, z), frente, tras) for i in range(0, altura)):
             continue
         c.ponto(x, y, z, M + "stone_brick_wall")
-        for i in range(1, altura - 1):
-            c.ponto(x, y + i, z, (M + "spruce_fence", {"wood_type": madeira}))
-        topo = y + altura - 1
-        liga = {f"minecraft:connection_{k}": k == lado for k in ("east", "west", "north", "south")}
-        c.ponto(x, topo, z, (M + "spruce_fence", {**liga, "wood_type": madeira}))
-        for i in range(1, braco + 1):
-            c.ponto(x + dr[0] * i, topo, z + dr[1] * i, M + "spruce_planks")
-        c.ponto(x + dr[0] * braco, topo - 1, z + dr[1] * braco, (M + "lantern", {"hanging": True}))
-        reservar("poste", [(x, z)])          # só a base ocupa chão; o braço é aéreo
+        c.ponto(x, y + 1, z, M + "spruce_fence")
+        c.ponto(x, y + 2, z, M + "spruce_fence")
+        c.ponto(x, y + 3, z, laje(M + "spruce_slab", False))                           # laje de topo
+        c.ponto(frente[0], y + 3, frente[1], escada(M + "spruce_stairs", ascende))      # braço em escada
+        c.ponto(frente[0], y + 2, frente[1], (M + "lantern", {"hanging": True}))        # lanterna embaixo do braço
+        c.ponto(tras[0], y + 2, tras[1], laje(M + "spruce_slab", True))                 # contrapeso (laje invertida)
+        reservar("poste", [(x, z)])
         POSTES.append((x, z))
         return True
     return False

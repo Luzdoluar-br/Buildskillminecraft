@@ -29,3 +29,11 @@ O dono não usa mais `/function vila/salvar`: ele passa prints e descrições; e
 
 ## Funções do add-on (vila/)
 `preparar` (ticking area) → `limpar` (opcional, APAGA TUDO na área) → `colocar`. `salvar` continua disponível.
+
+## 2026-11-09 · Blocos flutuantes, erros de textura e poste novo (prints + leitura do mundo)
+| Observação do dono | O que achei | Registro |
+|---|---|---|
+| "Há muitos blocos flutuantes" (print: barril e cerca no ar na casa de chá) | mobília 1 bloco acima do piso; copa da fonte e píer sem apoio | E-21 |
+| "Blocos com erros de texturas" (print: cubos manchados no chão) | `rooted_dirt` e `lily_pad` não existem no Bedrock | E-20 |
+| "Melhoria para esse estilo de poste" (print) | lido no mundo: laje de topo, braço em escada, lanterna embaixo, contrapeso | E-22, `tecnicas/postes-de-luz.md` |
+| "Não se esqueça de anotar tudo no git" | tudo registrado e publicado | este arquivo |

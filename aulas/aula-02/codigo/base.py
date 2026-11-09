@@ -20,7 +20,7 @@ PEDRA_ESCURA = pal([("stone_bricks", 3), ("andesite", 2), ("cobblestone", 2), ("
 REBOCO = pal([("calcite", 4), ("diorite", 2), ("light_gray_concrete", 1.2), ("smooth_quartz", 0.6)], 3)
 REBOCO_CINZA = pal([("light_gray_concrete", 5), ("andesite", 1.5), ("calcite", 1)], 4)
 GRAMA = pal([("grass_block", 9), ("moss_block", 1.3), ("podzol", 0.4)], 5)
-TERRA = pal([("dirt", 6), ("coarse_dirt", 2), ("rooted_dirt", 0.3)], 6)
+TERRA = pal([("dirt", 6), ("coarse_dirt", 2), ("dirt_with_roots", 0.3)], 6)
 CAMINHO = pal([("andesite", 3), ("cobblestone", 3), ("gravel", 2), ("grass_path", 3), ("coarse_dirt", 1), ("stone_bricks", 1)], 7)
 PRACA = pal([("stone_bricks", 3), ("andesite", 3), ("cobblestone", 2), ("tuff_bricks", 1.5), ("mossy_stone_bricks", 1), ("gravel", 0.4)], 8)
 

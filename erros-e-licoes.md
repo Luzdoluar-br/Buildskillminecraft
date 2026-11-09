@@ -9,6 +9,23 @@ Formato: **Sintoma** → **Causa** → **Correção** → **Como evitar / checar
 ## 2026-11-09 — Aula 02 (Vila Pedra-Musgo)
 Descobertos pelo dono ao entrar no jogo (primeiro teste real) e confirmados lendo o LevelDB do mundo.
 
+### E-22 · Poste de luz: modelo melhorado pelo dono (aprendizado, lido no mundo)
+- **Evidência** (blocos lidos no mundo, coluna do poste em x -73, z 24): `stone_brick_wall` (base) → 2 × `spruce_fence` → `spruce_slab` (laje de topo, parte de baixo) ; braço = **1 `spruce_stairs`** (`weirdo_direction` = direção para fora, a ponta alta fica longe do poste) no nível da laje; **lanterna pendurada** logo abaixo da escada; **`spruce_slab` invertida (`vertical_half=top`)** do lado oposto ao braço, na altura da última cerca (contrapeso).
+- **Antes (meu)**: base de parede + cerca + 2 tábuas de braço. **Depois**: braço curto em escada com gancho elevado, laje de capa e contrapeso (mais silhueta).
+- **Implementação**: `poste_h()` em `vila.py`. Detalhes em `tecnicas/postes-de-luz.md`.
+
+### E-21 · Blocos flutuantes (feedback do dono, com prints)
+- **Sintoma**: barril/cerca flutuando no meio do salão da casa de chá; peças da fonte e do píer sem apoio.
+- **Causas**: (a) mobília da casa de chá colocada em `y=3` quando o piso (carpete) está em `y=2`: tudo 1 bloco acima; (b) copa da fonte (paredes) sem apoio, só encostada no lado; (c) tábuas e postes do píer sobre a água sem estacas.
+- **Correção**: mobília em `y=2`; mísulas (escadas invertidas) sob a copa da fonte; estacas até o fundo da lagoa e postes começando dentro da água.
+- **Como evitar**: regra E-21 em `auditoria.py`: mobília, plantas, cercas, lanternas no chão, portas, carpetes e culturas exigem bloco sólido embaixo (água não vale). **Interior: sempre medir o nível do piso (plataforma + carpete) antes de colocar móveis.**
+
+### E-20 · "Erros de textura": ID de bloco que NÃO existe (feedback do dono)
+- **Sintoma**: cubos marrons manchados no chão (textura de erro).
+- **Causa**: `rooted_dirt` não existe no Bedrock (o ID é `dirt_with_roots`); `lily_pad` também não está na lista atual (`waterlily`). O jogo grava o nome errado e mostra bloco de erro, sem aviso.
+- **Correção**: nomes trocados. **A checagem E-01 agora valida TODOS os nomes contra a lista oficial de 1187 IDs do Bedrock** (`aulas/aula-02/codigo/blocos_validos.txt`, extraída do atlas do Minecraft Creator Tools), em vez de uma lista curta de suspeitos.
+- **Como evitar**: nunca inventar/lembrar ID de memória; qualquer bloco novo precisa estar em `blocos_validos.txt`. Cuidado com nomes Java (ex.: `rooted_dirt`, `lily_pad`, `grass_path` vs `dirt_path`) — conferir sempre na lista.
+
 ### E-19 · Degrau alto (>1 bloco) na rede de caminhos
 - **Causa**: ondulação aleatória da rua + colinas de borda criavam desníveis de 2-3 blocos em cima do caminho.
 - **Correção**: pontas da rua retas; auditoria checa |dH| <= 1 entre células vizinhas de caminho/praça.

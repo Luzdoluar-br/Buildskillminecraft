@@ -6,6 +6,11 @@ import vila
 
 c, H, CAM, PRACA, W, D = vila.c, vila.H, vila.CAM, vila.PRACA_CEL, vila.W, vila.D
 BRUTAS = {"spruce", "dark_oak", "pale_oak", "oak", "birch", "cherry", "stone_brick", "bed"}
+import pathlib
+VALIDOS = set(pathlib.Path(__file__).with_name("blocos_validos.txt").read_text().split()) | {"air"}      # 1187 IDs oficiais do Bedrock (atlas do Creator Tools)
+PRECISA_APOIO = ("barrel", "smoker", "furnace", "crafting_table", "bookshelf", "lectern", "anvil", "hay_block", "melon_block", "pumpkin", "carpet",
+                 "_door", "fence", "lantern", "carrots", "potatoes", "wheat", "short_grass", "tall_grass", "fern", "tulip", "poppy", "cornflower",
+                 "bluet", "daisy", "valley", "dandelion", "berry", "azalea", "waterlily", "farmland", "stone_brick_wall")
 TERRENO = ("grass", "dirt", "moss", "podzol", "path", "gravel", "cobble", "andesite", "stone", "tuff", "polished")
 
 
@@ -30,8 +35,19 @@ def auditar():
     erros = []
     # E-01 IDs inválidos
     for p, b in c.blocos.items():
-        if nome(b) in BRUTAS:
-            erros.append(("E-01 ID invalido", p, nome(b)))
+        if nome(b) in BRUTAS or nome(b) not in VALIDOS:
+            erros.append(("E-01 ID inexistente no Bedrock", p, nome(b)))
+    # E-21 bloco que precisa de apoio embaixo (mobília, plantas, cercas, lanternas no chão) flutuando
+    for (x, y, z), b in c.blocos.items():
+        n = nome(b)
+        if not any(k in n for k in PRECISA_APOIO) or (n == "lantern" and estado(b).get("hanging")):
+            continue
+        if "fence" in n and any(nome(c.pegar(x + dx, y, z + dz)) != "air" and "fence" not in nome(c.pegar(x + dx, y, z + dz)) and "plank" in nome(c.pegar(x + dx, y, z + dz)) for dx, dz in ((1, 0), (-1, 0), (0, 1), (0, -1))) and nome(c.pegar(x, y - 1, z)) == "air":
+            erros.append(("E-21 cerca sem apoio embaixo (so presa ao lado)", (x, y, z), n))
+            continue
+        abaixo = nome(c.pegar(x, y - 1, z))
+        if abaixo == "air" or (abaixo == "water" and "waterlily" not in n):
+            erros.append(("E-21 bloco sem apoio (flutuando): %s sobre %s" % (n, abaixo), (x, y, z), n))
     # portas: E-03 metade de cima, E-10 verga, E-11 batentes, E-02/E-12 passagem
     for (x, y, z), b in c.blocos.items():
         if not (isinstance(b, tuple) and nome(b).endswith("_door") and not b[1].get("upper_block_bit")):

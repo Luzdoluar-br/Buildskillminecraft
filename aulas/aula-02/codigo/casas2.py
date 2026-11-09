@@ -136,13 +136,14 @@ def casa_cha(c, x, z, y, flip=False):
         m.p(lx, 5, lz, (M + "lantern", {"hanging": True}))
     # interior: salão de chá com mesa baixa
     m.box(3, 2, 3, 9, 2, 9, M + "light_gray_carpet")
-    m.p(3, 3, 3, (M + "barrel", {"facing_direction": 1, "open_bit": False}))
-    m.p(4, 3, 3, (M + "smoker", {"facing_direction": 3}))
-    m.p(9, 3, 3, M + "crafting_table")
-    m.p(3, 3, 9, M + "bookshelf")
-    m.p(6, 3, 6, M + "spruce_fence")
+    m.p(3, 2, 3, (M + "barrel", {"facing_direction": 1, "open_bit": False}))      # tudo no nível do piso (y=2): o carpete está em y=2
+    m.p(4, 2, 3, (M + "smoker", {"facing_direction": 3}))
+    m.p(9, 2, 3, M + "crafting_table")
+    m.p(3, 2, 9, M + "bookshelf")
+    m.p(6, 2, 6, M + "spruce_fence")                                                # mesa baixa: perna + tampo
+    m.sl(6, 3, 6, "spruce", False)
     m.p(6, 5, 6, (M + "lantern", {"hanging": True}))
     for (lx, lz) in ((5, 5), (7, 5), (5, 7), (7, 7)):
-        m.sl(lx, 3, lz, "spruce", False)
+        m.sl(lx, 2, lz, "spruce", False)                                           # bancos baixos
     m.cama(6, 9, 6, 3)
     return m
