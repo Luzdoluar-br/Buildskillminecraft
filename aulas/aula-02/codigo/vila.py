@@ -145,16 +145,16 @@ c.ponto(FX, y0 + 7, FZ, (M + "lantern", {"hanging": True}))
 for (dx, dz) in ((2, 2), (-2, 2), (2, -2), (-2, -2)):
     c.ponto(FX + dx, y0 + 2, FZ + dz, M + "moss_carpet") if False else None
 
-# bancos de pedra voltados para a fonte
-for (bx, bz, d) in ((FX, FZ - 8, SUL), (FX, FZ + 8, NORTE), (FX - 8, FZ, LESTE), (FX + 8, FZ, OESTE)):
+# bancos de pedra voltados para a fonte: FORA da rua (z 29..32), do eixo da escadaria do Salão e da trilha da lagoa (E-12)
+for (bx, bz, d) in ((26, 36, NORTE), (34, 36, NORTE)):
     for k in (-1, 0, 1):
-        xx, zz = (bx + k, bz) if d in (SUL, NORTE) else (bx, bz + k)
-        if 0 <= xx < W and 0 <= zz < D:
+        xx, zz = bx + k, bz
+        if 0 <= xx < W and 0 <= zz < D and (xx, zz) not in CAM:
             c.ponto(xx, H[xx][zz] + 1, zz, escada(M + "stone_brick_stairs", d))
     for k in (-2, 2):
-        xx, zz = (bx + k, bz) if d in (SUL, NORTE) else (bx, bz + k)
-        if 0 <= xx < W and 0 <= zz < D:
-            c.ponto(xx, H[xx][zz] + 1, zz, M + "stone_brick_wall") if False else c.ponto(xx, H[xx][zz] + 1, zz, M + "spruce_fence")
+        xx, zz = bx + k, bz
+        if 0 <= xx < W and 0 <= zz < D and (xx, zz) not in CAM:
+            c.ponto(xx, H[xx][zz] + 1, zz, M + "spruce_fence")
             c.ponto(xx, H[xx][zz] + 2, zz, (M + "lantern", {"hanging": False}))
 
 
@@ -254,6 +254,10 @@ for z in (42, 46):
 for (px, pz, dr) in ((8, 28, (0, 1)), (14, 33, (0, -1)), (22, 33, (0, -1)), (38, 28, (0, 1)), (47, 33, (0, -1)), (52, 28, (0, 1)),
                      (26, 25, (0, 1)), (34, 25, (0, 1)), (58, 33, (0, -1)), (2, 28, (0, 1)),
                      (30, 38, (1, 0)), (26, 39, (1, 0)), (35, 39, (-1, 0))):
+    for _passo in range(8):          # no máximo 8 tentativas: sai da trilha para a esquerda (sem laço infinito)
+        if (px, pz) not in CAM and (px + 1, pz) not in CAM and (px - 1, pz) not in CAM:
+            break
+        px -= 1
     c.poste(px, pz, 4, dr, 2)
 
 
@@ -406,9 +410,10 @@ def corrigir_lanternas():
     return n
 
 
+corrigir_lanternas()
+vergas_das_portas()
+
 if __name__ == "__main__":
-    print("lanternas penduradas corrigidas:", corrigir_lanternas())
-    print("vergas colocadas:", vergas_das_portas())
     avisos = c.validar()
     print("blocos:", len(c.blocos), "avisos:", [a for a in avisos][:8])
     (x0, y0, z0), (x1, y1, z1) = c.caixa_limite()

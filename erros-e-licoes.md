@@ -9,6 +9,23 @@ Formato: **Sintoma** → **Causa** → **Correção** → **Como evitar / checar
 ## 2026-11-09 — Aula 02 (Vila Pedra-Musgo)
 Descobertos pelo dono ao entrar no jogo (primeiro teste real) e confirmados lendo o LevelDB do mundo.
 
+### E-13 · PROCESSO: cada correção do dono vira regra para TODAS as estruturas
+- **Regra do dono**: quando ele corrige algo em uma estrutura, eu devo procurar o mesmo erro (e erros parecidos) nas outras, sem esperar que ele corrija uma por uma, e registrar aqui tudo o que ele pedir.
+- **Como fazer**: (1) ler no mundo o que ele mudou (comparar o LevelDB com o gerado, ferramentas da Aula 01); (2) registrar a correção em `aulas/aula-02/correcoes-do-dono.md`; (3) transformar em checagem em `aulas/aula-02/codigo/auditoria.py`; (4) rodar a auditoria em todas as estruturas e corrigir; (5) só então exportar. Meta da auditoria: 0 problemas.
+- **Cuidado**: o dono edita o mundo à mão. `/function vila/colocar` **sobrescreve** as edições dele; nunca pedir para rodar sem avisar.
+
+### E-12 · Itens bloqueando entradas e caminhos (feedback do dono)
+- **Sintoma**: degraus "barrando" a porta do Salão; o dono removeu.
+- **Causa**: os bancos da praça (`FX±8, FZ±8`) caíam no eixo da porta do Salão e **em cima da rua** (leste/oeste) e da trilha da lagoa. Além disso, degraus de entrada de chalé e casa de pedra ficavam na frente da porta, e os degraus da casa de chá subiam de costas para a porta.
+- **Correção**: bancos reposicionados fora de rua/eixos; degraus removidos onde a entrada é rente ao chão; degraus da casa de chá viram `NORTE` (sobem em direção à porta); postes de rua saem da trilha.
+- **Como evitar**: `auditoria.py` checa 1 bloco livre na frente e atrás de cada porta (em `y` e `y+1`) e obstáculos sólidos em ruas/praça.
+
+### E-11 · Porta "desconexa da parede" (feedback do dono)
+- **Sintoma**: a porta da torre do Salão tinha vidros nas laterais (sidelights) e escadas invertidas dos lados; parecia colada na parede.
+- **Causa**: eu desenhei "entrada em arco" com vidro e escadas laterais, o que quebra a continuidade da pedra.
+- **Correção (padrão do dono, lido no mundo)**: batentes em `stone_bricks` maciço nos dois lados, 3 blocos de altura; só 1 escada invertida (`stone_brick_stairs`, `upside_down_bit=1`, `weirdo_direction=3`) acima da porta como verga; nenhum degrau na frente. Detalhes em `aulas/aula-02/correcoes-do-dono.md`.
+- **Como evitar**: a auditoria reprova vidro ou vazio ao lado da porta (batente).
+
 ### E-10 · Vão vazio acima da folha da porta (feedback do dono, 2ª rodada)
 - **Sintoma**: em algumas portas (hortelão, casa de chá, varanda do chalé) sobrava um buraco de 1 bloco acima da porta; o dono pediu uma escada no material da parede.
 - **Causa**: abri a parede com 3 de altura (`limpar(..., y..y+2)`) mas a porta só tem 2; o terceiro bloco ficou vazio (ou só com vidraça).

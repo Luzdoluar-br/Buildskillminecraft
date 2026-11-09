@@ -85,13 +85,9 @@ def salao(c, x, z, y, flip=False):
     # entrada em arco, porta e janelas laterais
     m.limpar(9, 1, 17, 11, 3, 17)
     m.porta(10, 1, 17, "dark_oak")
-    for lx in (9, 11):
-        m.p(lx, 1, 17, M + "white_stained_glass_pane")
-        m.p(lx, 2, 17, M + "white_stained_glass_pane")
-    m.st(9, 3, 17, "stone_brick_stairs", LESTE, True)
-    m.st(11, 3, 17, "stone_brick_stairs", OESTE, True)
-    m.p(10, 3, 17, M + "dark_oak_slab") if False else None
-    m.p(10, 3, 17, laje(M + "stone_brick_slab", True))
+    for lx in (9, 11):                                   # batentes: pedra maciça dos dois lados da porta (nada de vidro)
+        m.box(lx, 1, 17, lx, 3, 17, M + "stone_bricks")
+    m.st(10, 3, 17, "stone_brick_stairs", NORTE, True)   # verga: escada invertida no material da parede
     m.limpar(10, 1, 13, 10, 2, 13)                                         # passagem tower -> nave
     m.limpar(10, 1, 12, 10, 2, 12)
     for lx in (8, 12):

@@ -58,7 +58,6 @@ def chale_enxaimel(c, x, z, y, flip=False):
         m.p(lx, 2, 0, M + "white_stained_glass_pane")
     m.limpar(6, 1, 7, 6, 2, 7)
     m.porta(6, 1, 7, "spruce")
-    m.st(6, 1, 8, "stone_brick_stairs", SUL)       # degrau
     # pórtico sob o avanço do andar de cima: postes + viga + mãos-francesas (profundidade e elementos projetados)
     for lx in (0, 4, 8, 12):
         m.box(lx, 1, 8, lx, 2, 8, M + "stripped_spruce_log")
@@ -180,9 +179,6 @@ def casa_torreta(c, x, z, y, flip=False):
     # porta no corpo principal, com alpendre de duas águas pequeno
     m.limpar(9, 1, 7, 9, 2, 7)
     m.porta(9, 1, 7, "dark_oak")
-    m.st(8, 1, 8, "stone_brick_stairs", SUL)
-    m.st(9, 1, 8, "stone_brick_stairs", SUL)
-    m.st(10, 1, 8, "stone_brick_stairs", SUL)
     for lx in (8, 10):
         m.box(lx, 2, 9, lx, 3, 9, M + "spruce_fence")
         m.p(lx, 1, 9, M + "stone_brick_wall")

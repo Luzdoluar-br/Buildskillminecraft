@@ -105,7 +105,7 @@ def casa_cha(c, x, z, y, flip=False):
     m.limpar(6, 2, 10, 6, 4, 10)
     m.porta(6, 2, 10, "pale_oak")
     for lx in (5, 6, 7):
-        m.st(lx, 1, 11, "stone_brick_stairs", SUL)
+        m.st(lx, 1, 11, "stone_brick_stairs", NORTE)     # sobe em direção à porta
     # primeiro beiral: 2 linhas largas, forro de lajes invertidas sob a borda (R2/R3)
     m.box(1, 6, 1, 11, 6, 11, pal([("pale_oak_planks", 3), ("spruce_planks", 1)], 62))
     m.tenda(2, 10, 2, 10, 7, TELHA_CHA, beiral=2, linhas=2)
