@@ -6,6 +6,23 @@ Formato: **Sintoma** → **Causa** → **Correção** → **Como evitar / checar
 
 ---
 
+## 2026-11-09 — Missão de estudo autônomo (biblioteca geral)
+
+### E-36 · Cabo diagonal de cerca não se liga (X05)
+- Cercas conectam só por **face**; um cabo que muda de altura com células em diagonal fica quebrado. **Correção**: preencher o degrau vertical em cada passo. Registrado em `experimentos/X05-vertical-vaos-terreno/RESULTADO.md`.
+
+### E-35 · Métrica ruim não vira conclusão; bugs nos próprios experimentos (X03, X04)
+- "Erro de circularidade" do X03 era ≤ 0,5 por construção e não discriminava: trocada por **maior trecho reto**. No X04 o "chão" estava em y=0 e a casa começava em y=1 (tudo "flutuava"), e as paredes tinham 7 de altura com telhado em y=9 (1 bloco de vão). A **métrica de flutuantes** revelou o segundo bug. **Regra**: validar a métrica com um controle (casa intacta deve dar ≈ 0) antes de comparar variantes.
+
+### E-34 · ID de memória errado: `stone_slab` não existe (X02)
+- A auditoria nova (E-01) acusou na hora. O ID correto é `normal_stone_slab` (e `normal_stone_stairs`). **Regra**: nunca digitar ID de memória; procurar em `referencia/blocos-bedrock.md` (`grep`).
+
+### E-33 · Lista de IDs "oficial" estava desatualizada (atlas do Creator Tools)
+- O atlas usado antes tinha 1.187 IDs; a lista oficial da Mojang (`bedrock-samples` v1.26.60.5) tem **1.466**, incluindo `black_concrete_stairs` que o dono já usava: o validador antigo daria falso erro. **Correção**: fonte única = `referencia/fonte/mojang-blocks.json`; `blocos_validos.txt` e `estados_validos.json` são gerados dela (`ferramentas/gerar_referencia_blocos.py`). **Fonte primária > cópia derivada.**
+
+### E-32 · Estados inválidos passam sem aviso (E-31 da auditoria)
+- Estados que não existem para um bloco (ex.: `facing_direction` em defumador, `wood_type` em cerca) o jogo ignora ou converte sem avisar. A auditoria agora valida **cada estado e valor** contra `estados_validos.json` (oficial). Rodada contra a vila inteira: 0 estados inválidos (confirmação independente).
+
 ## 2026-11-09 — Aula 02 (Vila Pedra-Musgo)
 Descobertos pelo dono ao entrar no jogo (primeiro teste real) e confirmados lendo o LevelDB do mundo.
 

@@ -2,12 +2,12 @@
 
 **Fonte oficial dos estados**: `blocos-bedrock.md` (gerado do `mojang-blocks.json` da Mojang). Esta página explica o SIGNIFICADO e as armadilhas.
 
-**Evidência**: os estados abaixo foram observados em dados que o próprio jogo gravou num mundo real (ver a coluna "Estados observados" em `blocos-bedrock.md`). Onde marcado *(a confirmar)* é interpretação.
+**Evidência**: os estados abaixo foram observados em dados que o próprio jogo gravou num mundo real (os valores desta página foram conferidos nesses dados; a lista completa e oficial de estados por bloco está em `blocos-bedrock.md`). Onde marcado *(a confirmar)* é interpretação.
 
 ## Regra de ouro
 1. O ID tem de estar em `blocos-bedrock.md`. **Não existe lá → não usar** (ex.: `rooted_dirt`, `lily_pad`, `dirt_path`).
 2. Bloco com orientação: **sempre** informar o estado de rotação; o padrão do jogo costuma ser errado para o que eu quero (ex.: `lightning_rod` padrão = 0, para baixo).
-3. Depois de gerar: rodar `aulas/aula-02/codigo/auditoria.py` (valida IDs, apoio, rotação).
+3. Depois de gerar: rodar `ferramentas/construcao/auditoria_geral.py` (valida IDs, ESTADOS, apoio, rotação).
 
 ## Tabela de rotação
 | Tipo | Estado | Valores | Observação |

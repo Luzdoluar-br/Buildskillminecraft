@@ -81,14 +81,43 @@ def regra_estados(c):
     return erros
 
 
+def _grupos_de_cerca(c):
+    """Agrupa cercas ligadas por face e diz se cada grupo toca em algum bloco que NÃO seja cerca (torre, chão, parede). Cabos presos a torres passam."""
+    cercas = {p for p, b in c.blocos.items() if "fence" in nome(b) and "gate" not in nome(b)}
+    grupo = {}
+    firmes = set()
+    for p in cercas:
+        if p in grupo:
+            continue
+        gid, pilha, membros, toca = len(set(grupo.values())), [p], [], False
+        grupo[p] = gid
+        while pilha:
+            q = pilha.pop()
+            membros.append(q)
+            for d in ((1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)):
+                r = (q[0] + d[0], q[1] + d[1], q[2] + d[2])
+                if r in cercas:
+                    if r not in grupo:
+                        grupo[r] = gid
+                        pilha.append(r)
+                elif r in c.blocos and nome(c.blocos[r]) not in ("air",) and "lantern" not in nome(c.blocos[r]) and "water" not in nome(c.blocos[r]):
+                    toca = True
+        if toca:
+            firmes.add(gid)
+    return {p: (g in firmes) for p, g in grupo.items()}
+
+
 def regra_apoio(c):
     erros = []
+    firme = _grupos_de_cerca(c)
     for (x, y, z), b in c.blocos.items():
         n = nome(b)
         if not any(k in n for k in PRECISA_APOIO) or (n == "lantern" and estado(b).get("hanging")):
             continue
         abaixo = nome(c.pegar(x, y - 1, z))
         if abaixo == "air" or (abaixo == "water" and "waterlily" not in n):
+            if "fence" in n and "gate" not in n and firme.get((x, y, z)):
+                continue          # cabo/guarda-corpo ligado a estrutura sólida: aceito (elemento suspenso intencional)
             erros.append(("E-21 bloco sem apoio (flutuando): %s sobre %s" % (n, abaixo), (x, y, z), n))
     return erros
 

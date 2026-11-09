@@ -129,6 +129,39 @@ class Molde:
             i += 1
         return y + i - 1  # altura da cumeeira
 
+    def telhado_suave_x(self, x1, x2, z1, z2, y, nome, empena, beiral=1, beiral_x=0, enchimento=None):
+        """Duas águas com inclinação 1:2 (sobe 1 bloco a cada 2 colunas), cumeeira ao longo de x. Da borda para dentro alterna ESCADA (nível k)
+        e LAJE inferior (nível k+1) com um bloco de enchimento sob a laje; fecha as empenas (x1 e x2) com o bloco `empena`.
+        `nome` = nome da escada (ex.: 'dark_oak_stairs'); a laje deriva dela. Testado em experimentos/X01-telhados."""
+        laje_n = M + nome.replace("_stairs", "_slab")
+        enc = enchimento or (M + nome.replace("_stairs", "_planks"))
+        za, zb, xa, xb = z1 - beiral, z2 + beiral, x1 - beiral_x, x2 + beiral_x
+        meio = (za + zb) // 2
+        base_empena = {}
+        for x in range(xa, xb + 1):
+            i = 0
+            while za + i <= zb - i:
+                for (z, d) in ((za + i, SUL), (zb - i, NORTE)):
+                    if za + i == zb - i and z == zb - i and (z, d) == (zb - i, NORTE):
+                        continue          # centro: só uma vez
+                    if i % 2 == 0:
+                        if za + i == zb - i:
+                            self.p(x, y + i // 2, z, laje_n)
+                        else:
+                            self.st(x, y + i // 2, z, nome, d)
+                        topo_vazio = y + i // 2
+                    else:
+                        self.p(x, y + (i + 1) // 2 - 1, z, enc)
+                        self.sl(x, y + (i + 1) // 2, z, nome.replace("_stairs", "_slab"), False)
+                        topo_vazio = y + (i + 1) // 2 - 1
+                    base_empena[z] = topo_vazio
+                i += 1
+        for z in range(z1, z2 + 1):                   # empenas: do piso do telhado (y) até logo abaixo do primeiro bloco do telhado nessa coluna
+            for x in (x1, x2):
+                for yy in range(y, base_empena.get(z, y)):
+                    self.p(x, yy, z, empena)
+        return y + (zb - za) // 4 + 1
+
     def telhado_z(self, x1, x2, z1, z2, y, nome, empena, beiral=1, beiral_z=0, cumeeira=None):
         xa, xb, za, zb = x1 - beiral, x2 + beiral, z1 - beiral_z, z2 + beiral_z
         i = 0
