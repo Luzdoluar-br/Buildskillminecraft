@@ -9,6 +9,25 @@ Formato: **Sintoma** → **Causa** → **Correção** → **Como evitar / checar
 ## 2026-11-09 — Aula 02 (Vila Pedra-Musgo)
 Descobertos pelo dono ao entrar no jogo (primeiro teste real) e confirmados lendo o LevelDB do mundo.
 
+### E-32 · O mundo salvo só mostra as edições do dono depois que o JOGO grava
+- Ao ler o LevelDB, as correções recentes dele (ex.: a escada refeita da tela 19) **não apareciam**: o jogo só grava no disco ao salvar/sair do mundo. Só 4 alterações antigas estavam no arquivo.
+- **Como fazer**: pedir ao dono para **sair do mundo (ou fechar o jogo)** antes de eu copiar o `db`; sem isso, aprender pelos prints e perguntar o que for ambíguo.
+
+### E-31 · Ambientes inacessíveis (andares e torres sem escada) — DÚVIDA ABERTA
+- Mirante e loft da casa de chá, andar de cima da torreta da casa de pedra e campanário da torre-relógio do Salão não têm escada/escada de mão: o jogador não chega lá.
+- **Pergunta ao dono**: preferir (a) escada interna, (b) escada de mão (`ladder`) ou (c) deixar como volume decorativo fechado. Até responder, não inventar acesso; registrar a decisão aqui.
+
+### E-30 · Produtos "flutuando" meio bloco acima do balcão das barracas (print do dono)
+- **Causa**: balcão em laje inferior (`bottom`) em `y=1`; os produtos (feno, abóbora, melancia) em `y=2` ficam meio bloco acima da laje = vão.
+- **Correção**: balcão em bloco inteiro (`spruce_planks`).
+- **Regra**: item sobre laje precisa estar em laje `top` ou sobre bloco inteiro; senão sobra meia altura de vão. Vale para qualquer mobília sobre laje.
+
+### E-29 · Escada interna curta e estantes sobre a escada (casa de pedra) — prints do dono (tela 17: "blocos sem sentido"; telas 18/19: "escadas incoerentes")
+- **Sintoma**: degraus de pedra soltos junto ao teto, estantes misturadas com os degraus; a escada não chegava ao andar.
+- **Causa**: o andar de cima fica 4 blocos acima do térreo, mas montei só **3 degraus**; o 4º degrau (no nível do piso) faltava, então sobrava um pulo de 1 bloco. Além disso as estantes ocupavam as mesmas células da escada.
+- **Regra de escada interna**: nº de degraus = altura entre pisos (piso de cima a 4 → 4 degraus; o último fica NO nível do piso); abertura no piso sobre os degraus (3 blocos); 2 blocos livres de altura; nada na trajetória (móveis, estantes); degraus sempre na mesma direção, sem blocos soltos nos lados. Ver `tecnicas/escadas-internas.md`.
+- **Auditoria**: E-29 confere, para cada lance registrado, que o último degrau tem piso à frente e que a trajetória está livre.
+
 ### E-28 · Termo técnico sem explicar ("mísula") e padrão do canto
 - O dono perguntou o que era "mísula": **explicar em palavras simples** (suporte em degrau embaixo da viga). Evitar jargão com o dono.
 - Ele também esclareceu que o canto mostrado como exemplo vale para TODOS os cantos: quando ele mostrar 1 exemplo, **o padrão é para tudo**; perguntar só o que for realmente ambíguo e depois aplicar em todas as construções (C-2).

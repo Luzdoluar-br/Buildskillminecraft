@@ -51,3 +51,11 @@ O dono não usa mais `/function vila/salvar`: ele passa prints e descrições; e
 | Observação do dono | O que fiz |
 |---|---|
 | "Só coloquei 1 canto como exemplo, é para usar nos cantos em geral. E como assim mísula?" | explicado o termo (degrau de escada sob a viga); `canto_lampada()` aplicada em chalé, hortelão e casa de chá; padrão C-2 marcado como confirmado; E-28 |
+
+## 2026-11-09 · Produtos flutuando, blocos sem sentido e escadas incoerentes (prints 16-19)
+| Observação do dono | O que achei | Registro |
+|---|---|---|
+| Print 16: produtos da barraca parecem soltos acima do balcão | balcão em laje inferior deixa meio bloco de vão | E-30 |
+| Print 17: "blocos em posições sem sentido" (pedra junto ao teto) | escada da casa de pedra com 3 degraus (faltava o 4º) e estantes na trajetória | E-29 |
+| Prints 18/19: "escadas incoerentes", ele refez uma | a escada refeita não estava no arquivo salvo (jogo ainda não gravou) | E-32, `tecnicas/escadas-internas.md` |
+| "Não esquece de anotar no repo git" | registrado antes de corrigir | este arquivo |

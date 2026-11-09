@@ -23,6 +23,7 @@ Cada conhecimento aqui nasce de **evidência** (diferença medida entre a constr
 | `tecnicas/praca-e-espaco-publico.md` | Anel de passagem, escala da fonte, postes, bancos, árvores |
 | `referencia/blocos-bedrock.md` | **TODOS os IDs de bloco do Bedrock (1187) com estados observados: consultar antes de usar qualquer bloco** |
 | `referencia/estados-e-rotacao.md` | Rotação, estados e equivalências Java→Bedrock |
+| `tecnicas/escadas-internas.md` | Contagem de degraus, abertura, trajetória livre |
 | `tecnicas/cantos-e-vigas.md` | Cantos de madeira, vigas, melhoria do dono |
 | `tecnicas/postes-de-luz.md` | Modelo de poste do dono (blocos e porquê) |
 | `tecnicas/portas-e-entradas.md` | Portas, batentes, vergas, entradas livres (do dono, Aula 02) |
