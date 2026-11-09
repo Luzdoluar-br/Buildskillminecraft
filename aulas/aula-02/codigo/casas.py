@@ -32,6 +32,27 @@ def anel(m, x1, z1, x2, z2, y, b, eixo=True):
         m.log(lx, y, lz, b, "y")
 
 
+def lance(m, passos, nome, frente_topo):
+    """Lance de escada: cada passo = (lx, ly, lz, direção em que SOBE). Limpa 2 blocos de cabeça sobre cada degrau (abre o piso/forro por onde passa),
+    coloca os degraus e registra para a auditoria E-29. `frente_topo` = célula que deve ser PISO logo à frente do último degrau."""
+    for (lx, ly, lz, d) in passos:
+        m.limpar(lx, ly + 1, lz, lx, ly + 2, lz)
+    for (lx, ly, lz, d) in passos:
+        m.st(lx, ly, lz, nome, d)
+    ESCADAS.append((m, passos, frente_topo))
+
+
+def espiral(m, anel_celulas, y0, n, nome):
+    """Escada em caracol num poço 3x3: sobe 1 bloco por célula do anel (sentido do anel). n degraus a partir de y0."""
+    dirs = {(0, 1): SUL, (0, -1): NORTE, (1, 0): LESTE, (-1, 0): OESTE}
+    passos = []
+    for i in range(n):
+        (x, z), (nx, nz) = anel_celulas[i % len(anel_celulas)], anel_celulas[(i + 1) % len(anel_celulas)]
+        passos.append((x, y0 + i, z, dirs[(nx - x, nz - z)]))
+    fx, fz = anel_celulas[n % len(anel_celulas)]
+    lance(m, passos, nome, (fx, y0 + n - 1, fz))
+
+
 def canto_lampada(m, x1, z1, x2, z2, y_top, y_base, tronco, escada_nome):
     """CANTO DO DONO (lido no mundo, tecnicas/cantos-e-vigas.md C-2): em cada canto, FORA da parede e alinhado com a parede lateral, sobe uma coluna:
     troncos verticais até a escada -> degrau de escada que sobe EM DIREÇÃO à casa -> lanterna pendurada -> ponta da viga lateral (axis z) que avança 1 bloco.
@@ -92,7 +113,7 @@ def chale_enxaimel(c, x, z, y, flip=False):
     m.limpar(11, 4, 1, 11, 4, 3)
     for lz in range(1, 5):
         m.st(11, lz, lz, "spruce_stairs", SUL)
-    ESCADAS.append((m, 11, 1, 1, 4, SUL))
+    ESCADAS.append((m, [(11, k, k, SUL) for k in range(1, 5)], (11, 4, 5)))
     # andar de cima: 4 camadas, reboco com ritmo de pilares a cada 4 (P1); viga baixa e viga alta em tronco
     m.oca(0, 5, 0, 12, 8, 8, REBOCO)
     anel(m, 0, 0, 12, 8, 5, "stripped_spruce_log")
@@ -217,7 +238,7 @@ def casa_torreta(c, x, z, y, flip=False):
     m.limpar(12, 4, 2, 12, 4, 4)                                  # abertura no piso sobre os degraus
     for k in range(1, 5):                                          # 4 degraus: piso de cima a 4 acima; o último (12,4,5) fica NO nível do piso
         m.st(12, k, 1 + k, "stone_brick_stairs", SUL)
-    ESCADAS.append((m, 12, 1, 2, 4, SUL))
+    ESCADAS.append((m, [(12, k, 1 + k, SUL) for k in range(1, 5)], (12, 4, 6)))
     for lx in range(4, 15):
         for lz in (0, 8):
             m.sl(lx, 7, lz, "stone_brick", True)
@@ -267,6 +288,12 @@ def casa_torreta(c, x, z, y, flip=False):
     m.box(1, 1, 3, 3, 1, 5, M + "light_gray_carpet")
     m.p(1, 2, 3, M + "crafting_table") if False else None
     m.cama(3, 5, 5, 0) if False else None
+    # arco de passagem corpo <-> torreta (2 de altura + verga de escada invertida nos dois lados)
+    m.limpar(4, 1, 4, 5, 2, 4)
+    m.st(4, 3, 4, "stone_brick_stairs", OESTE, True)
+    m.st(5, 3, 4, "stone_brick_stairs", LESTE, True)
+    # caracol na torreta (poço 3x3): 10 degraus, o último no nível do piso do sótão (y=10)
+    espiral(m, [(2, 3), (3, 3), (3, 4), (3, 5), (2, 5), (1, 5), (1, 4), (1, 3)], 1, 10, "stone_brick_stairs")
     # interior do corpo
     m.p(6, 1, 2, M + "crafting_table")
     m.maq(7, 1, 2, "blast_furnace", SUL)

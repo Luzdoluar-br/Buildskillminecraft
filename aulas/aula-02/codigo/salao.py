@@ -112,6 +112,8 @@ def salao(c, x, z, y, flip=False):
     m.box(9, 14, 14, 11, 14, 16, TABUA_ESCURA)
     m.p(10, 15, 15, (M + "lantern", {"hanging": False}))
     m.p(10, 14, 15, M + "polished_andesite") if False else None
+    # escada em caracol dentro da torre (poço 3x3): 14 degraus; começa fora das células da porta/passagem para não barrá-las
+    espiral(m, [(11, 15), (11, 16), (10, 16), (9, 16), (9, 15), (9, 14), (10, 14), (11, 14)], 1, 14, "stone_brick_stairs")
     # telhado da torre: quatro águas de cobre, íngreme, com espigão
     m.box(8, 17, 13, 12, 17, 17, TABUA_ESCURA)
     topo = m.tenda(8, 12, 13, 17, 18, TELHA_COBRE, beiral=1)

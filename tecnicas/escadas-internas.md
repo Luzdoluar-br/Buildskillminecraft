@@ -10,3 +10,9 @@ Origem: prints do dono na Vila (Aula 02) e erro E-29. **Evidência** = visto/med
 - **S-6 Parede de apoio**: lance encostado em uma parede (lado do lance sem blocos soltos), como o dono refez na tela 19 (*interpretação a confirmar com o dono ao ler o mundo salvo*).
 
 Checagem: regra E-29 em `aulas/aula-02/codigo/auditoria.py` (lances registrados em `ESCADAS`).
+
+## Variantes (decididas com o dono: escada interna para tudo)
+- **Lance reto** (`lance()`): para andares largos, junto a uma parede; abre o piso/forro só sobre os degraus.
+- **Caracol 3x3** (`espiral()`): para torres/torretas; 8 células de anel, 1 bloco de altura por célula; direção do degrau = rumo à próxima célula do anel. Começar o anel de modo que as células de porta/passagem só tenham degrau em y>=4.
+- **Terraço sobre beiral**: quando o andar de cima é um mirante em cima do telhado, o lance sai no terraço e a porta do mirante abre para ele, com guarda-corpo no poço.
+- Sempre registrar o lance em `ESCADAS` para a auditoria E-29.

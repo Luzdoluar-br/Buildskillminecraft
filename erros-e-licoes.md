@@ -13,9 +13,18 @@ Descobertos pelo dono ao entrar no jogo (primeiro teste real) e confirmados lend
 - Ao ler o LevelDB, as correções recentes dele (ex.: a escada refeita da tela 19) **não apareciam**: o jogo só grava no disco ao salvar/sair do mundo. Só 4 alterações antigas estavam no arquivo.
 - **Como fazer**: pedir ao dono para **sair do mundo (ou fechar o jogo)** antes de eu copiar o `db`; sem isso, aprender pelos prints e perguntar o que for ambíguo.
 
-### E-31 · Ambientes inacessíveis (andares e torres sem escada) — DÚVIDA ABERTA
-- Mirante e loft da casa de chá, andar de cima da torreta da casa de pedra e campanário da torre-relógio do Salão não têm escada/escada de mão: o jogador não chega lá.
-- **Pergunta ao dono**: preferir (a) escada interna, (b) escada de mão (`ladder`) ou (c) deixar como volume decorativo fechado. Até responder, não inventar acesso; registrar a decisão aqui.
+### E-31 · Ambientes inacessíveis (andares e torres sem escada) — DECIDIDO pelo dono: (a) escada interna
+- Eram inacessíveis: mirante da casa de chá, andar de cima da torreta e campanário da torre-relógio do Salão. **O dono escolheu escada interna** para todos.
+- **Implementação** (`aulas/aula-02/codigo/casas.py`: `lance()` e `espiral()`):
+  - **Casa de chá**: lance reto de 7 degraus junto à parede leste, de `(9,2,9)` até `(9,8,3)`, que sai no terraço sobre o beiral (o forro e o piso do terraço são abertos sobre os degraus); guarda-corpo de cerca do lado de fora do poço; **porta do mirante** na parede norte (`porta_dir`, frente para o terraço), sem janela colada à porta.
+  - **Torre-relógio do Salão**: caracol de 14 degraus no poço 3x3 até o piso do campanário (y=14).
+  - **Torreta da casa de pedra**: arco de passagem entre o corpo e a torreta (2 de altura + verga de escada invertida dos dois lados) e caracol de 10 degraus até o sótão (y=10).
+- **Lições de projeto**:
+  1. Caracol 3x3 = anel de 8 células; cada célula recebe um degrau a cada 8 de altura; **a direção de cada degrau aponta para a próxima célula do anel**.
+  2. O primeiro degrau não pode ficar nas células da porta/passagem: escolher o início do anel para que essas células só recebam degrau acima de y=3.
+  3. Para chegar a um andar, abrir o piso/forro **só onde há degraus** (2 blocos de cabeça); o último degrau fica no nível do piso e à sua frente tem de haver piso sólido.
+  4. Plano de forro/telhado atravessado por escada: limpar as células de cabeça, nunca o plano inteiro.
+- **Auditoria**: E-29 agora confere 5 lances (chalé, casa de pedra, chá, torre, torreta): 36 degraus, cabeça livre e piso à frente do último. **Não testado andando no jogo**: pedir ao dono para confirmar se dá para subir.
 
 ### E-30 · Produtos "flutuando" meio bloco acima do balcão das barracas (print do dono)
 - **Causa**: balcão em laje inferior (`bottom`) em `y=1`; os produtos (feno, abóbora, melancia) em `y=2` ficam meio bloco acima da laje = vão.

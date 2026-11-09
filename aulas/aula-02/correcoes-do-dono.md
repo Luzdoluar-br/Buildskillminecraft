@@ -59,3 +59,8 @@ O dono não usa mais `/function vila/salvar`: ele passa prints e descrições; e
 | Print 17: "blocos em posições sem sentido" (pedra junto ao teto) | escada da casa de pedra com 3 degraus (faltava o 4º) e estantes na trajetória | E-29 |
 | Prints 18/19: "escadas incoerentes", ele refez uma | a escada refeita não estava no arquivo salvo (jogo ainda não gravou) | E-32, `tecnicas/escadas-internas.md` |
 | "Não esquece de anotar no repo git" | registrado antes de corrigir | este arquivo |
+
+## 2026-11-09 · Decisão sobre acessos: escada interna
+| Pergunta (E-31) | Resposta do dono | O que fiz |
+|---|---|---|
+| Como acessar mirante da casa de chá, torreta e campanário do Salão? (a) escada interna, (b) escada de mão, (c) fechado decorativo | **(a) escada interna** | lance reto na casa de chá + porta do mirante; caracol na torre do Salão; arco + caracol na torreta; auditoria E-29 (36 degraus) |

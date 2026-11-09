@@ -122,7 +122,7 @@ def casa_cha(c, x, z, y, flip=False):
     m.oca(4, 9, 4, 8, 11, 8, REBOCO_CINZA)
     for (lx, lz) in ((4, 4), (8, 4), (4, 8), (8, 8), (6, 4), (6, 8), (4, 6), (8, 6)):
         m.box(lx, 9, lz, lx, 11, lz, M + "stripped_dark_oak_log")
-    for lz in (4, 8):
+    for lz in (8,):
         for lx in (5, 7):
             m.p(lx, 10, lz, M + "white_stained_glass_pane")
     for lx in (4, 8):
@@ -148,4 +148,10 @@ def casa_cha(c, x, z, y, flip=False):
     for (lx, lz) in ((5, 5), (7, 5), (5, 7), (7, 7)):
         m.sl(lx, 2, lz, "spruce", False)                                           # bancos baixos
     m.cama(6, 9, 6, 3)
+    # acesso ao mirante (E-31, escolha do dono: escada interna): lance de 7 degraus junto à parede leste, de (9,2,9) até (9,8,3) no terraço sobre o beiral
+    lance(m, [(9, 2 + k, 9 - k, NORTE) for k in range(7)], "dark_oak_stairs", (9, 8, 2))
+    for lz in range(4, 9):
+        m.p(10, 9, lz, M + "spruce_fence")                    # guarda-corpo do lado de fora do poço da escada
+    m.limpar(5, 9, 4, 5, 10, 4)                                  # porta do mirante, no lado norte, dá para o terraço
+    m.porta_dir(5, 9, 4, "pale_oak", NORTE)
     return m

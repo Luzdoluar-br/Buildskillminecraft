@@ -7,7 +7,7 @@ sys.path.insert(0, r"C:\Users\Desktop\Desktop\Projetos\BotVulpus\addon\tools")
 from construcao.cena import Cena, Paleta, escada, laje, LESTE, OESTE, SUL, NORTE  # noqa: E402,F401
 
 M = "minecraft:"
-ESCADAS = []        # lances de escada interna: (molde, x0, y0, z0, degraus, direção local); a auditoria confere cada um
+ESCADAS = []        # lances de escada interna: (molde, [(lx,ly,lz,dir_local)...], (lx,ly,lz) célula à frente do último degrau); a auditoria confere cada um
 FLIP = {LESTE: OESTE, OESTE: LESTE, SUL: NORTE, NORTE: SUL}
 
 
@@ -68,6 +68,13 @@ class Molde:
     def maq(self, x, y, z, nome, frente_local):
         """Forno/defumador/alto-forno/atril/bigorna/abóbora: a FRENTE olha para `frente_local` (SUL = para a frente da casa). Gira junto com a casa (flip)."""
         self.p(x, y, z, (M + nome, {"minecraft:cardinal_direction": self.CARD[self.dirm(frente_local)]}))
+
+    def porta_dir(self, x, y, z, madeira, frente_local):
+        """Porta cuja FRENTE (lado de fora) olha para `frente_local`; gira com a casa."""
+        card = self.CARD[self.dirm(frente_local)]
+        base = {"door_hinge_bit": False, "minecraft:cardinal_direction": card, "open_bit": False}
+        self.p(x, y, z, (M + madeira + "_door", {**base, "upper_block_bit": False}))
+        self.p(x, y + 1, z, (M + madeira + "_door", {**base, "upper_block_bit": True}))
 
     def esc(self, nome):
         if isinstance(nome, list):

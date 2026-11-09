@@ -92,21 +92,19 @@ def auditar():
             erros.append(("E-24 maquina sem orientacao (cardinal_direction)", (x, y, z), n))
         if n == "lightning_rod" and estado(b).get("facing_direction") != 1:
             erros.append(("E-25 para-raios nao aponta para cima (facing_direction=1)", (x, y, z), n))
-    # E-29 escadas internas: degraus corretos, cabeça livre e piso à frente do último degrau (nº de degraus = altura entre pisos)
-    vdir = {SUL: (0, 1), NORTE: (0, -1), LESTE: (1, 0), OESTE: (-1, 0)}
-    for (m, x0, y0, z0, n, d) in ESCADAS:
-        dx, dz = vdir[d]
-        for i in range(n):
-            lx, ly, lz = x0 + dx * i, y0 + i, z0 + dz * i
+    # E-29 escadas internas: cada degrau é escada na direção certa, 2 blocos de cabeça livre e piso à frente do último degrau
+    for (m, passos, frente) in ESCADAS:
+        for (lx, ly, lz, d) in passos:
             b = c.pegar(*m.mundo(lx, ly, lz))
             if "stairs" not in nome(b) or estado(b).get("weirdo_direction") != m.dirm(d) or estado(b).get("upside_down_bit"):
                 erros.append(("E-29 degrau faltando ou virado errado", m.mundo(lx, ly, lz), nome(b)))
             for h in (1, 2):
-                if solido(nome(c.pegar(*m.mundo(lx, ly + h, lz)))) :
-                    erros.append(("E-29 sem altura livre sobre o degrau", m.mundo(lx, ly + h, lz), nome(c.pegar(*m.mundo(lx, ly + h, lz)))))
-        topo = c.pegar(*m.mundo(x0 + dx * n, y0 + n - 1, z0 + dz * n))
-        if not solido(nome(topo)):
-            erros.append(("E-29 escada nao chega ao piso (falta piso a frente do ultimo degrau)", m.mundo(x0 + dx * n, y0 + n - 1, z0 + dz * n), nome(topo)))
+                n_ = nome(c.pegar(*m.mundo(lx, ly + h, lz)))
+                if solido(n_):
+                    erros.append(("E-29 sem altura livre sobre o degrau", m.mundo(lx, ly + h, lz), n_))
+        topo = nome(c.pegar(*m.mundo(*frente)))
+        if not solido(topo):
+            erros.append(("E-29 escada nao chega ao piso (falta piso a frente do ultimo degrau)", m.mundo(*frente), topo))
     # E-05 lanternas penduradas sem suporte
     for (x, y, z), b in c.blocos.items():
         if nome(b) == "lantern" and estado(b).get("hanging") and c.pegar(x, y + 1, z) is None:
