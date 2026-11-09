@@ -12,7 +12,7 @@ rnd = random.Random(2026)
 c = Cena("vila_pedra_musgo", semente=17)
 
 # ============================================================================================================ terreno
-PONTE = (31, 47)          # centro da lagoa
+PONTE = (34, 47)          # centro da lagoa
 LAGOA_A, LAGOA_B = 7.5, 5.0
 pads = [
     (18, 2, 42, 22, 3, 3),      # terraço do Salão (nível 3)
@@ -88,7 +88,7 @@ trilha([(9, 26), (9, 30)], 2)                 # chalé
 trilha([(54, 26), (54, 30)], 2)               # casa de pedra
 trilha([(8, 35), (8, 31)], 2)                 # hortelão
 trilha([(50, 36), (50, 31)], 2)               # casa de chá
-trilha([(30, 38), (31, 42)], 3, 0.5)          # praça -> lagoa
+trilha([(32, 38), (34, 41)], 3, 0.5)          # praça -> lagoa
 trilha([(30, 25), (30, 22)], 5, 0.0)          # praça -> escadaria
 
 # ============================================================================================================ praça
@@ -224,7 +224,7 @@ barraca(35, 33, True, "light_blue_wool", ["barrel", "hay_block", "barrel"])
 chale = S.chale_enxaimel(c, 3, 16, 1, False)
 torreta = S.casa_torreta(c, 45, 16, 1, False)
 hort = S.casa_hortelao(c, 4, 36, 1, True)
-S.horta(c, 15, 38, 23, 47, 1)
+S.horta(c, 15, 38, 22, 47, 1)
 cha = S.casa_cha(c, 44, 38, 1, True)
 salao = S.salao(c, 20, 3, 3, False)
 
@@ -241,14 +241,14 @@ for x in range(W):
             c.ponto(x, 1, z, (M + "reeds", {"age": 0})) if False else c.ponto(x, 1, z, M + "tall_grass")
 # píer de madeira entrando na lagoa
 for z in range(41, 47):
-    c.ponto(30, 1, z, laje(M + "spruce_slab", False)) if False else c.ponto(30, 1, z, M + "spruce_planks")
-    c.ponto(31, 1, z, M + "spruce_planks")
+    c.ponto(33, 1, z, M + "spruce_planks")
+    c.ponto(34, 1, z, M + "spruce_planks")
 for z in (42, 46):
-    for x in (29, 32):
+    for x in (32, 35):
         c.ponto(x, 1, z, M + "spruce_fence")
         c.ponto(x, 2, z, M + "spruce_fence")
         c.ponto(x, 0, z, M + "spruce_fence") if False else None
-    c.ponto(29, 3, z, (M + "lantern", {"hanging": False}))
+    c.ponto(32, 3, z, (M + "lantern", {"hanging": False}))
 
 # ============================================================================================================ postes de iluminação (pescoço de ganso)
 for (px, pz, dr) in ((8, 28, (0, 1)), (14, 33, (0, -1)), (22, 33, (0, -1)), (38, 28, (0, 1)), (47, 33, (0, -1)), (52, 28, (0, 1)),
@@ -362,7 +362,22 @@ for _ in range(26):
         c.ponto(x, y + 1, z, pal([("mossy_cobblestone", 3), ("cobblestone", 2), ("andesite", 1)], 90 + x))
 
 # ============================================================================================================ saída
+def corrigir_lanternas():
+    n = 0
+    for (x, y, z), b in list(c.blocos.items()):
+        if isinstance(b, tuple) and b[0] == M + "lantern" and b[1].get("hanging"):
+            acima = c.pegar(x, y + 1, z)
+            if acima is None:
+                n += 1
+                if c.pegar(x, y - 1, z) is not None:
+                    c.ponto(x, y, z, (M + "lantern", {"hanging": False}))
+                else:
+                    c.ponto(x, y, z, M + "air")
+    return n
+
+
 if __name__ == "__main__":
+    print("lanternas penduradas corrigidas:", corrigir_lanternas())
     avisos = c.validar()
     print("blocos:", len(c.blocos), "avisos:", [a for a in avisos][:8])
     (x0, y0, z0), (x1, y1, z1) = c.caixa_limite()

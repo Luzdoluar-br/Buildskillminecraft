@@ -69,7 +69,6 @@ def salao(c, x, z, y, flip=False):
     # ------------------------------------------------------------ torre-relógio frontal (5x5, z 13..17)
     m.box(8, 0, 13, 12, 0, 17, PEDRA)
     m.oca(8, 1, 13, 12, 16, 17, PEDRA)
-    m.box(9, 1, 14, 11, 1, 16, pal([("polished_andesite", 2), ("stone_bricks", 2)], 72))
     for ly in (4, 9, 14):
         for lx in range(8, 13):
             for lz in (13, 17):

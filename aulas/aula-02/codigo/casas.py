@@ -85,9 +85,9 @@ def chale_enxaimel(c, x, z, y, flip=False):
     for lx in (3, 9):
         m.p(lx, 6, 8, M + "white_stained_glass_pane")
         m.p(lx, 7, 8, M + "white_stained_glass_pane")
-    m.limpar(6, 6, 8, 6, 7, 8)
-    m.porta(6, 6, 8, "spruce")                    # porta da varanda
-    m.p(6, 5, 8, M + "stripped_spruce_log")
+    m.limpar(6, 5, 8, 6, 7, 8)
+    m.porta(6, 5, 8, "spruce")                    # porta da varanda (ao nível do piso)
+    m.p(6, 7, 8, M + "white_stained_glass_pane")
     for lx in (0, 12):
         m.p(lx, 6, 2, M + "white_stained_glass_pane")
         m.p(lx, 7, 2, M + "white_stained_glass_pane")
@@ -95,12 +95,15 @@ def chale_enxaimel(c, x, z, y, flip=False):
         m.p(lx, 7, 6, M + "white_stained_glass_pane")
     # varanda com guarda-corpo (balcão em balanço sobre a entrada)
     for lx in range(4, 9):
-        m.box(lx, 5, 9, lx, 5, 9, M + "spruce_planks")
+        for lz in (9, 10):
+            m.p(lx, 4, lz, M + "spruce_planks")            # deck da varanda, rente ao piso interno
+    for lx in range(4, 9):
+        m.p(lx, 5, 10, M + "spruce_fence")                 # guarda-corpo na ponta (a frente da porta fica livre)
+    for lz in (9,):
+        m.p(4, 5, lz, M + "spruce_fence")
+        m.p(8, 5, lz, M + "spruce_fence")
     for lx in (4, 8):
-        m.box(lx, 6, 9, lx, 6, 9, M + "spruce_fence")
-    for lx in (5, 6, 7):
-        m.p(lx, 6, 9, M + "spruce_fence")
-    m.p(4, 6, 10, M + "air")
+        m.st(lx, 3, 10, "spruce_stairs", NORTE, True)      # mao-francesa sob o deck
     # forro de lajes sob o beiral frontal (R3)
     for lx in range(-1, 14):
         m.sl(lx, 8, 9, "spruce", True)

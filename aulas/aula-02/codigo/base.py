@@ -77,7 +77,7 @@ class Molde:
         self.p(x, y, z, escada(M + self.esc(nome), self.dirm(d), inv))
 
     def sl(self, x, y, z, nome, topo=False):
-        self.p(x, y, z, laje(M + nome, topo))
+        self.p(x, y, z, laje(M + (nome if nome.endswith('_slab') else nome + '_slab'), topo))
 
     def tr(self, x, y, z, nome, d=0, aberto=False, inv=True):
         dd = {0: 0, 1: 1, 2: 2, 3: 3}[d]
@@ -99,13 +99,10 @@ class Molde:
         self.p(x, y, z, (M + "lantern", {"hanging": pendurada}))
 
     def cama(self, x, y, z, d_cabeceira):
-        """Cama de 2 blocos; a cabeceira fica em (x,z) e os pés um bloco para o lado oposto de d_cabeceira (0 E,1 W,2 S,3 N em coordenadas locais)."""
-        dd = self.dirm(d_cabeceira)
-        # direction do Bedrock: 0 sul, 1 oeste, 2 norte, 3 leste (a cama "olha" para onde estão os pés)
-        olhar = {SUL: 0, OESTE: 1, NORTE: 2, LESTE: 3}[{SUL: NORTE, NORTE: SUL, LESTE: OESTE, OESTE: LESTE}[dd]]
+        """Cama simulada (o bloco `bed` e descartado ao carregar a estrutura sem entidade de bloco): travesseiro branco + colcha de la azul."""
         vx, vz = {LESTE: (1, 0), OESTE: (-1, 0), SUL: (0, 1), NORTE: (0, -1)}[d_cabeceira]
-        self.p(x, y, z, (M + "bed", {"direction": olhar, "head_piece_bit": True, "occupied_bit": False}))
-        self.p(x - vx, y, z - vz, (M + "bed", {"direction": olhar, "head_piece_bit": False, "occupied_bit": False}))
+        self.p(x, y, z, M + "white_wool")
+        self.p(x - vx, y, z - vz, M + "light_blue_wool")
 
     def _laje_de(self, nome):
         n = nome[0][0] if isinstance(nome, list) else nome

@@ -62,3 +62,6 @@
 2. `/function vila/preparar` (cria a área de carregamento), esperar alguns segundos, depois `/function vila/colocar`.
 3. Local: canto mínimo em (-130, 96, -10); o solo da vila fica em y=100.
 4. Depois de editar: `/function vila/salvar` grava a área (x -130..-67, y 96..128, z -10..48) como `vila_modificada` no mundo, igual ao `salvar` da Aula 01.
+
+## Correção pós-teste (2026-11-09)
+Ao entrar no jogo, o dono encontrou blocos estranhos, portas bloqueadas e portas sem a metade de cima. A afirmação acima de "validação sem avisos" **não pegou** IDs de bloco inválidos (≈202 lajes com nome sem `_slab`). Detalhes, causas e correções em `erros-e-licoes.md` (E-01 a E-09). A versão corrigida foi regerada e reinstalada no mundo.
