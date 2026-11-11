@@ -210,3 +210,14 @@ Descobertos pelo dono ao entrar no jogo (primeiro teste real) e confirmados lend
 - O LevelDB do Bedrock usa compressão zlib raw: bibliotecas comuns (plyvel) não leem; usar `ferramentas/ldb.py`.
 - `amulet-core` não compila no ambiente; o leitor próprio resolve.
 - Feche o Minecraft antes de copiar/ler o mundo (o jogo grava o `db` ao sair).
+
+---
+
+## 2026-11-11 — Armaduras, vitrines e Hunter (servidor VULPUS)
+- **Armor stand tem a família `mob`** no jogo. Todo filtro "apaga bicho" (lobby, Arcade) apagava as vitrines do spawn. Sempre excluir `minecraft:armor_stand` de filtros por família (medido no servidor local: `hasTypeFamily("mob") == true`).
+- **Armor stand NÃO expõe `minecraft:equippable` ao script** (medido): `getComponent` devolve `undefined` para qualquer peça. Vestir só por `replaceitem entity @s slot.armor.<head|chest|legs|feet> 0 <item> 1` rodado como o próprio boneco; checar com `testfor @e[type=armor_stand,hasitem={item=...,location=slot.armor.head}]`.
+- **Armadura "pisca" (z-fighting)**: duas faces que olham para o mesmo lado a menos de ~0,07 uma da outra e se sobrepondo brigam. Vale entre ossos e peças DIFERENTES (braço x tronco, calça x bota), entre cubos GIRADOS e contra a camada extra da skin do jogador (jaqueta/mangas/calças/chapéu, 0,25 maior que o corpo). Conferir sempre em 3D com caixas orientadas; amostrar a face perde faixas finas, então caixas de mesma orientação se conferem por intervalos exatos.
+- **Moldura nativa + pele**: a pele no mesmo plano do fundo da moldura do jogo briga com ele; afastar 0,12 px.
+- **Dimensão customizada nova** (`registerCustomDimension` no `startup`) funciona no BDS 1.26 e permite construir por script (Pincel) sem erro de bloco; validar blocos/estados com `@minecraft/vanilla-data` antes (ids de 1.26: `iron_chain`, `light_block_<n>`; `minecraft:chain` não existe).
+- **O servidor só tem 64 blocos de simulação** (`tick-distance 4`): arena grande precisa de ticking area por comando (`tickingarea add`), senão o monstro longe de jogadores não anda.
+- **Item de poder de minigame**: não usar `ender_eye` (é arremessado e consumido); bússola e pena não têm ação de uso.
