@@ -231,3 +231,10 @@ Descobertos pelo dono ao entrar no jogo (primeiro teste real) e confirmados lend
 - **Correção (do dono)**: slab sobre a cerca. **Regra**: em volta de pontos de interação do jogo, nunca deixar superfícies de meio bloco ou de 1,5 bloco onde se possa ficar em pé; testar caminhando de verdade.
 ### E-41 · Lobby montado de novo apagaria a edição do dono
 - **Risco**: o sistema reconstrói o lobby pela estrutura. O dono já tinha ajustado o lobby no jogo. **Regra**: depois que o dono edita uma construção, o mundo é a fonte da verdade; só recolocar a estrutura com aviso explícito (e a versão do lobby no código sobe só quando o dono pedir).
+
+### E-42 · Ignorei o aviso de "peça solta": galhos de árvore ligados só pela quina viraram "tronco voando"
+- **Erro**: o export do lobby do Hunter avisou "PEÇA SOLTA: dark_oak_log" (galhos da árvore central) e eu entreguei assim. Os galhos subiam em diagonal e só se tocavam pela quina; no jogo parecem flutuar. O bulbo de luz e a corrente também pendiam no ar, longe do galho. A skill já dizia que peça solta é erro.
+- **Correção**: caminho em Manhattan (anda em x, depois em z, depois sobe), sempre face com face; o bulbo pende do FIM do galho por corrente contínua. Teste automático: `validar()` sem nenhum aviso de peça solta (`tests/test_addon_hunter.py`). Para o mundo já editado: comando idempotente que só acrescenta os blocos que faltam.
+### E-43 · `oca()` deixou a parede da frente do corredor fechando a passagem
+- **Erro**: o corredor de entrada era uma caixa oca; ao limpar o interior esqueci a face da frente (z0 - 2), que ficou como parede entre o arco e o véu de volta. O jogador via só uma parede de pedra. Eu só tinha olhado renders de fora.
+- **Correção**: limpar o interior incluindo as faces de contato com a abertura; teste que caminha o eixo da porta (do véu ao salão) e exige ar na altura da pessoa. Regra: **todo caminho de entrada/saída precisa de um teste de passagem**, não só de olhar.
