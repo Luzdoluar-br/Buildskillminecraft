@@ -223,11 +223,11 @@ Descobertos pelo dono ao entrar no jogo (primeiro teste real) e confirmados lend
 - **Item de poder de minigame**: não usar `ender_eye` (é arremessado e consumido); bússola e pena não têm ação de uso.
 
 ## 2026-11-11 — Hunter, lobby (Pavilhão da Floresta Silenciosa)
-### E-35 · Cabines e portal construídos de costas (frente e fundo trocados)
+### E-39 · Cabines e portal construídos de costas (frente e fundo trocados)
 - **Erro**: as cabines do lobby ficaram com a parede de vitral voltada para o centro (a entrada) e a parte aberta virada para a parede; o portal de saída também saiu virado. Eu só olhei renders de fora e li a planta, nunca vi a cena do ponto de entrada.
 - **Como evitar**: depois de construir, renderizar/fotografar **do ponto onde o jogador chega** (`camera.olhos`) e testar por código que o caminho do jogador até cada ponto de interação está livre (teste automático por cabine). Definir o parâmetro de orientação de forma que o nome diga o que é ("lado do fundo", não "lado").
-### E-36 · Cerca baixa deixa o jogador em meio bloco e quebra a mecânica
+### E-40 · Cerca baixa deixa o jogador em meio bloco e quebra a mecânica
 - **Erro**: guarda-corpo de cerca em volta do pad deixava jogadores pararem em cima/no canto, fora da área de detecção; o minigame não começava e ninguém entendia por quê.
 - **Correção (do dono)**: slab sobre a cerca. **Regra**: em volta de pontos de interação do jogo, nunca deixar superfícies de meio bloco ou de 1,5 bloco onde se possa ficar em pé; testar caminhando de verdade.
-### E-37 · Lobby montado de novo apagaria a edição do dono
+### E-41 · Lobby montado de novo apagaria a edição do dono
 - **Risco**: o sistema reconstrói o lobby pela estrutura. O dono já tinha ajustado o lobby no jogo. **Regra**: depois que o dono edita uma construção, o mundo é a fonte da verdade; só recolocar a estrutura com aviso explícito (e a versão do lobby no código sobe só quando o dono pedir).

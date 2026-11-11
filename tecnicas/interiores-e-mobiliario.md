@@ -20,4 +20,4 @@ Iluminação interna: poucos dados (1 soul_lantern em 02, 2 lanternas em 22). A 
 - **Nunca meio bloco onde se fica em pé**: cerca/guarda-corpo baixo deixa o jogador parar em cima e no canto. **Cobrir a cerca com slab** (ou usar parede alta/barreira) em volta de qualquer pad, porta ou ponto de interação do jogo. Em minigame, isso já impediu a partida de começar (a pessoa ficou fora do pad).
 - **Luz escondida e orgânica**: trocar `sea_lantern`/lâmpada visível atrás de vitral por `shroomlight` (ou luz escondida atrás de vigas). Vitral + luz atrás continua válido, mas a fonte não deve aparecer como "lâmpada".
 - **Tema manda**: terror de fuga na floresta = casa/cabana abandonada (madeira escura, musgo, ardósia), não salão ritual. Conferir sempre se a arquitetura conta a mesma história do jogo.
-- **Confira de DENTRO**: portais e saídas devem ser vistos do ponto de chegada (E-35).
+- **Confira de DENTRO**: portais e saídas devem ser vistos do ponto de chegada (E-39).

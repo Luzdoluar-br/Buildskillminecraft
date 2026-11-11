@@ -71,7 +71,7 @@ Contexto: o lobby foi gerado por `addon/tools/construcao/projetos/hunter_lobby.p
 |---|---|---|
 | Adicionou **bases de madeira com escada** junto ao tronco/bloco de madeira de trás, "de forma clean", para dar moldura | pilar/tronco precisa de **pé e capitel** (escada de madeira encostada na base do poste), não só tronco liso do chão ao teto | `tecnicas/interiores-e-mobiliario.md` I3 |
 | Colocou **slabs e alçapões (trapdoors) embaixo do teto** para dar volume | forro/teto liso lê como caixa; **slab + alçapão sob o telhado** cria beiral/caixotão e profundidade | `tecnicas/telhados-e-beirais.md`, I3 |
-| Pôs **slabs em cima da cerca** | cerca baixa deixa o jogador parar em **meio bloco**; no minigame isso o deixava em cima da cerca/no canto, **fora do pad e impedindo o início da partida**. Em lugar de passagem ou de "pad", nunca deixar meio-bloco onde se possa ficar em pé | E-36, I3 |
+| Pôs **slabs em cima da cerca** | cerca baixa deixa o jogador parar em **meio bloco**; no minigame isso o deixava em cima da cerca/no canto, **fora do pad e impedindo o início da partida**. Em lugar de passagem ou de "pad", nunca deixar meio-bloco onde se possa ficar em pé | E-40, I3 |
 | **Escondeu a luz de trás** e trocou por **cogumelos brilhantes** (shroomlight) | luz embutida visível (sea lantern no vitral) é "lâmpada"; fonte orgânica e escondida é mais dinâmica e combina com o tema | I3 |
-| "O portal de saída está virado" | a saída/portal precisa ser conferida **de dentro**, olhando do ponto de chegada, não pela planta | E-35 |
+| "O portal de saída está virado" | a saída/portal precisa ser conferida **de dentro**, olhando do ponto de chegada, não pela planta | E-39 |
 | Vai mexer na entrada; pôs uma **casa abandonada** (tema: terror de fuga na floresta) | o tema de jogo manda no estilo: terror de floresta pede **casa/cabana abandonada**, madeira escura, musgo, vãos, não um salão cerimonial | I3 |
