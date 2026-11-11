@@ -13,3 +13,11 @@
 
 ## Não determinado
 Iluminação interna: poucos dados (1 soul_lantern em 02, 2 lanternas em 22). A rotina de luz não foi alterada em quantidade suficiente.
+
+## I3. Lobby de minigame de terror (Hunter): moldura, forro, cerca e luz (correções do dono, 2026-11-11) [TESTADO no jogo]
+- **Pé e capitel nos postes**: escada de madeira encostada na base do pilar/tronco (e na cabeça, sob a viga) integra o poste ao bloco de madeira de trás e dá moldura. Pilar liso do chão ao teto parece cano.
+- **Forro com volume**: `slab` + `trapdoor` sob o teto/telhado (beiral e caixotão) em vez de teto de tábuas lisas.
+- **Nunca meio bloco onde se fica em pé**: cerca/guarda-corpo baixo deixa o jogador parar em cima e no canto. **Cobrir a cerca com slab** (ou usar parede alta/barreira) em volta de qualquer pad, porta ou ponto de interação do jogo. Em minigame, isso já impediu a partida de começar (a pessoa ficou fora do pad).
+- **Luz escondida e orgânica**: trocar `sea_lantern`/lâmpada visível atrás de vitral por `shroomlight` (ou luz escondida atrás de vigas). Vitral + luz atrás continua válido, mas a fonte não deve aparecer como "lâmpada".
+- **Tema manda**: terror de fuga na floresta = casa/cabana abandonada (madeira escura, musgo, ardósia), não salão ritual. Conferir sempre se a arquitetura conta a mesma história do jogo.
+- **Confira de DENTRO**: portais e saídas devem ser vistos do ponto de chegada (E-35).

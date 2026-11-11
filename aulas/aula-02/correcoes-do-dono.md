@@ -64,3 +64,14 @@ O dono não usa mais `/function vila/salvar`: ele passa prints e descrições; e
 | Pergunta (E-31) | Resposta do dono | O que fiz |
 |---|---|---|
 | Como acessar mirante da casa de chá, torreta e campanário do Salão? (a) escada interna, (b) escada de mão, (c) fechado decorativo | **(a) escada interna** | lance reto na casa de chá + porta do mirante; caracol na torre do Salão; arco + caracol na torreta; auditoria E-29 (36 degraus) |
+
+## 2026-11-11 · Lobby do Hunter (Pavilhão da Floresta Silenciosa): o que o dono mudou à mão (prints 21-26)
+Contexto: o lobby foi gerado por `addon/tools/construcao/projetos/hunter_lobby.py` e o dono ajustou DENTRO do jogo. **O mundo passa a ser a fonte da verdade desse lobby**: não recolocar a estrutura por cima (o `montar` só refaz o lobby se a versão dele subir; avisar o dono antes).
+| Observação do dono | O que aprendi (vale para as próximas estruturas) | Registro |
+|---|---|---|
+| Adicionou **bases de madeira com escada** junto ao tronco/bloco de madeira de trás, "de forma clean", para dar moldura | pilar/tronco precisa de **pé e capitel** (escada de madeira encostada na base do poste), não só tronco liso do chão ao teto | `tecnicas/interiores-e-mobiliario.md` I3 |
+| Colocou **slabs e alçapões (trapdoors) embaixo do teto** para dar volume | forro/teto liso lê como caixa; **slab + alçapão sob o telhado** cria beiral/caixotão e profundidade | `tecnicas/telhados-e-beirais.md`, I3 |
+| Pôs **slabs em cima da cerca** | cerca baixa deixa o jogador parar em **meio bloco**; no minigame isso o deixava em cima da cerca/no canto, **fora do pad e impedindo o início da partida**. Em lugar de passagem ou de "pad", nunca deixar meio-bloco onde se possa ficar em pé | E-36, I3 |
+| **Escondeu a luz de trás** e trocou por **cogumelos brilhantes** (shroomlight) | luz embutida visível (sea lantern no vitral) é "lâmpada"; fonte orgânica e escondida é mais dinâmica e combina com o tema | I3 |
+| "O portal de saída está virado" | a saída/portal precisa ser conferida **de dentro**, olhando do ponto de chegada, não pela planta | E-35 |
+| Vai mexer na entrada; pôs uma **casa abandonada** (tema: terror de fuga na floresta) | o tema de jogo manda no estilo: terror de floresta pede **casa/cabana abandonada**, madeira escura, musgo, vãos, não um salão cerimonial | I3 |
