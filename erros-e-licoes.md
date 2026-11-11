@@ -238,3 +238,8 @@ Descobertos pelo dono ao entrar no jogo (primeiro teste real) e confirmados lend
 ### E-43 · `oca()` deixou a parede da frente do corredor fechando a passagem
 - **Erro**: o corredor de entrada era uma caixa oca; ao limpar o interior esqueci a face da frente (z0 - 2), que ficou como parede entre o arco e o véu de volta. O jogador via só uma parede de pedra. Eu só tinha olhado renders de fora.
 - **Correção**: limpar o interior incluindo as faces de contato com a abertura; teste que caminha o eixo da porta (do véu ao salão) e exige ar na altura da pessoa. Regra: **todo caminho de entrada/saída precisa de um teste de passagem**, não só de olhar.
+
+### E-44 · Render controller com `uv_anim` desloca a textura de TUDO que ele desenha (bandeira da VULPUS)
+- **Quase-erro (pego antes de subir)**: ao pôr a franja do pano dentro do osso do pano (desenhado pelo controller Kitsune, que troca de quadro com `uv_anim` offset 1/4), a franja teria piscado/sumido: o deslocamento de UV vale para todas as faces de todos os ossos do controller, e a região da franja só existia uma vez na textura.
+- **Regra**: tudo que um controller com `uv_anim` desenha precisa ter as N cópias (uma por quadro) na textura, na mesma coluna. Peças sem quadros vão para um osso próprio, desenhado por outro controller (sem `uv_anim`), mesmo sendo filho do osso animado (herda a rotação, não o controller).
+- **Material emissivo [NV]**: `entity_emissive_alpha` lê o alpha como brilho (quanto menor, mais brilha; 0 = recorte); `entity_emissive` não recorta. Usei alpha 140 para brilho parcial (acima do corte de 50%) e 24 para brilho cheio na orbe. Conferir no jogo à noite e anotar aqui o resultado.
