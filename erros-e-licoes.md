@@ -243,3 +243,9 @@ Descobertos pelo dono ao entrar no jogo (primeiro teste real) e confirmados lend
 - **Quase-erro (pego antes de subir)**: ao pôr a franja do pano dentro do osso do pano (desenhado pelo controller Kitsune, que troca de quadro com `uv_anim` offset 1/4), a franja teria piscado/sumido: o deslocamento de UV vale para todas as faces de todos os ossos do controller, e a região da franja só existia uma vez na textura.
 - **Regra**: tudo que um controller com `uv_anim` desenha precisa ter as N cópias (uma por quadro) na textura, na mesma coluna. Peças sem quadros vão para um osso próprio, desenhado por outro controller (sem `uv_anim`), mesmo sendo filho do osso animado (herda a rotação, não o controller).
 - **Material emissivo [NV]**: `entity_emissive_alpha` lê o alpha como brilho (quanto menor, mais brilha; 0 = recorte); `entity_emissive` não recorta. Usei alpha 140 para brilho parcial (acima do corte de 50%) e 24 para brilho cheio na orbe. Conferir no jogo à noite e anotar aqui o resultado.
+
+### E-45 · Botão que "não faz nada" no Discord: rótulo de campo do modal com mais de 45 caracteres (Kiza, "Abrir corte")
+- **Sintoma**: o botão Abrir corte dos painéis da equipe não respondia. Os testes passavam, porque ninguém instanciava o modal com a API real.
+- **Causa**: `TextInput(label="Infração: xray, dupe, cheat, conduta, abuso, outra")` tinha 50 caracteres. O Discord limita o rótulo a 45 e recusa o modal inteiro (erro 50035), então o clique falha em silêncio para o usuário.
+- **Regra**: rótulo de TextInput até 45 caracteres e placeholder até 100. A lista de opções vai no `placeholder`, não no rótulo.
+- **Prevenção**: teste que percorre todos os `TextInput(...)` dos cogs (AST) e confere os limites; assim um modal novo não repete o erro.
